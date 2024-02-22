@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url("fonts/Jost-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'JostItalic';
+  src: url("fonts/Jost-Italic-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Megrim';
+  src: url("fonts/Megrim-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Montserrat Subrayada';
+  src: url("fonts/MontserratSubrayada-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Montserrat Subrayada Bold';
+  src: url("fonts/MontserratSubrayada-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sixtyfour';
+  src: url("fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Workbench';
+  src: url("fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Pixelify';
+  src: url("fonts/PixelifySans-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Righteous';
+  src: url("fonts/Righteous-Regular.ttf") format("truetype");
+}

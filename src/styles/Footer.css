@@ -1,0 +1,20 @@
+.footer {
+  margin-top: 0.6rem;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(26, 15, 15, 0.6941176471);
+}
+
+.dev-credits {
+  color: #8debe3;
+  font-family: "Workbench Slight";
+  font-size: 12px;
+}
+
+.dev-credits a {
+  color: rgba(0, 157, 255, 0.9803921569);
+  text-decoration: none;
+}/*# sourceMappingURL=Footer.css.map */

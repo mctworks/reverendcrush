@@ -1,0 +1,22 @@
+@import "variables/variables.scss";
+
+.footer{
+    margin-top: 0.6rem;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1a0f0fb1;
+}
+
+.dev-credits{
+    color: $home1;
+    font-family: 'Workbench Slight';
+    font-size: 12px;
+}
+
+.dev-credits a {
+    color: #009dfffa;
+    text-decoration: none;
+}
