@@ -21,7 +21,7 @@ const BlueskySocial = () => {
           filter: 'posts_and_author_threads',
           limit: 1,
         });
-        
+
         if (Array.isArray(data.feed)) {
           const postsData = data.feed.map(item => {
             const post = item.post;
@@ -74,17 +74,17 @@ const BlueskySocial = () => {
       <h2>Latest Skeet On Bsky</h2>
       <ul className='latest-skeet'>
       {posts.map((post, index) => {
-        // Existing rendering logic for each post...
+        // Post object rendering logic ...
         return (
           <li key={index}>
             <p className='skeet-date'>Posted by <a href={`https://bsky.app/profile/${post.author.handle}`} target="_blank" rel="noreferrer">@{post.author.handle}</a> on <u>{post.date}</u></p>
             <div className='skeet-text' style={{ whiteSpace: 'pre-line' }}>
               {parseText(post.text)}
-              {post.embed && post.embed.external && post.embed.external.uri.includes('youtu.be') && (
+              {post.embed && post.embed.media && post.embed.media.external && post.embed.media.external.uri.includes('youtu.be') && (
                 <div className='skeet-youtube'>
-                  <YouTube videoId={getPostYoutubeId(post.embed.external.uri)} />
-                  <h3>{post.embed.external.title}</h3>
-                  <p className='skeet-metatext'>{post.embed.external.description}</p>
+                  <YouTube videoId={getPostYoutubeId(post.embed.media.external.uri)} />
+                  <h3>{post.embed.media.external.title}</h3>
+                  <p className='skeet-metatext'>{post.embed.media.external.description}</p>
                 </div>
               )}
             </div>
@@ -117,7 +117,7 @@ const BlueskySocial = () => {
                 </div>
                 
                 {/* Render quoted post images, if any */}
-                {post.embed.record.record.value.embed.images && (
+                {post.embed.record.record.value.embed && post.embed.record.record.value.embed.images && (
                   <div className="skeet-image-group">
                     {post.embed.record.record.value.embed.images.map((image, imgIndex) => (
                       <img
@@ -131,7 +131,9 @@ const BlueskySocial = () => {
                 )}
               </div>
             )}
-            {/* Continue with any additional post rendering logic */}
+            <div>
+              <h4 className='skeet-banger-score'>Banger Score:<br/> <span className='glow'>{post.bangerScore}</span></h4>
+            </div>
           </li>
         );
       })}
@@ -157,9 +159,11 @@ const parseText = (text) => {
   });
 };
 
-const getPostYoutubeId = (text) => {
-  const matches = text.match(/youtu\.be\/([^?\s]+)/);
+const getPostYoutubeId = (url) => {
+  const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([\w-]{11})(?:\S+)?/;
+  const matches = url.match(regex);
   return matches ? matches[1] : null;
 };
 
 export default BlueskySocial;
+
