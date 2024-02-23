@@ -77,9 +77,26 @@ const BlueskySocial = () => {
         // Post object rendering logic ...
         return (
           <li key={index}>
+            {/* Rendering user's info (Rev, unless he reskeets someone else) and text*/}
             <p className='skeet-date'>Posted by <a href={`https://bsky.app/profile/${post.author.handle}`} target="_blank" rel="noreferrer">@{post.author.handle}</a> on <u>{post.date}</u></p>
             <div className='skeet-text' style={{ whiteSpace: 'pre-line' }}>
               {parseText(post.text)}
+
+              {/*Getting user images, if user has any*/}
+              {post.images && (
+                  <div className="skeet-image-group">
+                    {post.images.map((image, imgIndex) => (
+                      <img
+                        key={imgIndex}
+                        className="skeet-img-file"
+                        src={image.fullsize}
+                        alt={image.alt || 'Quoted post image'}
+                      />
+                    ))}
+                  </div>
+                )}
+
+              {/* Check and embed user's Youtube video and info, if any */}
               {post.embed && post.embed.media && post.embed.media.external && post.embed.media.external.uri.includes('youtu.be') && (
                 <div className='youtube'>
                   <div className='skeet-youtube'>
@@ -92,7 +109,8 @@ const BlueskySocial = () => {
                 </div>
               )}
             </div>
-            {/* Now including logic to render quoted post text and images */}
+            
+            {/* Quote-Reskeets (Quote Reposts) */}
             {post.embed && post.embed.record && post.embed.record.record && (
               <div className="quote-reskeet-box">
                 <div className="reskeet-user">
@@ -119,6 +137,20 @@ const BlueskySocial = () => {
                 <div className="quoted-post-text">
                   {post.embed.record.record.value.text}
                 </div>
+
+              {/* Getting Quote-Reskeet images, if the other user has any */}  
+              {post.embed.record.record.embeds && post.embed.record.record.embeds[0].media.images && (
+                  <div className="skeet-image-group">
+                    {post.embed.record.record.embeds[0].media.images.map((image, imgIndex) => (
+                      <img
+                        key={imgIndex}
+                        className="skeet-img-file"
+                        src={image.fullsize}
+                        alt={image.alt || 'Quoted post image'}
+                      />
+                    ))}
+                  </div>
+                )}
                 
               {/* Check and render Quoted User's Youtube video, if any */}
               {post.embed?.record?.record?.embeds[0]?.media?.external?.uri.includes('youtu.be') && (
@@ -133,7 +165,7 @@ const BlueskySocial = () => {
   </div>)}
 
                 {/* Render quoted post images, or at least it should */}
-                {post.embed.record.record.value.embed && post.embed.record.record.value.embed.images && (
+                {/* {post.embed.record.record.value.embed && post.embed.record.record.value.embed.images && (
                   <div className="skeet-image-group">
                     {post.embed.record.record.value.embed.images.map((image, imgIndex) => (
                       <img
@@ -144,8 +176,8 @@ const BlueskySocial = () => {
                       />
                     ))}
                   </div>
-                )}
-              </div>
+                )}*/}
+              </div> 
             )}
             <div>
               <h4 className='skeet-banger-score'>Banger Score:<br/> <span className='glow'>{post.bangerScore}</span></h4>
@@ -199,7 +231,7 @@ function RenderTextWithLinks({ text }) {
     <div>
       {parts.map((part, index) => (
         // Render each part, and if it's not the first part, add a <br /> before it
-        <React.Fragment key={index} style='overflow-wrap: anywhere;'>
+        <React.Fragment key={index}>
           {index !== 0 && <br />}
           {part}
         </React.Fragment>
