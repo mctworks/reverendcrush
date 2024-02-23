@@ -143,6 +143,7 @@ ul.latest-skeet {
   font-family: 'Workbench Slight';
   font-size: 12px;
   white-space: pre-line;
+  overflow-wrap: anywhere !important;
 }
 
 .skeet-youtube {
@@ -163,7 +164,7 @@ ul.latest-skeet {
   
   .youtube-deets {
     margin-top: 10px; /* Adjust spacing between video and text */
-    overflow-wrap: anywhere;
+    overflow-wrap: anywhere !important;
   
     h3 {
       font-size: 18px; /* Adjust font size as needed */

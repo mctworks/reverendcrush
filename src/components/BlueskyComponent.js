@@ -120,6 +120,18 @@ const BlueskySocial = () => {
                   {post.embed.record.record.value.text}
                 </div>
                 
+              {/* Check and render Quoted User's Youtube video, if any */}
+              {post.embed?.record?.record?.embeds[0]?.media?.external?.uri.includes('youtu.be') && (
+  <div className='youtube'>
+    <div className='skeet-youtube'>
+      <YouTube videoId={getPostYoutubeId(post.embed.record.record.embeds[0].media.external.uri)} />
+    </div>
+    <div className='youtube-deets'>
+      <h3>{post.embed.record.record.embeds[0].media.external.title}</h3>
+      <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.record.embeds[0].media.external.description} /></p>
+    </div>
+  </div>)}
+
                 {/* Render quoted post images, or at least it should */}
                 {post.embed.record.record.value.embed && post.embed.record.record.value.embed.images && (
                   <div className="skeet-image-group">
@@ -187,7 +199,7 @@ function RenderTextWithLinks({ text }) {
     <div>
       {parts.map((part, index) => (
         // Render each part, and if it's not the first part, add a <br /> before it
-        <React.Fragment key={index}>
+        <React.Fragment key={index} style='overflow-wrap: anywhere;'>
           {index !== 0 && <br />}
           {part}
         </React.Fragment>
