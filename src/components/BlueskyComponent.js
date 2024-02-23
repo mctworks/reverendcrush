@@ -81,10 +81,14 @@ const BlueskySocial = () => {
             <div className='skeet-text' style={{ whiteSpace: 'pre-line' }}>
               {parseText(post.text)}
               {post.embed && post.embed.media && post.embed.media.external && post.embed.media.external.uri.includes('youtu.be') && (
-                <div className='skeet-youtube'>
-                  <YouTube videoId={getPostYoutubeId(post.embed.media.external.uri)} />
-                  <h3>{post.embed.media.external.title}</h3>
-                  <p className='skeet-metatext'>{post.embed.media.external.description}</p>
+                <div className='youtube'>
+                  <div className='skeet-youtube'>
+                    <YouTube videoId={getPostYoutubeId(post.embed.media.external.uri)} />
+                  </div>
+                  <div className='youtube-deets'>
+                    <h3>{post.embed.media.external.title}</h3>
+                    <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.media.external.description} /></p>
+                  </div>
                 </div>
               )}
             </div>
@@ -116,14 +120,14 @@ const BlueskySocial = () => {
                   {post.embed.record.record.value.text}
                 </div>
                 
-                {/* Render quoted post images, if any */}
+                {/* Render quoted post images, or at least it should */}
                 {post.embed.record.record.value.embed && post.embed.record.record.value.embed.images && (
                   <div className="skeet-image-group">
                     {post.embed.record.record.value.embed.images.map((image, imgIndex) => (
                       <img
                         key={imgIndex}
                         className="skeet-img-file"
-                        src={image.image.ref['$link']} // Adjust according to your image URL structure
+                        src={image.image.ref['$link']} // STILL NOT WORKING
                         alt={image.alt || 'Quoted post image'}
                       />
                     ))}
@@ -165,5 +169,31 @@ const getPostYoutubeId = (url) => {
   return matches ? matches[1] : null;
 };
 
-export default BlueskySocial;
+function formatTextWithLinks(text) {
+  if (text === undefined) return ''; // Add this line to handle undefined inputs
+  // Regular expression to match URLs
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  // Replace URLs with a line break followed by the URL
+  return text.replace(urlRegex, '<br />$1');
+}
 
+function RenderTextWithLinks({ text }) {
+  // Ensure text is treated as a string, even if it's undefined
+  const formattedText = formatTextWithLinks(text || '');
+  // Split the formatted text by <br /> to get an array of strings
+  const parts = formattedText.split('<br />');
+
+  return (
+    <div>
+      {parts.map((part, index) => (
+        // Render each part, and if it's not the first part, add a <br /> before it
+        <React.Fragment key={index}>
+          {index !== 0 && <br />}
+          {part}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+export default BlueskySocial;

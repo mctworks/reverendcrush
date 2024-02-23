@@ -78,7 +78,7 @@ h2 {
 
 .bsky-home {
   text-align: center;
-  background: rgba(0, 0, 0, 0.5019607843);
+  background: rgba(0, 0, 0, 0.679);
   line-height: normal;
   margin: 1rem;
 }
@@ -142,39 +142,29 @@ ul.latest-skeet {
 .skeet-metatext {
   font-family: 'Workbench Slight';
   font-size: 12px;
+  white-space: pre-line;
 }
 
 .skeet-youtube {
   position: relative;
-  width: 100%;
- /* height: 0; */
-  /*padding-bottom: 56.25%; /* 16:9 aspect ratio (height/width), supposedly */
-}
+  overflow: hidden;
+  padding-top: 56.25%; // Aspect ratio for 16:9 videos
+  width: 100%; // Full width of the container
 
-.skeet-youtube iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
 
-.skeet-youtube {
-  .youtube-container {
-    position: relative;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (height/width) */
-    
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+    height: 100%;
   }
   
-  .youtube-info {
+  
+  .youtube-deets {
     margin-top: 10px; /* Adjust spacing between video and text */
-    
+    overflow-wrap: anywhere;
+  
     h3 {
       font-size: 18px; /* Adjust font size as needed */
       margin-bottom: 5px; /* Add spacing between title and description */
