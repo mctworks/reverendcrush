@@ -146,6 +146,12 @@ ul.latest-skeet {
   overflow-wrap: anywhere !important;
 }
 
+.webcard-img {
+  width: 100%;
+  height: auto;
+}
+
+
 .skeet-youtube {
   position: relative;
   overflow: hidden;
@@ -162,7 +168,7 @@ ul.latest-skeet {
   }
   
   
-  .youtube-deets {
+  .web-deets {
     margin-top: 10px; /* Adjust spacing between video and text */
     overflow-wrap: anywhere !important;
   

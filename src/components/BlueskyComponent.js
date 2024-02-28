@@ -78,105 +78,128 @@ const BlueskySocial = () => {
         return (
           <li key={index}>
             {/* Rendering user's info (Rev, unless he reskeets someone else) and text*/}
-            <p className='skeet-date'>Posted by <a href={`https://bsky.app/profile/${post.author.handle}`} target="_blank" rel="noreferrer">@{post.author.handle}</a> on <u>{post.date}</u></p>
+            <div><p className='skeet-date'>Posted by <a href={`https://bsky.app/profile/${post.author.handle}`} target="_blank" rel="noreferrer">@{post.author.handle}</a> on <u>{post.date}</u></p></div>
             <div className='skeet-text' style={{ whiteSpace: 'pre-line' }}>
               {parseText(post.text)}
 
               {/*Getting user images, if user has any*/}
-              {post.images && (
+              {post.embed?.images && (
                   <div className="skeet-image-group">
-                    {post.images.map((image, imgIndex) => (
+                    {post.embed.images.map((image, imgIndex) => (
                       <img
                         key={imgIndex}
                         className="skeet-img-file"
                         src={image.fullsize}
-                        alt={image.alt || 'Quoted post image'}
+                        alt={image.alt || 'Post image'}
+                        loading="lazy"
                       />
                     ))}
                   </div>
                 )}
 
-              {/* Check and embed user's Youtube video and info, if any */}
-              {post.embed && post.embed.media && post.embed.media.external && post.embed.media.external.uri.includes('youtu.be') && (
-                <div className='youtube'>
-                  <div className='skeet-youtube'>
-                    <YouTube videoId={getPostYoutubeId(post.embed.media.external.uri)} />
+              {/* Check and embed a non-YouTube website card */}
+              {post.embed && post.embed.media && post.embed.media.external && !(post.embed.media.external.uri.includes('youtu.be') || post.embed.media.external.uri.includes('youtube.com')) && (
+                <div className='webcard'>
+                  <div className='webcard-img'>
+                   
                   </div>
-                  <div className='youtube-deets'>
+                  <div className='web-deets'>
                     <h3>{post.embed.media.external.title}</h3>
                     <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.media.external.description} /></p>
                   </div>
                 </div>
               )}
             </div>
+
+              {/* Check and embed user's Youtube video and info, if any */}
+              {post.embed && (post.embed.external?.uri.includes('youtu.be') || post.embed.external?.uri.includes('youtube.com') || post.embed.media?.external?.uri.includes('youtu.be') || post.embed.media?.external?.uri.includes('youtube.com')) && (
+                <div className='youtube'>
+                  <div className='skeet-youtube'>
+                    <YouTube videoId={getPostYoutubeId(post.embed.external?.uri || post.embed.media?.external?.uri)} />
+                  </div>
+                  <div className='youtube-deets'>
+                    <h3>{post.embed.external?.title || post.embed.media?.external?.title}</h3>
+                    <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.external?.description || post.embed.media?.external?.description} /></p>
+                  </div>
+                </div>
+              )}
+            
             
             {/* Quote-Reskeets (Quote Reposts) */}
-            {post.embed && post.embed.record && post.embed.record.record && (
+            {post.embed && post.embed.record && post.embed.record.author && (
               <div className="quote-reskeet-box">
                 <div className="reskeet-user">
                   <img
                     className="reskeet-pfp"
-                    src={post.embed.record.record.author.avatar}
-                    alt={`Avatar of ${post.embed.record.record.author.handle}`}
+                    src={post.embed.record.author.avatar}
+                    alt={`LOOK IT'S ${post.embed.record.author.handle}'S STUPID PFP. MySPACE WAS A PSyOP.`}
                   />
                   <div>
                     Reskeeting...
                     <br />
                     <a
                       className="reskeet-handle"
-                      href={`https://bsky.app/profile/${post.embed.record.record.author.handle}`}
+                      href={`https://bsky.app/profile/${post.embed.record.author.handle}`}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      @{post.embed.record.record.author.handle}
+                      @{post.embed.record.author.handle}
                     </a>
                   </div>
                 </div>
                 
                 {/* Render quoted post text */}
                 <div className="quoted-post-text">
-                  {post.embed.record.record.value.text}
+                  {post.embed.record.value.text}
                 </div>
 
               {/* Getting Quote-Reskeet images, if the other user has any */}  
-              {post.embed.record.record.embeds && post.embed.record.record.embeds[0].media.images && (
+              {post.embed.record.embeds && post.embed.record.embeds[0].images && (
                   <div className="skeet-image-group">
-                    {post.embed.record.record.embeds[0].media.images.map((image, imgIndex) => (
+                  {post.embed.record.embeds[0].images.map((image, imgIndex) => (
+                    <div>
                       <img
-                        key={imgIndex}
-                        className="skeet-img-file"
-                        src={image.fullsize}
-                        alt={image.alt || 'Quoted post image'}
-                      />
-                    ))}
-                  </div>
+                      key={imgIndex}
+                      className="skeet-img-file"
+                      src={image.fullsize}
+                      alt={image.alt || 'Quoted post image'}
+                      loading="lazy"
+                    /><br />
+                    <p className='skeet-metatext'>//ALT TEXT: {image.alt}</p>
+                    </div>
+                  ))}
+                </div>
                 )}
                 
               {/* Check and render Quoted User's Youtube video, if any */}
-              {post.embed?.record?.record?.embeds[0]?.media?.external?.uri.includes('youtu.be') && (
+              {post.embed?.record?.value?.embed?.external?.uri && 
+(post.embed.record.value.embed.external.uri.includes('youtu.be') || post.embed.record.value.embed.external.uri.includes('youtube.com')) && (
   <div className='youtube'>
     <div className='skeet-youtube'>
-      <YouTube videoId={getPostYoutubeId(post.embed.record.record.embeds[0].media.external.uri)} />
+      <YouTube videoId={getPostYoutubeId(post.embed.record.value.embed.external.uri)} />
     </div>
     <div className='youtube-deets'>
-      <h3>{post.embed.record.record.embeds[0].media.external.title}</h3>
-      <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.record.embeds[0].media.external.description} /></p>
+      <h3>{post.embed.record.value.embed.external.title}</h3>
+      <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.value.embed.external.description} /></p>
     </div>
-  </div>)}
+  </div>
+)}
 
-                {/* Render quoted post images, or at least it should */}
-                {/* {post.embed.record.record.value.embed && post.embed.record.record.value.embed.images && (
-                  <div className="skeet-image-group">
-                    {post.embed.record.record.value.embed.images.map((image, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        className="skeet-img-file"
-                        src={image.image.ref['$link']} // STILL NOT WORKING
-                        alt={image.alt || 'Quoted post image'}
-                      />
-                    ))}
-                  </div>
-                )}*/}
+{/* In case the file structure for quoted Youtube videos are different... */}
+{post.embed?.record?.embeds?.[0]?.media?.external?.uri && 
+(post.embed.record.embeds[0].media.external.uri.includes('youtu.be') || post.embed.record.embeds[0].media.external.uri.includes('youtube.com')) && (
+  <div className='youtube'>
+    <div className='skeet-youtube'>
+      <YouTube videoId={getPostYoutubeId(post.embed.record.embeds[0].media.external.uri)} />
+    </div>
+    <div className='youtube-deets'>
+      <h3>{post.embed.record.embeds[0].media.external.title}</h3>
+      <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.embeds[0].media.external.description} /></p>
+    </div>
+  </div>
+)}
+
+
               </div> 
             )}
             <div>
@@ -188,10 +211,6 @@ const BlueskySocial = () => {
       </ul>
     </section>
   );
-};
-
-const constructImageUrl = (did, blobRef) => {
-  return `https://cdn.bsky.app/img/feed_thumbnail/plain/${did}/${blobRef}@jpeg`;
 };
 
 const parseText = (text) => {
@@ -207,11 +226,20 @@ const parseText = (text) => {
   });
 };
 
-const getPostYoutubeId = (url) => {
-  const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([\w-]{11})(?:\S+)?/;
-  const matches = url.match(regex);
-  return matches ? matches[1] : null;
-};
+function getPostYoutubeId(url) {
+  let id = '';
+  if (url.includes('youtube.com')) {
+    // Extract the video ID from the query parameter 'v'
+    const urlParams = new URLSearchParams(new URL(url).search);
+    id = urlParams.get('v');
+  } else if (url.includes('youtu.be')) {
+    // Extract the video ID from the path
+    id = url.split('youtu.be/')[1];
+    // Handle potential URL parameters by splitting on '?' and taking the first part
+    id = id.split('?')[0];
+  }
+  return id;
+}
 
 function formatTextWithLinks(text) {
   if (text === undefined) return ''; // Add this line to handle undefined inputs

@@ -141,6 +141,16 @@ ul.latest-skeet {
   overflow-wrap: anywhere !important;
 }
 
+.webcard-img {
+  width: 100%;
+  height: auto;
+}
+
+.skeet-content-warning {
+  font-family: "Sixtyfour Evenly";
+  font-size: 14px;
+}
+
 .skeet-youtube {
   position: relative;
   overflow: hidden;
