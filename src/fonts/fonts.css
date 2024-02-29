@@ -34,4 +34,8 @@
   font-family: "Righteous";
   src: url("./Righteous-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("./PressStart2P-Regular.ttf") format("truetype");
+}
 /*# sourceMappingURL=fonts.css.map */

@@ -83,19 +83,20 @@ const BlueskySocial = () => {
               {parseText(post.text)}
 
               {/*Getting user images, if user has any*/}
-              {post.embed?.images && (
+              {(post.images || post.embed?.images || []).map((image, imgIndex) => (
+                  <div>
                   <div className="skeet-image-group">
-                    {post.embed.images.map((image, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        className="skeet-img-file"
-                        src={image.fullsize}
-                        alt={image.alt || 'Post image'}
-                        loading="lazy"
-                      />
-                    ))}
+                    <img
+                      key={imgIndex}
+                      className="skeet-img-file"
+                      src={image.fullsize || image.image?.fullsize}
+                      alt={image.alt || image.image?.alt || 'Post image'}
+                      loading="lazy"
+                    />
+                  </div><br />
+                  <p className='skeet-metatext'>//ALT TEXT: {image.alt || image.image?.alt}</p>
                   </div>
-                )}
+                ))}
 
               {/* Check and embed a non-YouTube website card */}
               {post.embed && post.embed.media && post.embed.media.external && !(post.embed.media.external.uri.includes('youtu.be') || post.embed.media.external.uri.includes('youtube.com')) && (
@@ -117,7 +118,7 @@ const BlueskySocial = () => {
                   <div className='skeet-youtube'>
                     <YouTube videoId={getPostYoutubeId(post.embed.external?.uri || post.embed.media?.external?.uri)} />
                   </div>
-                  <div className='youtube-deets'>
+                  <div className='web-deets'>
                     <h3>{post.embed.external?.title || post.embed.media?.external?.title}</h3>
                     <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.external?.description || post.embed.media?.external?.description} /></p>
                   </div>
@@ -126,79 +127,80 @@ const BlueskySocial = () => {
             
             
             {/* Quote-Reskeets (Quote Reposts) */}
-            {post.embed && post.embed.record && post.embed.record.author && (
+            {post.embed && post.embed.record && (post.embed.record.author || post.embed.record.record.author) && (
               <div className="quote-reskeet-box">
                 <div className="reskeet-user">
                   <img
                     className="reskeet-pfp"
-                    src={post.embed.record.author.avatar}
-                    alt={`LOOK IT'S ${post.embed.record.author.handle}'S STUPID PFP. MySPACE WAS A PSyOP.`}
+                    src={post.embed.record.author?.avatar || post.embed.record.record.author.avatar}
+                    alt={`LOOK IT'S ${post.embed.record.author?.handle || post.embed.record.record.author.handle}'S STUPID PFP. MySPACE WAS A PSyOP.`}
                   />
                   <div>
                     Reskeeting...
                     <br />
                     <a
                       className="reskeet-handle"
-                      href={`https://bsky.app/profile/${post.embed.record.author.handle}`}
+                      href={`https://bsky.app/profile/${post.embed.record.author?.handle || post.embed.record.record.author.handle}`}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      @{post.embed.record.author.handle}
+                      @{post.embed.record.author?.handle || post.embed.record.record.author.handle}
                     </a>
                   </div>
                 </div>
                 
                 {/* Render quoted post text */}
                 <div className="quoted-post-text">
-                  {post.embed.record.value.text}
+                  {parseText(post.embed.record.value?.text || post.embed?.record?.record?.value?.text)}
                 </div>
 
               {/* Getting Quote-Reskeet images, if the other user has any */}  
-              {post.embed.record.embeds && post.embed.record.embeds[0].images && (
-                  <div className="skeet-image-group">
-                  {post.embed.record.embeds[0].images.map((image, imgIndex) => (
-                    <div>
-                      <img
-                      key={imgIndex}
-                      className="skeet-img-file"
-                      src={image.fullsize}
-                      alt={image.alt || 'Quoted post image'}
-                      loading="lazy"
-                    /><br />
-                    <p className='skeet-metatext'>//ALT TEXT: {image.alt}</p>
-                    </div>
-                  ))}
+              {(post.embed?.record?.embeds?.[0]?.images || 
+              post.embed?.record?.record?.embed?.images || 
+              post.embed?.record?.record?.embeds?.[0]?.images || 
+              post.embed?.record?.record?.value?.embed?.media?.images || 
+              post.embed?.record?.record?.embeds[0]?.media?.images[0] || 
+              post.embed?.record?.embeds?.[0]?.media?.images || // Added path for marlo.ooo's image
+              []).map((image, imgIndex) => (
+                <div key={imgIndex} className="skeet-image-group">
+                  <img
+                    className="skeet-img-file"
+                    src={image.fullsize || image.image?.fullsize || post.embed?.record?.record?.embeds[0]?.media?.images[0].fullsize} // Ensure we're also considering the 'thumb' property
+                    alt={image.alt || 'Quoted post image'}
+                    loading="lazy"
+                  /><br />
+                  <p className='skeet-metatext'>//ALT TEXT: {image.alt}</p>
                 </div>
-                )}
+              ))}
+
                 
               {/* Check and render Quoted User's Youtube video, if any */}
               {post.embed?.record?.value?.embed?.external?.uri && 
-(post.embed.record.value.embed.external.uri.includes('youtu.be') || post.embed.record.value.embed.external.uri.includes('youtube.com')) && (
-  <div className='youtube'>
-    <div className='skeet-youtube'>
-      <YouTube videoId={getPostYoutubeId(post.embed.record.value.embed.external.uri)} />
-    </div>
-    <div className='youtube-deets'>
-      <h3>{post.embed.record.value.embed.external.title}</h3>
-      <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.value.embed.external.description} /></p>
-    </div>
-  </div>
-)}
+              (post.embed.record.value.embed.external.uri.includes('youtu.be') || post.embed.record.value.embed.external.uri.includes('youtube.com')) && (
+                <div className='youtube'>
+                  <div className='skeet-youtube'>
+                    <YouTube videoId={getPostYoutubeId(post.embed.record.value.embed.external.uri)} />
+                  </div>
+                  <div className='youtube-deets'>
+                    <h3>{post.embed.record.value.embed.external.title}</h3>
+                    <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.value.embed.external.description} /></p>
+                  </div>
+                </div>
+              )}
 
-{/* In case the file structure for quoted Youtube videos are different... */}
-{post.embed?.record?.embeds?.[0]?.media?.external?.uri && 
-(post.embed.record.embeds[0].media.external.uri.includes('youtu.be') || post.embed.record.embeds[0].media.external.uri.includes('youtube.com')) && (
-  <div className='youtube'>
-    <div className='skeet-youtube'>
-      <YouTube videoId={getPostYoutubeId(post.embed.record.embeds[0].media.external.uri)} />
-    </div>
-    <div className='youtube-deets'>
-      <h3>{post.embed.record.embeds[0].media.external.title}</h3>
-      <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.embeds[0].media.external.description} /></p>
-    </div>
-  </div>
-)}
-
+              {/* In case the file structure for quoted Youtube videos are different... */}
+              {post.embed?.record?.embeds?.[0]?.media?.external?.uri && 
+              (post.embed.record.embeds[0].media.external.uri.includes('youtu.be') || post.embed.record.embeds[0].media.external.uri.includes('youtube.com')) && (
+                <div className='youtube'>
+                  <div className='skeet-youtube'>
+                    <YouTube videoId={getPostYoutubeId(post.embed.record.embeds[0].media.external.uri)} />
+                  </div>
+                  <div className='youtube-deets'>
+                    <h3>{post.embed.record.embeds[0].media.external.title}</h3>
+                    <p className='skeet-metatext'><RenderTextWithLinks text={post.embed.record.embeds[0].media.external.description} /></p>
+                  </div>
+                </div>
+              )}
 
               </div> 
             )}

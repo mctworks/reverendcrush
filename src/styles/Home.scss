@@ -73,7 +73,7 @@ h2 {
 .h1-mini{
   color: $home_txt;
   font-family: $bsky_text;
-  font-size: 12px; 
+  font-size: 11px; 
 }
 
 .bsky-home {
@@ -106,9 +106,9 @@ ul.latest-skeet {
   font-size: 12px !important;
 }
 
-.skeet-text a {
-  font-family: 'Pixelify';
-  font-size: 16px !important;
+.skeet-text a, .quoted-post-text a {
+  font-family: $bsky_text;
+  font-size: 11px !important;
 }
 
 .skeet-image-group {
@@ -133,6 +133,9 @@ ul.latest-skeet {
 .skeet-text {
   padding-bottom: 15px;
   font-family: $bsky_text;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
 }
 
 .skeet-banger-score {
@@ -209,6 +212,8 @@ img.reskeet-pfp {
 .quoted-post-text {
   padding: 5px;
   white-space: pre-line;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 .glow {
