@@ -83,13 +83,12 @@ const BlueskySocial = () => {
               {parseText(post.text)}
 
               {/*Getting user images, if user has any*/}
-              {(post.images || post.embed?.images || []).map((image, imgIndex) => (
-                  <div>
+              {([...(post.images || []), ...(post.embed?.images || [])]).map((image, imgIndex) => (
+                  <div key={imgIndex}>
                   <div className="skeet-image-group">
                     <img
-                      key={imgIndex}
                       className="skeet-img-file"
-                      src={image.fullsize || image.image?.fullsize}
+                      src={image.fullsize || image.image?.fullsize }
                       alt={image.alt || image.image?.alt || 'Post image'}
                       loading="lazy"
                     />
