@@ -77,10 +77,11 @@ h2 {
 }
 
 .bsky-home {
-  text-align: center;
+  text-align: left;
   background: rgba(0, 0, 0, 0.679);
   line-height: normal;
   margin: 1rem;
+  display: inline-grid -ms-inline-grid;
 }
 
 h3.bsky-home {
@@ -96,19 +97,45 @@ ul.latest-skeet {
   display: inline-block;
 }
 
+.skeet-header {
+  grid-template-columns: 4rem auto;
+  align-items: center;
+  padding: 0 10px;
+  display: flex;
+}
+
+
+.bsky-latest{
+  text-align: center;
+}
+
 .skeet-date {
   font-family: 'Workbench Slight';
   font-size: 12px;
 }
 
-.skeet-date a {
-  font-family: 'Workbench Slight';
+.skeet-quote-author {
+  font-family: 'Workbench Close';
+  font-size: 12px;
+}
+
+.skeet-quote-author a {
+  font-family: 'Workbench Close' !important;
+  font-size: 12px !important;
+}
+
+.skeet-reply-status {
+  padding-top: 5px;
+}
+
+a.skeet-author {
+  font-family: 'Workbench Slight' !important;
   font-size: 12px !important;
 }
 
 .skeet-text a, .quoted-post-text a {
   font-family: $bsky_text;
-  font-size: 11px !important;
+  font-size: 13px !important;
 }
 
 .skeet-image-group {
@@ -130,13 +157,19 @@ ul.latest-skeet {
   width: 90%;
 }
 
+.author-avatar {
+  width: 2rem;
+  padding-right: 10px;
+}
+
 .skeet-text {
-  padding-bottom: 15px;
   font-family: $bsky_text;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 14px;
+  line-height: 1rem;
   word-break: break-word;
+  padding: 5px 1rem 15px 1rem;
+  letter-spacing: .05rem;
 }
 
 .skeet-banger-score {
@@ -144,7 +177,7 @@ ul.latest-skeet {
 }
 
 .skeet-metatext {
-  font-family: 'Workbench Slight';
+  font-family: 'Workbench Close';
   font-size: 12px;
   white-space: pre-line;
   overflow-wrap: anywhere !important;
@@ -207,11 +240,10 @@ img.reskeet-pfp {
 
 .quote-reskeet-box {
   background: #00000073;
-  padding: 4px;
 }
 
 .quoted-post-text {
-  padding: 5px;
+  padding: 3px;
   white-space: pre-line;
   font-size: 11px;
   font-weight: 500;
