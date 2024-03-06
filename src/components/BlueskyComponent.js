@@ -168,18 +168,19 @@ const BlueskySocial = () => {
         {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images) && currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images.map((image, index) => (
           <div key={index}>
               <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
-              <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
+              <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling at @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
           </div>
         ))}
 </div>
           
           {/* Display YouTube video from the quoted post */}
           {
-            (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri) &&
+            (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.media?.external?.uri) &&
             (currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtube.com') || currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtu.be') ||
-            currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtu.be')) && (
+            currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtu.be') ||
+            currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be')) && (
               <div className='skeet-youtube'>
-                <YouTube videoId={getPostYoutubeId(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri)} />
+                <YouTube videoId={getPostYoutubeId(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri)} />
               </div>
             )
           }
