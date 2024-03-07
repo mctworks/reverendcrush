@@ -2,6 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { BskyAgent } from '@atproto/api';
 import YouTube from 'react-youtube';
 
+const getYouTubeUri = (post) => {
+  // Define all possible paths to the uri
+  const paths = [
+    post.post?.embed?.media?.external?.uri,
+    post.post?.embed?.external?.uri,
+    // Add more paths as needed
+  ];
+
+  // Iterate over the paths and return the first valid URI
+  for (const path of paths) {
+    if (typeof path === 'string') {
+      return path;
+    }
+  }
+
+  // Return null if no valid URI is found
+  return null;
+};
+
+const getPostYoutubeId = (url) => {
+  // Assuming this function extracts the YouTube video ID from the URL
+  let id = '';
+  if (url.includes('youtube.com')) {
+    const urlParams = new URLSearchParams(new URL(url).search);
+    id = urlParams.get('v');
+  } else if (url.includes('youtu.be')) {
+    id = url.split('youtu.be/')[1].split('?')[0];
+  }
+  return id;
+};
+
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com';
   const APP_PASSWORD = 'no6e-unlo-oob2-exqz';
@@ -55,8 +86,13 @@ const BlueskySocial = () => {
   }
 
   const currentPost = posts[currentPostIndex];
+  const youtubeUri = getYouTubeUri(currentPost);
+  const isYoutubeUri = youtubeUri !== null && (youtubeUri.includes('youtube.com') || youtubeUri.includes('youtu.be'));
+  const youtubeVideoId = isYoutubeUri ? getPostYoutubeId(youtubeUri) : null;
 
   console.log('Current post:', currentPost); // Debugging log to inspect the currentPost object
+  console.log('URI:', youtubeUri);
+  console.log('Type of URI:', typeof youtubeUri);
 
   if (!currentPost || !currentPost.post || !currentPost.post.record) {
     console.error("Current post is undefined or missing the record property:", currentPost);
@@ -77,17 +113,7 @@ const BlueskySocial = () => {
     });
   };
 
-  const getPostYoutubeId = (url) => {
-    let id = '';
-    if (url.includes('youtube.com')) {
-      const urlParams = new URLSearchParams(new URL(url).search);
-      id = urlParams.get('v');
-    } else if (url.includes('youtu.be')) {
-      id = url.split('youtu.be/')[1];
-      id = id.split('?')[0];
-    }
-    return id;
-  };
+  
 
   return (
     <section className='bsky-home'>
@@ -117,18 +143,37 @@ const BlueskySocial = () => {
           </div>
         ))}
         </div>
-
         
         {/* Display YouTube embeds */}
+        
+          
+          {isYoutubeUri && youtubeVideoId && (
+            <div>
+              <div className='skeet-youtube'>
+                <YouTube videoId={youtubeVideoId} />
+              </div>
+              <div className='web-deets'>
+                <h3>{currentPost.post?.embed?.external?.title || currentPost.post?.embed?.media?.external?.title}</h3>
+                <p className='skeet-metatext'>{currentPost.post?.embed?.external?.description || currentPost.post?.embed?.media?.external?.description}</p>
+              </div>
+            </div>
+          )}
+        
+        
+        {/*Display Website/Web Media cards*/}
         {
-          currentPost.post.embed?.external?.uri && 
-          (currentPost.post.embed.external.uri.includes('youtube.com') || currentPost.post.embed.external.uri.includes('youtu.be')) && (
-            <div className='skeet-youtube'>
-              <YouTube videoId={getPostYoutubeId(currentPost.post.embed.external.uri)} />
+          (currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri) && 
+          !(currentPost.post.embed?.external?.uri.includes('youtube.com') || currentPost.post.embed?.external?.uri.includes('youtu.be') ||
+          currentPost.post.embed?.media?.external?.uri.includes('youtube.com') || currentPost.post.embed?.media?.external?.uri.includes('youtu.be') ) && (
+            <div className='skeet-web-media'>
+              <a href={currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri}><img className='webcard-img' src={currentPost.post?.embed?.external?.thumb || currentPost.post.embed?.media?.external?.thumb}></img></a>
+              <div className='web-deets'>
+                <h3>{currentPost.post.embed?.external?.title || currentPost.post.embed?.media?.external?.title}</h3>
+                <p className='skeet-metatext'>{currentPost.post.embed?.external?.description || currentPost.post.embed?.media?.external?.description}</p>
+              </div>
             </div>
           )
         }
-        {console.log(currentPost.post.embed)}
         
         {/* Display Quote-Reskeets with user avatar and name */}
         {currentPost.post?.embed?.record && (
@@ -149,39 +194,63 @@ const BlueskySocial = () => {
             {parseText(currentPost.post.embed.record.value?.text || currentPost.post.embed.record.record?.value?.text)}
           </div>
 
-          {/* Display images from the quoted skeet */}
-          <div className='skeet-image-group'>
-  {(currentPost.post.embed?.record?.embeds || currentPost.post.embed?.record?.record?.embeds)?.map((embed, embedIndex) => {
-    if (embed.$type === "app.bsky.embed.images" || embed.$type === "app.bsky.embed.record" || embed.$type === "app.bsky.embed.images#view") {
-      return embed.images?.map((image, imgIndex) => (
-        <div key={`embed-${embedIndex}-img-${imgIndex}`}>
-          <img src={image.fullsize} alt={image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."} loading="lazy" className='skeet-img-file' />
-          <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."}</p>
-        </div>
-      ));
-    }
-    return null;
-  })}
-</div>
-
-<div className='skeet-image-group'>
-        {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images) && currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images.map((image, index) => (
-          <div key={index}>
-              <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
-              <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling at @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
-          </div>
-        ))}
-</div>
+        {/* Display images from the quoted skeet */}
+        <div className='skeet-image-group'>
+        {(currentPost.post.embed?.record?.embeds || currentPost.post.embed?.record?.record?.embeds)?.map((embed, embedIndex) => {
+          if (embed.$type === "app.bsky.embed.images" || embed.$type === "app.bsky.embed.record" || embed.$type === "app.bsky.embed.images#view") {
+            return embed.images?.map((image, imgIndex) => (
+              <div key={`embed-${embedIndex}-img-${imgIndex}`}>
+                <img src={image.fullsize} alt={image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."} loading="lazy" className='skeet-img-file' />
+                <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."}</p>
+              </div>
+            ));
+          }
+          return null;
+        })}
+      </div>
+      {/* Displaying images from quote skeet when the original post also has image(s) */}
+      <div className='skeet-image-group'>
+              {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images) && currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images.map((image, index) => (
+                <div key={index}>
+                    <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
+                    <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling at @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
+                </div>
+              ))}
+      </div>
           
           {/* Display YouTube video from the quoted post */}
           {
-            (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.media?.external?.uri) &&
+            (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post.embed?.media?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri) &&
             (currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtube.com') || currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtu.be') ||
             currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtu.be') ||
             currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be')) && (
+            <div>
               <div className='skeet-youtube'>
                 <YouTube videoId={getPostYoutubeId(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri)} />
               </div>
+              <div className='web-deets'>
+                <h3>{(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title)}</h3>
+                <p className='skeet-metatext'>{(currentPost.embed?.record?.value?.embed?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.description)}</p>
+              </div>
+            </div>
+            )
+          }
+
+          {/* Display quoted post's non-Youtube web card */}
+          {
+            (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri)  &&
+            !(currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtube.com') || currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtu.be') ||
+            currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtu.be') ||
+            currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be') ) && (
+              <div>
+                <div className='skeet-web-media'>
+                  <a href={(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri)}><img className='webcard-img' src={(currentPost.embed?.record?.value?.embed?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.thumb || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.thumb)} /></a>
+                </div>
+                <div className='web-deets'>
+                  <h3>{(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.title)}</h3>
+                  <p className='skeet-metatext'>{(currentPost.embed?.record?.value?.embed?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.description || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.description)}</p>
+              </div>
+            </div>
             )
           }
         </div>
@@ -197,5 +266,3 @@ const BlueskySocial = () => {
 };
 
 export default BlueskySocial
-
-
