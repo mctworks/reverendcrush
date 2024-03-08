@@ -223,20 +223,21 @@ const BlueskySocial = () => {
             (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post.embed?.media?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri) &&
             (currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtube.com') || currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtu.be') ||
             currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtu.be') ||
-            currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be')) && (
+            currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be') ||
+            currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be')) && (
             <div>
               <div className='skeet-youtube'>
-                <YouTube videoId={getPostYoutubeId(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri)} />
+                <YouTube videoId={getPostYoutubeId(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri)} />
               </div>
               <div className='web-deets'>
-                <h3>{(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title)}</h3>
-                <p className='skeet-metatext'>{(currentPost.embed?.record?.value?.embed?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.description)}</p>
+                <h3>{(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.title)}</h3>
+                <p className='skeet-metatext'>{(currentPost.embed?.record?.value?.embed?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.external?.description || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.description || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.description)}</p>
               </div>
             </div>
             )
           }
 
-          {/* Display quoted post's non-Youtube web card */}
+          {/* Display quoted post's non-YT web card */}
           {
             (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri)  &&
             !(currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtube.com') || currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtu.be') ||
