@@ -221,6 +221,17 @@ a.skeet-author {
   }
 }
 
+.skeet-label {
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.skeet-cw, .skeet-cw a {
+  font-family: 'Sixtyfour Close', sans-serif;
+  font-size: 12px;
+  color: #fba9c3;
+}
+
 .reskeet-user {
   display: grid;
   grid-template-columns: 5rem auto;

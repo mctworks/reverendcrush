@@ -21,6 +21,8 @@ const getYouTubeUri = (post) => {
   return null;
 };
 
+
+
 const getPostYoutubeId = (url) => {
   // Assuming this function extracts the YouTube video ID from the URL
   let id = '';
@@ -113,7 +115,8 @@ const BlueskySocial = () => {
     });
   };
 
-  
+// Check if there are labels at the post level or the record level and if they contain any items
+const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.post?.record?.labels?.length > 0);  
 
   return (
     <section className='bsky-home'>
@@ -134,16 +137,30 @@ const BlueskySocial = () => {
         {/*Skeet text*/}
         <p style={{ whiteSpace: 'pre-line' }}>{parseText(currentPost?.post?.record?.text ?? 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. But no yelling at them either, alright? Be cool, man. Be cool.')}</p>
         
-        {/* Display images */}
-        <div className='skeet-image-group'>
-        {Array.isArray(currentPost.post.embed?.images || currentPost.post.embed?.media?.images) && (currentPost.post.embed?.images || currentPost.post.embed?.media?.images).map((image, index) => (
-          <div key={index}>
-              <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
-              <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
-          </div>
-        ))}
-        </div>
-        
+        {/* Displays a content warning if it's flagged for anything, otherwise it displays skeet images images */}
+        {hasContentWarning ? (
+      <div className='skeet-cw'>
+        <p>CONTENT WARNING: MY GOODNESS! It would appear the dude is either being horny on main, or reskeeted something that's just otherwise too hot for the website.
+          This particular content was flagged for the following: {(currentPost.post?.labels || currentPost.post?.record?.labels || []).map((label, index) => (
+            <span key={index} className='skeet-label'>{label.val} </span>
+          ))}</p>
+        <p>So ReverendCrush.com fans, if you want to see the good stuff, or at the very least think you can handle it, you'll need to visit <a href={`https://bsky.app/post/${currentPost.post.uri}`} target="_blank" rel="noreferrer">the actual post on Bsky.</a> While you're there, you might as well follow Rev, drop a like and comment, then reskeet whatever deviant imagery it is that we refuse to show you here.
+        </p>
+      </div>
+) : (
+  <div className='skeet-image-group'>
+    {Array.isArray(currentPost.post.embed?.images || currentPost.post.embed?.media?.images) && (currentPost.post.embed?.images || currentPost.post.embed?.media?.images).map((image, index) => (
+      <div key={index}>
+        <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
+        <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet as my settings require me to add alt text. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
+      </div>
+    ))}
+  </div>
+)}
+        {console.log}
+        {console.log("Labels:", currentPost.post?.record?.labels?.values)}
+        {console.log("Type of labels:", typeof currentPost.post?.record?.labels?.values)}
+        {console.log("labels.[0].val:", currentPost.post?.labels?.[0]?.val)}
         {/* Display YouTube embeds */}
         
           
