@@ -117,6 +117,7 @@ const BlueskySocial = () => {
 
 // Check if there are labels at the post level or the record level and if they contain any items
 const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.post?.record?.labels?.length > 0);  
+const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length > 0 || currentPost.post?.embed?.record?.record?.labels?.length > 0);
 
   return (
     <section className='bsky-home'>
@@ -126,7 +127,7 @@ const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.p
           {/* Display the post's author and timestamp linking to the post on Bsky*/}
           <img src={currentPost.post.author?.avatar} alt={`HEY, CHECK IT OUT, IT'S ${currentPost.post?.author?.name}'s PFP! WHALES AREN'T REAL!`} className='author-avatar' />
           <span className='skeet-date'>Via <a className='skeet-author' href={`https://bsky.app/profile/${currentPost.post.author.handle}`} target="_blank" rel="noreferrer">@{currentPost.post.author.handle}</a> 
-          <br/>Post: <a className='skeet-author' href={`https://bsky.app/post/${currentPost.post.uri}`} target="_blank" rel="noreferrer"><u>{new Date(currentPost.post.record.createdAt).toLocaleString()}</u></a></span>
+          <br/>Post: <a className='skeet-author' href={`https://bsky.app/profile/${currentPost.post.author.handle}/post/${currentPost.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer"><u>{new Date(currentPost.post.record.createdAt).toLocaleString()}</u></a></span>
         </div>
       <div className='skeet-text'>
         {/*Check to see if it's a reply to another skeet, and if so, display who the reply is to. Debating on whether or not to link to Bsky profile.*/}
@@ -144,7 +145,7 @@ const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.p
           This particular content was flagged for the following: {(currentPost.post?.labels || currentPost.post?.record?.labels || []).map((label, index) => (
             <span key={index} className='skeet-label'>{label.val} </span>
           ))}</p>
-        <p>So ReverendCrush.com fans, if you want to see the good stuff, or at the very least think you can handle it, you'll need to visit <a href={`https://bsky.app/post/${currentPost.post.uri}`} target="_blank" rel="noreferrer">the actual post on Bsky.</a> While you're there, you might as well follow Rev, drop a like and comment, then reskeet whatever deviant imagery it is that we refuse to show you here.
+        <p>So ReverendCrush.com fans, if you want to see the good stuff, or at the very least think you can handle it, you'll need to visit <a href={`https://bsky.app/profile/${currentPost.post.author.handle}/post/${currentPost.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">the actual post on Bsky.</a> While you're there, you might as well follow Rev, drop a like and comment, then reskeet whatever deviant imagery it is that we refuse to show you here.
         </p>
       </div>
 ) : (
@@ -211,7 +212,17 @@ const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.p
             {parseText(currentPost.post.embed.record.value?.text || currentPost.post.embed.record.record?.value?.text)}
           </div>
 
-        {/* Display images from the quoted skeet */}
+        {/* Display images from the quoted skeet, provided it passes a Content Warning check */}
+        {quoteHasContentWarning  ? (
+      <div className='skeet-cw'>
+        <p>CONTENT WARNING: JEEPERS, MR. WILSON! It would appear good ol' ReverendCrush (or whoever he reskeeted is quoting) wants you ALL to see something that, well, we're just not going to show here.
+          Specifically, the content being quoted has been flagged for the following: {(currentPost?.post?.embed?.record?.labels || currentPost?.post?.embed?.record?.record?.labels || []).map((label, index) => (
+            <span key={index} className='skeet-label'>{label.val} </span>
+          ))}</p>
+        <p>If you little achievers want to see ALL the goods (or horror; this is someone ReverendCrush is quoting after all, so it's not impossible), you'll need to visit <a href={`https://bsky.app/profile/${currentPost.post.author.handle}/post/${currentPost.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">the post on Bsky</a>, and while you're at it, be sure to follow Rev, drop a like and comment, and reskeet this explosion of sin if that's your thing because we won't show it.
+        </p>
+      </div>
+) : (
         <div className='skeet-image-group'>
         {(currentPost.post.embed?.record?.embeds || currentPost.post.embed?.record?.record?.embeds)?.map((embed, embedIndex) => {
           if (embed.$type === "app.bsky.embed.images" || embed.$type === "app.bsky.embed.record" || embed.$type === "app.bsky.embed.images#view") {
@@ -224,7 +235,8 @@ const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.p
           }
           return null;
         })}
-      </div>
+      </div>)}
+      
       {/* Displaying images from quote skeet when the original post also has image(s) */}
       <div className='skeet-image-group'>
               {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images) && currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images.map((image, index) => (
@@ -234,7 +246,7 @@ const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.p
                 </div>
               ))}
       </div>
-          
+
           {/* Display YouTube video from the quoted post */}
           {
             (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post.embed?.media?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri) &&
