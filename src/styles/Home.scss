@@ -172,8 +172,9 @@ a.skeet-author {
   letter-spacing: .05rem;
 }
 
-.skeet-banger-score {
+.skeet-banger-score, .skeet-banger-score a {
   font-family:'Sixtyfour Evenly', sans-serif;
+  font-size: 13px;
 }
 
 .skeet-metatext {
@@ -337,6 +338,39 @@ img.reskeet-pfp {
   }
 }
 
+.bsky-lb {
+  margin: 0;
+  padding: 0;
+  font-family: $bsky_text;
+  font-size: 10px;
+}
+
+.bsky-lb-list .bsky-lb-handle a{
+  word-wrap: break-word;
+  font-family: $bsky_text;
+  font-size: 10px;
+  text-shadow: none !important;
+  color: #beff8e !important;
+  text-transform: uppercase;
+}
+
+ul.bsky-lb-list {
+  list-style-type: auto;
+  padding: 0;
+}
+
+ul.bsky-lb-list li {
+  list-style-type: auto;
+}
+
+ul.bsky-lb-list li::marker {
+  font-size: 14px;
+}
+
+.first-author-avatar {
+  width: 4rem;
+}
+
 @media (min-width: 800px) {
   h1.brand {
     padding: 0 5px;
@@ -370,6 +404,10 @@ img.reskeet-pfp {
 
   .about_U{
     font-size: 175px;
+  }
+
+  .bsky-home {
+    margin: 10rem;
   }
 }
 
