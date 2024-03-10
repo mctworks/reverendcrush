@@ -333,6 +333,7 @@ ul.bsky-lb-list {
 
 ul.bsky-lb-list li {
   list-style-type: auto;
+  list-style-position: inside;
 }
 
 ul.bsky-lb-list li::marker {
@@ -341,6 +342,13 @@ ul.bsky-lb-list li::marker {
 
 .first-author-avatar {
   width: 4rem;
+}
+
+.bsky-lb-postsnip {
+  font-family: "Workbench Evenly", sans-serif !important;
+  font-size: 12px !important;
+  white-space: pre-line;
+  overflow-wrap: anywhere !important;
 }
 
 @media (min-width: 800px) {

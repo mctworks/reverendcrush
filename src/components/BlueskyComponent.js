@@ -21,10 +21,7 @@ const getYouTubeUri = (post) => {
   return null;
 };
 
-
-
 const getPostYoutubeId = (url) => {
-  // Assuming this function extracts the YouTube video ID from the URL
   let id = '';
   if (url.includes('youtube.com')) {
     const urlParams = new URLSearchParams(new URL(url).search);
@@ -35,6 +32,43 @@ const getPostYoutubeId = (url) => {
   return id;
 };
 
+function calculateBangerScore(post) {
+  let score = post.likeCount * 200 + post.replyCount * 300 + post.repostCount * 500;
+  score += Math.floor(post.likeCount / 10) * 700;
+  score += Math.floor(post.replyCount / 25) * 2500;
+  score += Math.floor(post.repostCount / 5) * 2000;
+
+  // Check for Ratio Penalty
+  let ratioPenalty = false;
+  if (post.replyCount >= 25 && post.replyCount > (post.likeCount * 0.95)) {
+    const penaltyFactor = Math.round((post.replyCount * 0.95) / (post.likeCount || 1));
+    score -= penaltyFactor * 500;
+    ratioPenalty = true;
+  }
+
+  return { score, ratioPenalty };
+}
+
+function getFlavorText(score) {
+  if (score < 400) return "Welp, this doesn't seem like a banger, now does it?";
+  if (score >= 400 && score < 800) return "Engagement exists, but this isn't a banger.";
+  if (score >= 800 && score < 3000) return "A few folks seem to appreciate this, it seems...";
+  if (score === 4200) return "420(0) Banger!";
+  if (score > 4200 && score < 6900) return "It's a BANGER!";
+  if (score === 6900) return "69 (hundred) BANGER! NICE!";
+  if (score > 6900 && score < 8000) return "Not a SUPER Banger, but almost...";
+  if (score > 9000 && score < 25000) return "THIS BANGER IS OVER 9000!!!!!";
+  if (score >= 25000 && score < 42000) return "THIS QUALITY SUPER BANGER IS GOING PLACES!!!!";
+  if (score === 42000) return "QUALITY 420(00) SUPER BANGER!";
+  if (score > 42000 && score < 69000) return "ALL THE HOT PEOPLE ARE GETTING WET OVER THIS SUPER BANGER!!!";
+  if (score === 69000) return "69 (thousand) SUPER BANGER! NICE!";
+  if (score > 69000 && score < 75000) return "THIS QUALITY SUPER BANGER IS STARTING TO GLOW OF ELECTRIC SEX!";
+  if (score >= 75000 && score < 125000) return "PURE GOLDEN SUPER BANGER WITH ELECTRICAL SEXUAL POWERS!!";
+  if (score >= 125000 && score < 250000) return "PLATINUM BANGER!!!!";
+  if (score >= 250000) return "DOUBLE PLATINUM BANGER!!!! CAN'T ASK FOR A BETTER SKEET!";
+  return "Engagement exists? We might have an error."; // Default case
+}
+
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com';
   const APP_PASSWORD = 'no6e-unlo-oob2-exqz';
@@ -43,6 +77,8 @@ const BlueskySocial = () => {
   const [posts, setPosts] = useState([]);
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
   const [error, setError] = useState(null);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [leaderboardPosts, setLeaderboardPosts] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -60,7 +96,18 @@ const BlueskySocial = () => {
       });
 
       if (Array.isArray(data.feed)) {
+        // Set posts in their original order for the default view
         setPosts(data.feed);
+
+        // Calculate scores for leaderboard without altering original posts array
+        const scoredPosts = data.feed.map(post => ({
+          ...post,
+          scoreDetails: calculateBangerScore(post.post),
+        }));
+
+        // Sort by score for the leaderboard and take the top 25
+        const topScoredPosts = [...scoredPosts].sort((a, b) => b.scoreDetails.score - a.scoreDetails.score).slice(0, 25);
+        setLeaderboardPosts(topScoredPosts);
       } else {
         console.error('Invalid feed data format:', data.feed);
         setError('Error fetching data');
@@ -79,8 +126,50 @@ const BlueskySocial = () => {
     setCurrentPostIndex(prevIndex => Math.min(prevIndex + 1, posts.length - 1));
   };
 
+  const toggleLeaderboard = async () => {
+    setShowLeaderboard(!showLeaderboard);
+  };
+
   if (error) {
     return <div className='bsky-home skeet-text'>BlueSky Error: {error}</div>;
+  }
+
+  if (showLeaderboard) {
+    return (
+      <div className='bsky-home'>
+        <div className='bsky-latest'><h2>LEADERBOARD: Top 25 Bangers</h2>
+        <button onClick={toggleLeaderboard}>GO BACK</button>
+      </div>
+        <div className='bsky-lb'>
+        <ul className='bsky-lb-list'>
+          {leaderboardPosts.map((post, index) => (
+            <li key={index}>
+              <img src={post.post.author.avatar} alt={`${post.post.author.handle}'s avatar`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : ''}`} />
+              {post.post.embed?.record && (
+                <img src={post.post.embed.record.author?.avatar || post.post.embed.record.record?.author?.avatar} 
+                     alt={`${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}'s avatar`} 
+                     className={`author-avatar ${index === 0 ? 'first-author-avatar' : ''}`} />
+              )}<span class='bsky-lb-date'>{new Date(post.post.record.createdAt).toLocaleDateString()}</span>
+              <p class='bsky-lb-handle'>
+                <a href={`https://bsky.app/profile/${post.post.author.handle}`} target="_blank" rel="noreferrer">@{post.post.author.handle}</a>
+              </p>
+              {post.post.embed?.record && (
+                <p class='bsky-lb-handle'>
+                  <a href={`https://bsky.app/profile/${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}`} target="_blank" rel="noreferrer">
+                    @{post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}
+                  </a>
+                </p>
+              )}
+              <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
+                {post.post.record.text.slice(0, 100)}
+              </a>
+              <p>Score: {post.scoreDetails.score}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      </div>
+    );
   }
 
   if (posts.length === 0) {
@@ -119,6 +208,9 @@ const BlueskySocial = () => {
 const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.post?.record?.labels?.length > 0);  
 const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length > 0 || currentPost.post?.embed?.record?.record?.labels?.length > 0);
 
+  const { score, ratioPenalty } = calculateBangerScore(currentPost.post);
+  const flavorText = getFlavorText(score);
+
   return (
     <section className='bsky-home'>
       <div className='bsky-latest'><h2>Latest from the Bsky</h2>
@@ -153,7 +245,7 @@ const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length 
     {Array.isArray(currentPost.post.embed?.images || currentPost.post.embed?.media?.images) && (currentPost.post.embed?.images || currentPost.post.embed?.media?.images).map((image, index) => (
       <div key={index}>
         <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
-        <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet as my settings require me to add alt text. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
+        <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
       </div>
     ))}
   </div>
@@ -249,11 +341,11 @@ const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length 
 
           {/* Display YouTube video from the quoted post */}
           {
-            (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post.embed?.media?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri) &&
+            (currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post.embed?.media?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri) &&
             (currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtube.com') || currentPost.embed?.record?.value?.embed?.external?.uri.includes('youtu.be') ||
             currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri.includes('youtu.be') ||
             currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be') ||
-            currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be')) && (
+            currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be') ) && (
             <div>
               <div className='skeet-youtube'>
                 <YouTube videoId={getPostYoutubeId(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri)} />
@@ -285,6 +377,14 @@ const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length 
           }
         </div>
       )}
+
+<div className='skeet-banger-score'>
+    <p>BANGER SCORE: <br/><span className='glow'>{score}</span></p>
+    {ratioPenalty && <p className='skeet-metatext'>WARNING: RATIO PENALTY!!</p>}
+    <p className='banger-score-text'>{flavorText}</p>
+    <button onClick={toggleLeaderboard}>View Leaderboard</button>
+    <p className='banger-score-text'>FOLLOW <a href='https://bsky.app/profile/reverendcrush.com' target="_blank" rel="noreferrer">@REVERENDCRUSH.COM</a> ON BLUESKY SOCIAL, AND BE SURE TO LIKE, COMMENT, AND/OR RESKEET THIS POST TO INCREASE THIS BANGER SCORE!</p>
+  </div>
       </div>
       <div className="pagination-controls">
       <button onClick={handleNext} disabled={currentPostIndex >= posts.length - 1}>PREV.</button>
