@@ -53,25 +53,25 @@ function getFlavorText(score) {
   if (score < 400) return "Welp, this doesn't seem like a banger, now does it?";
   if (score >= 400 && score < 800) return "Engagement exists, but this isn't a banger.";
   if (score >= 800 && score < 3000) return "A few folks seem to appreciate this, it seems...";
-  if (score === 4200) return "420(0) Banger!";
+  if (score === 4200) return "4200 Banger!";
   if (score > 4200 && score < 6900) return "It's a BANGER!";
-  if (score === 6900) return "69 (hundred) BANGER! NICE!";
+  if (score === 6900) return "69 hundred BANGER! NICE!";
   if (score > 6900 && score < 8000) return "Not a SUPER Banger, but almost...";
   if (score > 9000 && score < 25000) return "THIS BANGER IS OVER 9000!!!!!";
-  if (score >= 25000 && score < 42000) return "THIS QUALITY SUPER BANGER IS GOING PLACES!!!!";
-  if (score === 42000) return "QUALITY 420(00) SUPER BANGER!";
+  if (score >= 25000 && score < 42000) return "THIS QUALITY BANGER IS GOING PLACES!!!!";
+  if (score === 42000) return "QUALITY 42000 BANGER!";
   if (score > 42000 && score < 69000) return "ALL THE HOT PEOPLE ARE GETTING WET OVER THIS SUPER BANGER!!!";
-  if (score === 69000) return "69 (thousand) SUPER BANGER! NICE!";
-  if (score > 69000 && score < 75000) return "THIS QUALITY SUPER BANGER IS STARTING TO GLOW OF ELECTRIC SEX!";
-  if (score >= 75000 && score < 125000) return "PURE GOLDEN SUPER BANGER WITH ELECTRICAL SEXUAL POWERS!!";
+  if (score === 69000) return "69 thousand SUPER BANGER! NICE!";
+  if (score > 69000 && score < 75000) return "THIS QUALITY BANGER IS STARTING TO GLOW OF ELECTRIC SEX!";
+  if (score >= 75000 && score < 125000) return "PURE GOLDEN SUPER BANGER!!";
   if (score >= 125000 && score < 250000) return "PLATINUM BANGER!!!!";
   if (score >= 250000) return "DOUBLE PLATINUM BANGER!!!! CAN'T ASK FOR A BETTER SKEET!";
   return "Engagement exists? We might have an error."; // Default case
 }
 
 const BlueskySocial = () => {
-  const HANDLE = 'reverendcrush.com';
-  const APP_PASSWORD = 'no6e-unlo-oob2-exqz';
+  const HANDLE = 'reverendcrush.com'; //Your Bsky handle. If you're using a default, it's something like YOURNAME.bsky.social
+  const APP_PASSWORD = 'no6e-unlo-oob2-exqz'; //Your Bsky app password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
   const SERVICE_URL = 'https://bsky.social';
 
   const [posts, setPosts] = useState([]);
@@ -92,7 +92,7 @@ const BlueskySocial = () => {
       const { data } = await agent.getAuthorFeed({
         actor: did,
         filter: 'posts_and_author_threads',
-        limit: 100,
+        limit: 100, //If you want to set a lower limit, you can do so here. The max is 100 posts.
       });
 
       if (Array.isArray(data.feed)) {
@@ -133,45 +133,54 @@ const BlueskySocial = () => {
   if (error) {
     return <div className='bsky-home skeet-text'>BlueSky Error: {error}</div>;
   }
-
+//LEADERBOARD CODE HERE!!
   if (showLeaderboard) {
     return (
       <div className='bsky-home'>
-        <div className='bsky-latest'><h2>LEADERBOARD: Top 25 Bangers</h2>
-        <button onClick={toggleLeaderboard}>GO BACK</button>
+        <div className='bsky-latest'><h2>SKEET LEADERBOARD</h2>
+        <p className='bsky-text'>TOP 25 BSKY BANGERS VIA @REVERENDCRUSH.COM</p>
+        <button className='bsky-lb-button' onClick={toggleLeaderboard}>GO BACK</button>
       </div>
         <div className='bsky-lb'>
         <ul className='bsky-lb-list'>
           {leaderboardPosts.map((post, index) => (
-            <li key={index}>
-              <img src={post.post.author.avatar} alt={`${post.post.author.handle}'s avatar`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : ''}`} />
+            <li className={`${index === 0 ? 'first-place-li' : index === 1 || index === 2 ? 'runnerup-li' : index >= 3 && index <= 9 ? 'bottom10-li' :  ''}`} key={index}>
+              {/*Display the user's avatar. If it's a quoted post, both users' avatars appear, but goes by the score of the original post. Classes are added based on position. Also, the date of the post should show up next to the avatar(s)*/}
+              <img src={post.post.author.avatar} alt={`${post.post.author.handle}'s avatar`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' : ''}`} />
               {post.post.embed?.record && (
                 <img src={post.post.embed.record.author?.avatar || post.post.embed.record.record?.author?.avatar} 
                      alt={`${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}'s avatar`} 
-                     className={`author-avatar ${index === 0 ? 'first-author-avatar' : ''}`} />
+                     className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' :  ''}`} />
               )}<span class='bsky-lb-date'>{new Date(post.post.record.createdAt).toLocaleDateString()}</span>
-              <p class='bsky-lb-handle'>
+              
+              {/*Display the user's handle. If it's a quoted post, both users are credited, but goes by the original post's score. Classes based on postion are placed.*/}
+              <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
                 <a href={`https://bsky.app/profile/${post.post.author.handle}`} target="_blank" rel="noreferrer">@{post.post.author.handle}</a>
               </p>
               {post.post.embed?.record && (
-                <p class='bsky-lb-handle'>
+                <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
                   <a href={`https://bsky.app/profile/${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}`} target="_blank" rel="noreferrer">
                     @{post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}
                   </a>
                 </p>
               )}
+              {/*The first 100 characters of the post, linked to the post on Bsky*/}
               <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
                 {post.post.record.text.slice(0, 100)}
               </a>
-              <p>Score: {post.scoreDetails.score}</p>
+              <p className={`bsky-lb-score ${index === 0 ? 'first-score' : index === 1 || index === 2 ? 'runnerup-score' : index >= 3 && index <= 9 ? 'bottom10-score' :  ''}`}>SCORE: {post.scoreDetails.score}</p>
             </li>
           ))}
         </ul>
       </div>
+      <div className='bsky-lb-bottom bsky-text'>
+        <p>Post scores are calculated based on post engagement. The more likes, comments, and reskeets a post gets, the higher the score!</p><p>Sounds weird? IT IS! Especially considering it's just my posts along with much more popular people, but if you want engage in this sort of thing, be sure to follow <a href="https://bsky.app/profile/reverendcrush.com" target="_blank" rel="noreferrer">@ReverendCrush.com</a> on Bsky.</p>
+        <div className="flex-center"><button className='bsky-lb-button' onClick={toggleLeaderboard}> GO BACK TO POSTS</button></div>
       </div>
+    </div>
     );
   }
-
+//The actually paginated Bsky feed code here.
   if (posts.length === 0) {
     return <div className='bsky-home skeet-text'>Loading skeets...</div>;
   }
@@ -382,14 +391,13 @@ const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length 
     <p>BANGER SCORE: <br/><span className='glow'>{score}</span></p>
     {ratioPenalty && <p className='skeet-metatext'>WARNING: RATIO PENALTY!!</p>}
     <p className='banger-score-text'>{flavorText}</p>
-    <button onClick={toggleLeaderboard}>View Leaderboard</button>
-    <p className='banger-score-text'>FOLLOW <a href='https://bsky.app/profile/reverendcrush.com' target="_blank" rel="noreferrer">@REVERENDCRUSH.COM</a> ON BLUESKY SOCIAL, AND BE SURE TO LIKE, COMMENT, AND/OR RESKEET THIS POST TO INCREASE THIS BANGER SCORE!</p>
+    <div className='flex-center'><button className='bsky-lb-button' onClick={toggleLeaderboard}>VIEW LEADERBOARD</button></div>
+    <p className='banger-score-text'>FOLLOW <a href='https://bsky.app/profile/reverendcrush.com' target="_blank" rel="noreferrer">@REVERENDCRUSH.COM</a> ON BLUESKY SOCIAL, AND BE SURE TO LIKE, COMMENT, AND/OR RESKEET THIS POST TO INCREASE THIS SKEET'S BANGER SCORE, AS WELL AS OTHERS!!</p>
   </div>
       </div>
       <div className="pagination-controls">
-      <button onClick={handleNext} disabled={currentPostIndex >= posts.length - 1}>PREV.</button>
-        <button onClick={handlePrevious} disabled={currentPostIndex === 0}>FWD.</button>
-        
+      <button className='bsky-pag-button' onClick={handleNext} disabled={currentPostIndex >= posts.length - 1}>← PRV.</button>
+        <button className='bsky-pag-button' onClick={handlePrevious} disabled={currentPostIndex === 0}>NXT. →</button>  
       </div>
     </section>
   );
