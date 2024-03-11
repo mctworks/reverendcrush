@@ -9,6 +9,7 @@ body {
   margin: 0px;
   min-height: 100%;
   color: #cdfeff;
+  font-family: "Jost", sans-serif;
 }
 
 .autotext {
@@ -81,6 +82,35 @@ h2 {
 
 h3.bsky-home {
   font-family: "Sixtyfour Slight";
+}
+
+.bsky-text, .bsky-text a {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px !important;
+  font-weight: 500;
+  line-height: 1rem;
+  word-break: break-word;
+  padding: 3px 0.5rem 3px 0.5rem;
+  letter-spacing: 0.02rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+button.bsky-pag-button, button.bsky-lb-button {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 12px;
+  color: #d2fff2;
+  background: none;
+  border: 2px solid #cdfeff;
+  padding: 5px 10px;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
 }
 
 ul.latest-skeet {
@@ -248,6 +278,113 @@ img.reskeet-pfp {
   font-weight: 500;
 }
 
+.bsky-lb {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 10px;
+}
+
+.bsky-lb-list .bsky-lb-handle a {
+  word-wrap: break-word;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 10px;
+  text-shadow: none !important;
+  color: #d3cb55 !important;
+  text-transform: uppercase;
+}
+
+.bottom10-handle a {
+  font-size: 12px !important;
+}
+
+.runnerup-handle a {
+  font-size: 14px !important;
+}
+
+.first-handle a {
+  font-size: 16px !important;
+}
+
+.bsky-lb-date {
+  font-size: 12px;
+  font-family: "Workbench Evenly";
+}
+
+ul.bsky-lb-list {
+  list-style-type: auto;
+  padding: 0;
+}
+
+ul.bsky-lb-list li {
+  list-style-type: auto;
+  list-style-position: inside;
+}
+
+ul.bsky-lb-list li::marker {
+  font-size: 10px;
+}
+
+li.bottom10-li::marker {
+  font-size: 13px !important;
+}
+
+li.runnerup-li::marker {
+  color: #dbdbdb;
+  font-size: 16px !important;
+  text-shadow: 0 0 0.6rem #818181, 0 0 1.5rem #b2b2b2, -0.2rem 0.1rem 1rem #a5a5a5, 0.2rem 0.1rem 1rem #979797, 0 -0.5rem 2rem #636363, 0 0.5rem 3rem #a4a4a4;
+  animation: shine_silver 2s forwards, flicker 3s infinite;
+}
+
+li.first-place-li::marker {
+  font-size: 20px !important;
+  text-shadow: 0 0 0.6rem #fff5e6, 0 0 1.5rem #fffa65, -0.2rem 0.1rem 1rem #ffc165, 0.2rem 0.1rem 1rem #fffa65, 0 -0.5rem 2rem #ffff24, 0 0.5rem 3rem #ffe924;
+  animation: shine_gold 2s forwards, flicker 3s infinite;
+  color: #5e4c0a;
+}
+
+.bottom10-author-avatar {
+  width: 2.75rem;
+}
+
+.runnerup-author-avatar {
+  width: 3.5rem;
+}
+
+.first-author-avatar {
+  width: 4.25rem;
+}
+
+.bsky-lb-score {
+  color: #8cfab6;
+  text-align: center;
+}
+
+.bottom10-score {
+  font-size: 12px;
+}
+
+.runnerup-score {
+  color: #dbdbdb;
+  font-size: 14px;
+  text-shadow: 0 0 0.6rem #818181, 0 0 1.5rem #b2b2b2, -0.2rem 0.1rem 1rem #a5a5a5, 0.2rem 0.1rem 1rem #979797, 0 -0.5rem 2rem #636363, 0 0.5rem 3rem #a4a4a4;
+  animation: shine_silver 2s forwards, flicker 3s infinite;
+}
+
+.first-score {
+  text-shadow: 0 0 0.6rem #fff5e6, 0 0 1.5rem #fffa65, -0.2rem 0.1rem 1rem #ffc165, 0.2rem 0.1rem 1rem #fffa65, 0 -0.5rem 2rem #ffff24, 0 0.5rem 3rem #ffe924;
+  animation: shine_gold 2s forwards, flicker 3s infinite;
+  color: #5e4c0a;
+  font-size: 16px;
+}
+
+.bsky-lb-postsnip {
+  font-family: "Workbench Evenly", sans-serif !important;
+  font-size: 12px !important;
+  white-space: pre-line;
+  overflow-wrap: anywhere !important;
+}
+
 .glow {
   text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #65a3ff, -0.2rem 0.1rem 1rem #6589ff, 0.2rem 0.1rem 1rem #659bff, 0 -0.5rem 2rem #2483ff, 0 0.5rem 3rem #245eff;
   animation: shine 2s forwards, flicker 3s infinite;
@@ -293,6 +430,7 @@ img.reskeet-pfp {
   }
   .bsky-home {
     margin: 5rem;
+    font-family: "Press Start 2P", sans-serif;
   }
   .skeet-image-group {
     display: inline-grid;
@@ -310,47 +448,6 @@ img.reskeet-pfp {
     width: 90%;
   }
 }
-.bsky-lb {
-  margin: 0;
-  padding: 0;
-  font-family: "Press Start 2P", sans-serif;
-  font-size: 10px;
-}
-
-.bsky-lb-list .bsky-lb-handle a {
-  word-wrap: break-word;
-  font-family: "Press Start 2P", sans-serif;
-  font-size: 10px;
-  text-shadow: none !important;
-  color: #beff8e !important;
-  text-transform: uppercase;
-}
-
-ul.bsky-lb-list {
-  list-style-type: auto;
-  padding: 0;
-}
-
-ul.bsky-lb-list li {
-  list-style-type: auto;
-  list-style-position: inside;
-}
-
-ul.bsky-lb-list li::marker {
-  font-size: 14px;
-}
-
-.first-author-avatar {
-  width: 4rem;
-}
-
-.bsky-lb-postsnip {
-  font-family: "Workbench Evenly", sans-serif !important;
-  font-size: 12px !important;
-  white-space: pre-line;
-  overflow-wrap: anywhere !important;
-}
-
 @media (min-width: 800px) {
   h1.brand {
     padding: 0 5px;
@@ -429,6 +526,131 @@ ul.bsky-lb-list li::marker {
   100% {
     color: #e6f5ff;
     text-shadow: 0 0 0.6rem #e6fbff, 0 0 1.5rem #659bff, -0.2rem 0.1rem 1rem #656fff, 0.2rem 0.1rem 1rem #6581ff, 0 -0.5rem 2rem #3324ff, 0 0.5rem 3rem #2824ff;
+  }
+}
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.9;
+  }
+  6% {
+    opacity: 0.85;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  11% {
+    opacity: 0.922;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  14% {
+    opacity: 0.95;
+  }
+  16% {
+    opacity: 0.98;
+  }
+  17% {
+    opacity: 0.9;
+  }
+  19% {
+    opacity: 0.93;
+  }
+  20% {
+    opacity: 0.99;
+  }
+  24% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.94;
+  }
+  28% {
+    opacity: 0.98;
+  }
+  37% {
+    opacity: 0.93;
+  }
+  38% {
+    opacity: 0.5;
+  }
+  39% {
+    opacity: 0.96;
+  }
+  42% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.97;
+  }
+  46% {
+    opacity: 0.94;
+  }
+  56% {
+    opacity: 0.9;
+  }
+  58% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.99;
+  }
+  68% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  72% {
+    opacity: 0.95;
+  }
+  93% {
+    opacity: 0.93;
+  }
+  95% {
+    opacity: 0.95;
+  }
+  97% {
+    opacity: 0.93;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shine {
+  0% {
+    color: #183c6b;
+    text-shadow: none;
+  }
+  100% {
+    color: #e6f5ff;
+    text-shadow: 0 0 0.6rem #e6fbff, 0 0 1.5rem #659bff, -0.2rem 0.1rem 1rem #656fff, 0.2rem 0.1rem 1rem #6581ff, 0 -0.5rem 2rem #3324ff, 0 0.5rem 3rem #2824ff;
+  }
+}
+@keyframes shine_gold {
+  0% {
+    color: #6b5a18;
+    text-shadow: none;
+  }
+  100% {
+    color: #fff1e6;
+    text-shadow: 0 0 0.6rem #9b946f, 0 0 1.5rem #867e6f, -0.2rem 0.1rem 1rem #ffea65, 0.2rem 0.1rem 1rem #ffea65, 0 -0.5rem 2rem #ffe224, 0 0.5rem 3rem #ffcc24;
+  }
+}
+@keyframes shine_sliver {
+  0% {
+    color: #6a6a6a;
+    text-shadow: none;
+  }
+  100% {
+    color: #fff1e6;
+    text-shadow: 0 0 0.6rem #808080, 0 0 1.5rem #847f76, -0.2rem 0.1rem 1rem #e0e0e0, 0.2rem 0.1rem 1rem #7e7e7e, 0 -0.5rem 2rem #cacaca, 0 0.5rem 3rem #a5a5a5;
   }
 }
 @keyframes flicker {
