@@ -108,6 +108,11 @@ button.bsky-pag-button, button.bsky-lb-button {
   padding: 5px 10px;
 }
 
+button.bsky-pag-button:disabled {
+  color: #778392;
+  border: 2px solid #778392;
+}
+
 .pagination-controls {
   display: flex;
   justify-content: space-between;
@@ -199,6 +204,7 @@ a.skeet-author {
 .skeet-banger-score, .skeet-banger-score a {
   font-family: "Sixtyfour Evenly", sans-serif;
   font-size: 13px;
+  color: #ffdcf6;
 }
 
 .skeet-metatext {
@@ -427,10 +433,14 @@ li.first-place-li::marker {
   }
   .header_title {
     font-size: 12px;
+    margin: 5px 5px;
   }
   .bsky-home {
     margin: 5rem;
     font-family: "Press Start 2P", sans-serif;
+  }
+  .bsky-lb-bottom {
+    padding: 0 3rem 1rem 3rem;
   }
   .skeet-image-group {
     display: inline-grid;
@@ -447,11 +457,35 @@ li.first-place-li::marker {
   .skeet-img-file {
     width: 90%;
   }
+  ul.bsky-lb-list {
+    padding: 0px 3rem 0px 3rem;
+  }
 }
 @media (min-width: 800px) {
   h1.brand {
     padding: 0 5px;
     margin: 10px 0 75px 0px;
+  }
+}
+@media (min-width: 900px) {
+  .bsky-lb-entry-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .bsky-lb-score {
+    font-size: 14px;
+  }
+  .bottom10-score {
+    font-size: 16px;
+  }
+  .runnerup-score {
+    font-size: 18px;
+  }
+  .first-score {
+    font-size: 22px;
   }
 }
 @media (min-width: 1225px) {
@@ -465,6 +499,9 @@ li.first-place-li::marker {
   .about_U {
     font-size: 175px;
   }
+  .bsky-home {
+    margin: 5rem 10rem;
+  }
 }
 @media (min-width: 1440px) {
   .home-links {
@@ -477,12 +514,27 @@ li.first-place-li::marker {
     font-size: 175px;
   }
   .bsky-home {
-    margin: 10rem;
+    margin: 5rem 14rem;
+  }
+  .bsky-lb-score {
+    font-size: 18px;
+  }
+  .bottom10-score {
+    font-size: 22px;
+  }
+  .runnerup-score {
+    font-size: 25px;
+  }
+  .first-score {
+    font-size: 30px;
   }
 }
 @media (min-width: 1600px) {
   h1.brand {
     margin: 10px 0 1em 0px;
+  }
+  .bsky-home {
+    margin: 5rem 20rem;
   }
 }
 @media (min-width: 2000px) {
