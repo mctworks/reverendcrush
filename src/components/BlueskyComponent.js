@@ -53,19 +53,29 @@ function getFlavorText(score) {
   if (score < 400) return "Welp, this doesn't seem like a banger, now does it?";
   if (score >= 400 && score < 800) return "Engagement exists, but this isn't a banger.";
   if (score >= 800 && score < 3000) return "A few folks seem to appreciate this, it seems...";
-  if (score === 4200) return "4200 Banger!";
-  if (score > 4200 && score < 6900) return "It's a BANGER!";
-  if (score === 6900) return "69 hundred BANGER! NICE!";
+  if (score >= 3000 && score < 4200) return "It's a banger by small account standards, but it's still a banger!";
+  if (score === 4200) return "420 x 10 BANGER!";
+  if (score > 4200 && score < 6900) return "Now THIS is a hell of a BANGER!";
+  if (score === 6900) return "69-hundred BANGER! NICE!";
   if (score > 6900 && score < 8000) return "Not a SUPER Banger, but almost...";
-  if (score > 9000 && score < 25000) return "THIS BANGER IS OVER 9000!!!!!";
-  if (score >= 25000 && score < 42000) return "THIS QUALITY BANGER IS GOING PLACES!!!!";
-  if (score === 42000) return "QUALITY 42000 BANGER!";
-  if (score > 42000 && score < 69000) return "ALL THE HOT PEOPLE ARE GETTING WET OVER THIS SUPER BANGER!!!";
-  if (score === 69000) return "69 thousand SUPER BANGER! NICE!";
-  if (score > 69000 && score < 75000) return "THIS QUALITY BANGER IS STARTING TO GLOW OF ELECTRIC SEX!";
-  if (score >= 75000 && score < 125000) return "PURE GOLDEN SUPER BANGER!!";
-  if (score >= 125000 && score < 250000) return "PLATINUM BANGER!!!!";
-  if (score >= 250000) return "DOUBLE PLATINUM BANGER!!!! CAN'T ASK FOR A BETTER SKEET!";
+  if (score > 9000 && score < 20000) return "THIS BANGER IS OVER 9000!!!!!";
+  if (score >= 20000 && score < 35000) return "THIS QUALITY SUPER BANGER IS GOING PLACES!!!!";
+  if (score >= 35000 && score < 42000) return "IT'S A SUPER BANGER LEVEL 3!!!! ";
+  if (score === 42000) return "DANK 420 x 100 SUPER BANGER LEVEL 3!";
+  if (score > 42000 && score < 66600) return "ALL THE HOT PEOPLE ARE GETTING WET OVER THIS SUPER BANGER LEVEL 3!!!";
+  if (score === 66600) return "SATANIC 666 x 100 SUPER BANGER LEVEL 3! HAIL LUCIFER THE MORNING STAR!";
+  if (score > 66600 && score < 69000) return "ALL THE HOT PEOPLE ARE GETTING WET OVER THIS SUPER BANGER LEVEL 3!!!";
+  if (score === 69000) return "69 thousand SUPER BANGER LEVEL 3! NICE!";
+  if (score > 69000 && score < 75000) return "THIS QUALITY SUPER BANGER LEVEL 3 IS STARTING TO GLOW OF ELECTRIC SEX! Could we see GOLD here!?";
+  if (score >= 75000 && score < 125000) return "PURE GOLDEN SUPER BANGER!!! FUCKING RADICAL!";
+  if (score >= 125000 && score < 250000) return "I can't believe this... A PLATINUM BANGER!!!!";
+  if (score >= 250000 && score < 420000) return "HOLY SHIT!! DOUBLE PLATINUM BANGER!!!!";
+  if (score === 420000) return "SUPER DANK 420 x 100 DOUBLE PLATINUM BANGER!!!! BLAZE IT!!! AND SCREENSHOT THIS!";
+  if (score > 420000 && score < 500000) return "HOLY SHIT!! DOUBLE PLATINUM BANGER!!!!";
+  if (score >= 500000 && score < 690000) return "A TRIPLE PLATINUM BANGER!!!!??? THESE ARE LIKE THE NUMBERS FROM AN OLD EVERGREEN DRIL TWEET MARINATING IN TWELVE YEARS OF CIRCULATION!!";
+  if (score === 690000) return "69 hundred-thousand TRIPLE PLATINUM! NICE! SCREENSHOT THIS AFTER YOU JIZZ!";
+  if (score > 690000 && score < 1500000) return "A TRIPLE PLATINUM BANGER!!!!??? THESE ARE LIKE THE NUMBERS FROM AN OLD EVERGREEN DRIL TWEET MARINATING IN TWELVE YEARS OF CIRCULATION!!";
+  if (score >= 1500000) return "EVERYONE MUST BE IN HEAT AND EXPOSING THEIR WET CROTCHES IN THE PRESENCE OF THIS SKEET, BECAUSE THIS IS LIKE A COSMIC LEVEL BANGER!";
   return "Engagement exists? We might have an error."; // Default case
 }
 
@@ -118,13 +128,15 @@ const BlueskySocial = () => {
     }
   }
 
-  const handlePrevious = () => {
-    setCurrentPostIndex(prevIndex => Math.max(prevIndex - 1, 0));
-  };
-
   const handleNext = () => {
     setCurrentPostIndex(prevIndex => Math.min(prevIndex + 1, posts.length - 1));
-  };
+    document.getElementById('bsky-top').scrollIntoView({ behavior: 'smooth' });
+};
+
+const handlePrevious = () => {
+    setCurrentPostIndex(prevIndex => Math.max(prevIndex - 1, 0));
+    document.getElementById('bsky-top').scrollIntoView({ behavior: 'smooth' });
+};
 
   const toggleLeaderboard = async () => {
     setShowLeaderboard(!showLeaderboard);
@@ -153,11 +165,13 @@ const BlueskySocial = () => {
                      className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' :  ''}`} />
               )}<span class='bsky-lb-date'>{new Date(post.post.record.createdAt).toLocaleDateString()}</span>
               
-              {/*Display the user's handle. If it's a quoted post, both users are credited, but goes by the original post's score. Classes based on postion are placed.*/}
-              <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
+              {/*Display the user's handle. If it's a quoted post, both users are show unless it's a self-quote. Score is based on the original post. Classes based on postion are placed.*/}
+              <div className='bsky-lb-entry-wrapper'>
+              <div className='bsky-lb-user-deets'>
+                <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
                 <a href={`https://bsky.app/profile/${post.post.author.handle}`} target="_blank" rel="noreferrer">@{post.post.author.handle}</a>
               </p>
-              {post.post.embed?.record && (
+              {(post.post.embed?.record && (post.post.embed?.record?.author?.handle || post.post.embed.record.record?.author?.handle) !== post.post?.author?.handle) && (
                 <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
                   <a href={`https://bsky.app/profile/${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}`} target="_blank" rel="noreferrer">
                     @{post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}
@@ -168,14 +182,18 @@ const BlueskySocial = () => {
               <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
                 {post.post.record.text.slice(0, 100)}
               </a>
+              </div>
+              <div className='bsky-lb-score-area'>
               <p className={`bsky-lb-score ${index === 0 ? 'first-score' : index === 1 || index === 2 ? 'runnerup-score' : index >= 3 && index <= 9 ? 'bottom10-score' :  ''}`}>SCORE: {post.scoreDetails.score}</p>
+              </div>
+              </div>
             </li>
           ))}
         </ul>
       </div>
       <div className='bsky-lb-bottom bsky-text'>
-        <p>Post scores are calculated based on post engagement. The more likes, comments, and reskeets a post gets, the higher the score!</p><p>Sounds weird? IT IS! Especially considering it's just my posts along with much more popular people, but if you want engage in this sort of thing, be sure to follow <a href="https://bsky.app/profile/reverendcrush.com" target="_blank" rel="noreferrer">@ReverendCrush.com</a> on Bsky.</p>
-        <div className="flex-center"><button className='bsky-lb-button' onClick={toggleLeaderboard}> GO BACK TO POSTS</button></div>
+        <p>Entries for this leaderboard are pulled from the last 100 posts made by @ReverendCrush.com on BlueSky Social, including reskeets and quote reskeets. Banger Scores are calculated based on engagement on Bsky. The more likes, comments, and reskeets a skeet gets, the higher the score!</p><p>Sounds weird? IT IS! Especially considering it's just my posts along with much more popular people than I really care to be! But if for some reason you want engage in this weird experiment, be sure to follow <a href="https://bsky.app/profile/reverendcrush.com" target="_blank" rel="noreferrer">@ReverendCrush.com</a> on Bsky.</p>
+        <div className="flex-center"><button className='bsky-lb-button' onClick={toggleLeaderboard} href="bsky-top"> GO BACK TO POSTS</button></div>
       </div>
     </div>
     );
@@ -213,15 +231,15 @@ const BlueskySocial = () => {
     });
   };
 
-// Check if there are labels at the post level or the record level and if they contain any items
-const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.post?.record?.labels?.length > 0);  
-const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length > 0 || currentPost.post?.embed?.record?.record?.labels?.length > 0);
+  // Check if there are labels at the post level or the record level and if they contain any items
+  const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.post?.record?.labels?.length > 0);  
+  const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length > 0 || currentPost.post?.embed?.record?.record?.labels?.length > 0);
 
   const { score, ratioPenalty } = calculateBangerScore(currentPost.post);
   const flavorText = getFlavorText(score);
 
   return (
-    <section className='bsky-home'>
+    <section className='bsky-home' id="bsky-top">
       <div className='bsky-latest'><h2>Latest from the Bsky</h2>
       </div>
       <div className='skeet-header'>
