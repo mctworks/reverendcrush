@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import "../styles/Home.css";
-import {killTyped} from './HeaderComponent';
 import BlueskySocial from './BlueskyComponent';
 
 function Home(){
@@ -13,9 +12,9 @@ function Home(){
         <BlueskySocial/>
         <section className="link-list">
         <h2>Site Attractions</h2>
-        <Link onClick={ killTyped } to='/contact'>SO<span className="flicker">CIA</span><span className="fast-flicker">LS</span></Link><br />
-        <Link onClick={ killTyped }to='/projects'>FO<span className="fast-flicker">R </span><span className="flicker">F<span className="about_U flicker">u</span></span>N</Link><br />
-        <Link onClick={ killTyped } to='/about' >B<span className="fast-flicker">I</span><span className="flicker">O</span></Link><br />
+        <Link to='/contact'>SO<span className="flicker">CIA</span><span className="fast-flicker">LS</span></Link><br />
+        <Link to='/projects'>FO<span className="fast-flicker">R </span><span className="flicker">F<span className="about_U flicker">u</span></span>N</Link><br />
+        <Link to='/about' >B<span className="fast-flicker">I</span><span className="flicker">O</span></Link><br />
         </section>
         
         </div>
