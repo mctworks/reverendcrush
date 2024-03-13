@@ -1,3 +1,22 @@
+.for-fun {
+  padding: 50px 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.funBtn {
+  background: #140518;
+  color: #f7f7f7;
+  font-family: "Museo Moderno", sans-serif;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: solid 2px #f7f7f7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .for_fun_blinking {
   background: rgba(6, 71, 69, 0.4117647059);
   font-family: "Megrim", sans-serif;
