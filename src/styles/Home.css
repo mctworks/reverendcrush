@@ -4,12 +4,20 @@ html {
 
 body {
   background-color: #0f152d;
-  font-family: "Righteous", sans-serif;
   font-weight: 600;
   margin: 0px;
   min-height: 100%;
   color: #cdfeff;
-  font-family: "Jost", sans-serif;
+  font-family: "Quicksand", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #2acb70;
+}
+
+.bm-menu {
+  background: #8debe3;
 }
 
 .autotext {

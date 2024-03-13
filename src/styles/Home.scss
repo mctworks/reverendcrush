@@ -6,12 +6,20 @@ html{
 
 body{
     background-color: $home_bg;
-    font-family: $nav_text;
     font-weight: 600;
     margin: 0px;
     min-height: 100%;
     color: $home_txt;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $home_a;
+}
+
+.bm-menu {
+  background: $home1;
 }
 
 .autotext {
