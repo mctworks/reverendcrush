@@ -6,7 +6,7 @@
   grid-area: autotext;
   line-height: 7pt;
   height: 20px;
-  display: flex;
+  display: flex-start;
   align-items: center;
   justify-content: start;
 }
@@ -119,6 +119,5 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-family: "Workbench Slight", sans-serif;
   font-weight: 200;
   font-size: 12px;
-  margin: 2px 0px;
-  color: #cdfeff;
+  color: #8debe3;
 }/*# sourceMappingURL=Header.css.map */

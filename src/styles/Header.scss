@@ -10,6 +10,9 @@
  grid-area: autotext;
  line-height: 7pt;
  height: 20px;
+ display: flex-start; // Adjust to flex to keep text and cursor inline
+ align-items: center; // Center align items vertically
+ justify-content: start; // Align content to the start of the flex container
 }
 
 .nav_link {
@@ -98,8 +101,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 
 .header {
-  display: grid;
-  grid-template-areas: "autotext header_nav";
+  display: inline-flex;
 }
 
 @media (min-width: 350px) {
@@ -120,4 +122,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .nav-logo {
     width: 70%;
   }
+}
+@media (max-width: 320px) {
+  
+}
+
+.typed-cursor {
+  display: inline !important; // Ensure it's always treated as inline
+  font-family: "Workbench Slight", sans-serif;
+  font-weight: 200;
+  font-size: 12px;
+  color: $home1;
 }
