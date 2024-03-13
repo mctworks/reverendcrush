@@ -1,0 +1,36 @@
+@import "variables/variables.scss";
+
+//The "Body" of just ContactComponent.js. Here's everything that gets transitioned to a different color scheme on state change.
+.socials-page {
+    background-color: #27031e;
+    color: #d6c7fd;
+    transition: background-color 0.75s ease, color 0.75s ease;
+
+    .bm-menu {
+        background: #140518;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #63a3fd;
+    }
+}
+
+
+.sm-plus-list {
+    padding: 50px 1rem;
+}
+
+.sm-plus-list h2 {
+    font-family: 'Museo Moderno', sans-serif;
+    color: #aecefa;
+    font-size: 20px;
+}
+
+.get-bent-elon {
+    font-family: 'Nosifer', sans-serif;
+    color: #a30000;
+    font-size: 20px;
+    text-shadow: 2px 2px 0 #150101b5;
+}
+
