@@ -13,9 +13,8 @@ code {
 }
 
 @font-face {
-  font-family: 'Jost';
-  src: url("fonts/Jost-VariableFont_wght.ttf") format("truetype");
-  font-weight: 200;
+  font-family: 'Quicksand';
+  src: url("fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
 }
 
 @font-face {
@@ -61,4 +60,19 @@ code {
 @font-face {
   font-family: 'Press Start 2P';
   src: url("fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Nosifer';
+  src: url("fonts/Nosifer-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Museo Moderno Italic';
+  src: url("fonts/MuseoModerno-Italic-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Museo Moderno';
+  src: url("fonts/MuseoModerno-VariableFont_wght.ttf") format("truetype");
 }
