@@ -6,6 +6,9 @@
   grid-area: autotext;
   line-height: 7pt;
   height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
 .nav_link {
@@ -92,8 +95,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .header {
-  display: grid;
-  grid-template-areas: "autotext header_nav";
+  display: inline-flex;
 }
 
 @media (min-width: 350px) {
@@ -111,4 +113,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .nav-logo {
     width: 70%;
   }
+}
+.typed-cursor {
+  display: inline !important;
+  font-family: "Workbench Slight", sans-serif;
+  font-weight: 200;
+  font-size: 12px;
+  margin: 2px 0px;
+  color: #cdfeff;
 }/*# sourceMappingURL=Header.css.map */

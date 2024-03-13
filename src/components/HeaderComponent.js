@@ -13,9 +13,9 @@ export default function Header() {
 
     useEffect(() => {
         const stringsMap = {
-            "/about": ">> REVCRSH_FUN: Fun stuff that the Rev cobbled together.",
-            "/projects": ">> REVCRSH_BIO: A little about about me, Dr. Reverend Crush!",
-            "/contact": ">> REVCRSH_CON: Ways to contact His Royal Dudeness other than bsky.",
+            "/about": ">> REVCRSH_BIO: A little about about me, Dr. Reverend Crush!",
+            "/projects": ">> REVCRSH_FUN: UNDER CONSTRUCTION!",
+            "/contact": ">> REVCRSH_SOC: All of my socials, plus more!",
             "/": ">> REVCRSH_HOM: Hey Duders! Enjoy your visit!",
         };
         const defaultString = ">> //ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R";
@@ -25,6 +25,14 @@ export default function Header() {
         typedRef.current = new Typed(el.current, {
             strings: strings,
             typeSpeed: 50,
+            onComplete: (self) => {
+                // Attempt to adjust cursor style directly after Typed.js initialization
+                const cursorElement = document.querySelector('.typed-cursor');
+                if (cursorElement) {
+                    cursorElement.style.display = 'inline';
+                    // Additional style adjustments can be made here if necessary
+                }
+            },
         });
 
         // Cleanup function to destroy Typed instance on component unmount or before creating a new instance
