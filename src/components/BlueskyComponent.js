@@ -178,11 +178,20 @@ const handlePrevious = () => {
                   </a>
                 </p>
               )}
-              {/*The first 100 characters of the post, linked to the post on Bsky*/}
+
+              {/*This will display the first 100 characters of the post linked to the post on Bsky. If the post doesn't actually contain text, like if they just posted an image, it'll provide a short '[THIS POST CONTAINS NO TEXT]' string that will link to the post.*/}
+              {post.post.record.text ? (
               <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
                 {post.post.record.text.slice(0, 100)}
+              </a>) : (
+                <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
+                {'[THIS POST CONTAINS NO TEXT]'}
               </a>
+              )
+              }
               </div>
+
+              {/*Score is always displayed. There are classes added based on position on the board.*/}
               <div className='bsky-lb-score-area'>
               <p className={`bsky-lb-score ${index === 0 ? 'first-score' : index === 1 || index === 2 ? 'runnerup-score' : index >= 3 && index <= 9 ? 'bottom10-score' :  ''}`}>SCORE: {post.scoreDetails.score}</p>
               </div>
@@ -198,7 +207,7 @@ const handlePrevious = () => {
     </div>
     );
   }
-//The actually paginated Bsky feed code here.
+//The actually paginated Bsky author post feed code starts here.
   if (posts.length === 0) {
     return <div className='bsky-home skeet-text'>Loading skeets...</div>;
   }
