@@ -1,0 +1,40 @@
+@import "variables/variables.scss";
+
+.bio-page {
+    background: #0e211b;
+    color: #c7fdcb;
+    transition: background-color 1s ease, color 1s ease;
+
+    .bm-menu {
+        background-color: #306957;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #ffb18a;
+    }
+}
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+@media (min-width: 900px) {
+    .shitpic {
+        padding: 1rem 5rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .shitpic {
+        padding: 1rem 10rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .shitpic {
+        padding: 1rem 25rem;
+    }
+}
