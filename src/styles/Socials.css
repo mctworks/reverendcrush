@@ -4,7 +4,7 @@
   transition: background-color 0.75s ease, color 0.75s ease;
 }
 .socials-page .bm-menu {
-  background: #140518;
+  background: #5d4165;
 }
 .socials-page a {
   text-decoration: none;
@@ -24,6 +24,8 @@
 .get-bent-elon {
   font-family: "Nosifer", sans-serif;
   color: #a30000;
-  font-size: 20px;
-  text-shadow: 2px 2px 0 rgba(21, 1, 1, 0.7098039216);
+  font-size: 17px;
+  text-shadow: 2px 2px 0 rgba(35, 11, 11, 0.85);
+  font-weight: 100;
+  -webkit-text-stroke-width: inherit;
 }/*# sourceMappingURL=socials.css.map */

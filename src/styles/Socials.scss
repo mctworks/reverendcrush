@@ -7,7 +7,7 @@
     transition: background-color 0.75s ease, color 0.75s ease;
 
     .bm-menu {
-        background: #140518;
+        background: #5d4165
     }
     
     a {
@@ -28,9 +28,12 @@
 }
 
 .get-bent-elon {
-    font-family: 'Nosifer', sans-serif;
+    font-family: "Nosifer", sans-serif;
     color: #a30000;
-    font-size: 20px;
-    text-shadow: 2px 2px 0 #150101b5;
+    font-size: 17px;
+    text-shadow: 2px 2px 0 rgb(35 11 11 / 85%);
+    font-weight: 100;
+    -webkit-text-stroke-width: inherit;
 }
+
 
