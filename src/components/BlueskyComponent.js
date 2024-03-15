@@ -52,7 +52,7 @@ function calculateBangerScore(post) {
 function getFlavorText(score) {
   if (score < 400) return "Welp, this doesn't seem like a banger, now does it?";
   if (score >= 400 && score < 800) return "Engagement exists, but this isn't a banger.";
-  if (score >= 800 && score < 3000) return "A few folks seem to appreciate this, it seems...";
+  if (score >= 800 && score < 3000) return "A few folks appreciate this, it seems...";
   if (score >= 3000 && score < 4200) return "It's a banger by small account standards, but it's still a banger!";
   if (score === 4200) return "420 x 10 BANGER!";
   if (score > 4200 && score < 6900) return "Now THIS is a hell of a BANGER!";
