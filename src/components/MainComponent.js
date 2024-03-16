@@ -20,9 +20,8 @@ export default function Main (){
 
     return (
         <React.Fragment>
-            <div id="outer-container">
                 <Header/>
-                <div id='page-wrap'>
+                <div id='page-wrap' className="page-wrap">
                     <Routes location={displayLocation}>
                         <Route exact path='/' element={<Home/>} />
                         <Route path='/about' element={<About/>} />
@@ -31,7 +30,7 @@ export default function Main (){
                     </Routes>
                     <Footer/>
                 </div>
-            </div>
         </React.Fragment>
     );
 }
+

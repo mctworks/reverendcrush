@@ -67,7 +67,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 */
 .bm-menu-wrap {
   position: fixed;
+  max-height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+  top: 0;
   height: 100%;
+  overflow-y: auto;
 }
 
 /* General sidebar styles */

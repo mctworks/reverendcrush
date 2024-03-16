@@ -11,6 +11,11 @@ body{
     min-height: 100%;
     color: $home_txt;
     font-family: 'Quicksand', sans-serif;
+    //height: 100%;
+}
+
+.page-wrap{
+  overflow: auto;
 }
 
 a {
@@ -531,6 +536,10 @@ li.first-place-li::marker{
   .first-score {
     font-size: 22px;
   }
+
+  .nav-logo {
+    width: 50%;
+  }
 }
 
 @media (min-width: 1225px) {
@@ -593,6 +602,10 @@ li.first-place-li::marker{
 
   .bsky-home {
     margin: 5rem 20rem;
+  }
+
+  .nav-logo {
+    width: 35%;
   }
 }
 

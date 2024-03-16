@@ -11,6 +11,10 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+.page-wrap {
+  overflow: auto;
+}
+
 a {
   text-decoration: none;
   color: #86e581;
@@ -495,6 +499,9 @@ li.first-place-li::marker {
   .first-score {
     font-size: 22px;
   }
+  .nav-logo {
+    width: 50%;
+  }
 }
 @media (min-width: 1225px) {
   .home-links {
@@ -543,6 +550,9 @@ li.first-place-li::marker {
   }
   .bsky-home {
     margin: 5rem 20rem;
+  }
+  .nav-logo {
+    width: 35%;
   }
 }
 @media (min-width: 2000px) {

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import "../styles/Socials.css";
+import { Helmet } from 'react-helmet';
 
 function Contact(){
     useEffect(() => {

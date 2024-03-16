@@ -217,18 +217,13 @@ const handlePrevious = () => {
   const isYoutubeUri = youtubeUri !== null && (youtubeUri.includes('youtube.com') || youtubeUri.includes('youtu.be'));
   const youtubeVideoId = isYoutubeUri ? getPostYoutubeId(youtubeUri) : null;
 
-  console.log('Current post:', currentPost); // Debugging log to inspect the currentPost object
-  console.log('URI:', youtubeUri);
-  console.log('Type of URI:', typeof youtubeUri);
-
   if (!currentPost || !currentPost.post || !currentPost.post.record) {
     console.error("Current post is undefined or missing the record property:", currentPost);
     return <div className='bsky-home skeet-text'>Error loading skeet...</div>;
   }
 
   const parseText = (text) => {
-    console.log('parseText called with:', text); // Debugging log
-    if (!text) return ''; // Return an empty string if text is undefined
+   if (!text) return ''; // Return an empty string if text is undefined
     const usernameRegex = /@(\w+(?:\.\w+)*)(?=[^\w.@]|$)/g;
 
     return text.split(usernameRegex).map((part, index) => {
@@ -286,10 +281,7 @@ const handlePrevious = () => {
     ))}
   </div>
 )}
-        {console.log}
-        {console.log("Labels:", currentPost.post?.record?.labels?.values)}
-        {console.log("Type of labels:", typeof currentPost.post?.record?.labels?.values)}
-        {console.log("labels.[0].val:", currentPost.post?.labels?.[0]?.val)}
+       
         {/* Display YouTube embeds */}
         
           
