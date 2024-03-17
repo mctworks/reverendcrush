@@ -12,7 +12,7 @@
  height: 20px;
  display: flex-start; // Adjust to flex to keep text and cursor inline
  align-items: center; // Center align items vertically
- justify-content: start; // Align content to the start of the flex container
+ justify-content: flex-start; // Align content to the start of the flex container
 }
 
 .nav_link {

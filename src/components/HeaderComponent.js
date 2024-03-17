@@ -41,12 +41,6 @@ export default function Header() {
         };
     }, [location.pathname]); // Re-run effect when location changes
 
-    const killTyped = () => {
-        if (typedRef.current) {
-            typedRef.current.destroy();
-            typedRef.current = null;
-        }
-    };
 
     const handleStateChange = (state) => {
         setMenuOpen(state.isOpen);

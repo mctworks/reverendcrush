@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.53345a61.css",
-    "main.js": "/static/js/main.c023712b.js",
-    "static/js/453.a5537ab4.chunk.js": "/static/js/453.a5537ab4.chunk.js",
+    "main.css": "/static/css/main.f836843a.css",
+    "main.js": "/static/js/main.de9f1f1a.js",
+    "static/js/453.116e59db.chunk.js": "/static/js/453.116e59db.chunk.js",
     "static/media/rev_crt.png": "/static/media/rev_crt.a5f04db4e7483b5a7677.png",
     "static/media/MuseoModerno-Italic-VariableFont_wght.ttf": "/static/media/MuseoModerno-Italic-VariableFont_wght.00b9aa8db90aa81f130f.ttf",
     "static/media/MuseoModerno-VariableFont_wght.ttf": "/static/media/MuseoModerno-VariableFont_wght.c3e6dc0e35b2556623d1.ttf",
+    "static/media/dudecommission_hunty.jpg": "/static/media/dudecommission_hunty.ab933fe8bab1fad7de7d.jpg",
     "static/media/Jost-Italic-VariableFont_wght.ttf": "/static/media/Jost-Italic-VariableFont_wght.5b689e2851a816ed42ee.ttf",
     "static/media/Quicksand-VariableFont_wght.ttf": "/static/media/Quicksand-VariableFont_wght.b964ff93d9cb23e7f4c0.ttf",
     "static/media/PressStart2P-Regular.ttf": "/static/media/PressStart2P-Regular.21503c6a5385ab41dde9.ttf",
@@ -19,12 +20,12 @@
     "static/media/MontserratSubrayada-Regular.ttf": "/static/media/MontserratSubrayada-Regular.16f1cba4dfd9be8d6ba1.ttf",
     "static/media/dudeist_yinyang.png": "/static/media/dudeist_yinyang.f370ccd91e7d19228400.png",
     "index.html": "/index.html",
-    "main.53345a61.css.map": "/static/css/main.53345a61.css.map",
-    "main.c023712b.js.map": "/static/js/main.c023712b.js.map",
-    "453.a5537ab4.chunk.js.map": "/static/js/453.a5537ab4.chunk.js.map"
+    "main.f836843a.css.map": "/static/css/main.f836843a.css.map",
+    "main.de9f1f1a.js.map": "/static/js/main.de9f1f1a.js.map",
+    "453.116e59db.chunk.js.map": "/static/js/453.116e59db.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.53345a61.css",
-    "static/js/main.c023712b.js"
+    "static/css/main.f836843a.css",
+    "static/js/main.de9f1f1a.js"
   ]
 }

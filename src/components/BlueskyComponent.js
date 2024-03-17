@@ -158,7 +158,7 @@ const handlePrevious = () => {
           {leaderboardPosts.map((post, index) => (
             <li className={`${index === 0 ? 'first-place-li' : index === 1 || index === 2 ? 'runnerup-li' : index >= 3 && index <= 9 ? 'bottom10-li' :  ''}`} key={index}>
               {/*Display the user's avatar. If it's a quoted post, both users' avatars appear, but goes by the score of the original post. Classes are added based on position. Also, the date of the post should show up next to the avatar(s)*/}
-              <img src={post.post.author.avatar} alt={`${post.post.author.handle}'s avatar`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' : ''}`} />
+              <img src={post.post.author.avatar} alt={`${post.post.author.handle}'s lovely pfp`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' : ''}`} />
               {post.post.embed?.record && (
                 <img src={post.post.embed.record.author?.avatar || post.post.embed.record.record?.author?.avatar} 
                      alt={`${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}'s avatar`} 
@@ -275,8 +275,8 @@ const handlePrevious = () => {
   <div className='skeet-image-group'>
     {Array.isArray(currentPost.post.embed?.images || currentPost.post.embed?.media?.images) && (currentPost.post.embed?.images || currentPost.post.embed?.media?.images).map((image, index) => (
       <div key={index}>
-        <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
-        <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
+        <img key={index} src={image.fullsize} alt={image.alt || 'No Alt Text. (@ReverendCrush.com is not to blame}'} loading="lazy" className='skeet-img-file' />
+        <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
       </div>
     ))}
   </div>
@@ -304,7 +304,7 @@ const handlePrevious = () => {
           !(currentPost.post.embed?.external?.uri.includes('youtube.com') || currentPost.post.embed?.external?.uri.includes('youtu.be') ||
           currentPost.post.embed?.media?.external?.uri.includes('youtube.com') || currentPost.post.embed?.media?.external?.uri.includes('youtu.be') ) && (
             <div className='skeet-web-media'>
-              <a href={currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri}><img className='webcard-img' src={currentPost.post?.embed?.external?.thumb || currentPost.post.embed?.media?.external?.thumb}></img></a>
+              <a href={currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri}><img className='webcard-img' src={currentPost.post?.embed?.external?.thumb || currentPost.post.embed?.media?.external?.thumb} alt={currentPost.post?.embed?.external?.title || currentPost.post.embed?.media?.external?.title || 'Alt Text not available for some reason...'} loading="lazy"></img></a>
               <div className='web-deets'>
                 <h3>{currentPost.post.embed?.external?.title || currentPost.post.embed?.media?.external?.title}</h3>
                 <p className='skeet-metatext'>{currentPost.post.embed?.external?.description || currentPost.post.embed?.media?.external?.description}</p>
@@ -317,8 +317,8 @@ const handlePrevious = () => {
         {currentPost.post?.embed?.record && (
         <div className="quote-reskeet-box">
         <div className="skeet-header">
-        <img src={currentPost.post.embed.record.author?.avatar || currentPost.post.embed.record.record?.author?.avatar} 
-              alt={`HEY LOOK IT'S ${currentPost.post.embed.record.author?.name || currentPost.post.embed.record.record?.author?.name}'s STUPID PFP. MySPACE WAS A PSyOP!`} 
+        <img src={currentPost.post.embed.record.author?.avatar || currentPost.post.embed.record.record?.author?.avatar}
+              alt={`HEY LOOK IT'S ${currentPost.post.embed.record.author?.name || currentPost.post.embed.record.record?.author?.name}'s STUPID PFP. MySPACE WAS A PSyOP!` || 'PFP of an nameless author, apparently...'} 
               className='author-avatar' />
           <span className='skeet-quote-author'>Now Reskeeting...<br/> 
           <a href={`https://bsky.app/profile/${currentPost.post.embed.record.author?.handle || currentPost.post.embed.record.record?.author?.handle}`} 
@@ -349,7 +349,7 @@ const handlePrevious = () => {
             return embed.images?.map((image, imgIndex) => (
               <div key={`embed-${embedIndex}-img-${imgIndex}`}>
                 <img src={image.fullsize} alt={image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."} loading="lazy" className='skeet-img-file' />
-                <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."}</p>
+                <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."}</p>
               </div>
             ));
           }
@@ -361,8 +361,8 @@ const handlePrevious = () => {
       <div className='skeet-image-group'>
               {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images) && currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images.map((image, index) => (
                 <div key={index}>
-                    <img key={index} src={image.fullsize} alt={image.alt} loading="lazy" className='skeet-img-file' />
-                    <br/><p className='skeet-metatext'>//ALT TEXT: {image.alt || 'WARNING: (NULL TEXT). No yelling at @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
+                    <img key={index} src={image.fullsize} alt={image.alt || 'Alt text not provided'} loading="lazy" className='skeet-img-file' />
+                    <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || 'WARNING: (NULL TEXT). No yelling at @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
                 </div>
               ))}
       </div>
@@ -394,7 +394,7 @@ const handlePrevious = () => {
             currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri.includes('youtu.be') ) && (
               <div>
                 <div className='skeet-web-media'>
-                  <a href={(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri)}><img className='webcard-img' src={(currentPost.embed?.record?.value?.embed?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.thumb || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.thumb)} /></a>
+                  <a href={(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri)}><img className='webcard-img' src={(currentPost.embed?.record?.value?.embed?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.thumb || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.thumb)} alt={(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.title) || 'Title not available. WEIRD...'} /></a>
                 </div>
                 <div className='web-deets'>
                   <h3>{(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.title)}</h3>
