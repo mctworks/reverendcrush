@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import "../styles/Bio.css";
 import shitpic from "../img/dudecommission_hunty.jpg";
-import { Helmet } from 'react-helmet';
 
 function About(){
     useEffect(() => {

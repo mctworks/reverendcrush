@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import "../styles/Projects.css";
-import { Helmet } from 'react-helmet';
 
 function Projects(){
     return (<React.Fragment>

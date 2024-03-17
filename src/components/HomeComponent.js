@@ -2,11 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import "../styles/Home.css";
 import BlueskySocial from './BlueskyComponent';
-import { Helmet } from 'react-helmet';
 
 function Home(){
 
     return (<React.Fragment>
+        <div>
+        </div>
         <p className="h1-mini">Hey kids! It's</p>
         <h1 className='brand'>ReverendCrush<span className="h1-mini">.com</span>!</h1>
         <div className='home-links'>
