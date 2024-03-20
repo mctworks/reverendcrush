@@ -37,6 +37,7 @@ h1.brand {
     height: 10pt;
     font-size: 6vw;
     padding: 0 5px;
+    font-weight: 100;
 }
 
 p.h1-mini {
@@ -99,7 +100,7 @@ h2 {
 }
 
 h3.bsky-home {
-  font-family: 'Sixtyfour Slight';
+  font-family: 'Sixtyfour Slight', sans-serif;
 }
 
 .bsky-text, .bsky-text a{
@@ -341,7 +342,7 @@ img.reskeet-pfp {
 
 .bsky-lb-date {
   font-size: 12px;
-  font-family: 'Workbench Evenly';
+  font-family: 'Workbench Close', sans-serif;
 }
 
 ul.bsky-lb-list {
@@ -412,7 +413,7 @@ li.first-place-li::marker{
 }
 
 .bsky-lb-postsnip {
-  font-family: 'Workbench Evenly', sans-serif !important;
+  font-family: 'Workbench Close', sans-serif !important;
   font-size: 12px !important;
   white-space: pre-line;
   overflow-wrap: anywhere !important;

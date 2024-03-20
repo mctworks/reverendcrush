@@ -43,7 +43,42 @@ code {
 }
 
 @font-face {
+  font-family: 'Sixtyfour Evenly';
+  src: url("fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sixtyfour Slight';
+  src: url("fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sixtyfour Close';
+  src: url("fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sixtyfour Delicate';
+  src: url("fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
   font-family: 'Workbench';
+  src: url("fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Workbench Close';
+  src: url("fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Workbench Slight';
+  src: url("fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Workbench Evenly';
   src: url("fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
 }
 
