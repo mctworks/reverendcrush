@@ -81,7 +81,7 @@ function getFlavorText(score) {
 
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com'; //Your Bsky handle. If you're using a default, it's something like YOURNAME.bsky.social
-  const APP_PASSWORD = 'Y0UR-APP#-PASS-W0RD'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
+  const APP_PASSWORD = 'y0ur-app#-pass-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
   const SERVICE_URL = 'https://bsky.social';
 
   const [posts, setPosts] = useState([]);
@@ -202,7 +202,7 @@ const handlePrevious = () => {
       </div>
       <div className='bsky-lb-bottom bsky-text'>
         <p>Entries for this leaderboard are pulled from the last 100 posts made by @ReverendCrush.com on BlueSky Social, including reskeets and quote reskeets. Banger Scores are calculated based on engagement on Bsky. The more likes, comments, and reskeets a skeet gets, the higher the score!</p><p>Sounds weird? IT IS! Especially considering it's just my posts along with much more popular people than I really care to be! But if for some reason you want engage in this weird experiment, be sure to follow <a href="https://bsky.app/profile/reverendcrush.com" target="_blank" rel="noreferrer">@ReverendCrush.com</a> on Bsky.</p>
-        <div className="flex-center"><button className='bsky-lb-button' onClick={toggleLeaderboard} href="bsky-top"> GO BACK TO POSTS</button></div>
+        <div className="flex-center"><button className='bsky-lb-button' onClick={toggleLeaderboard} href="bsky-top"> GO BACK TO SKEETS</button></div>
       </div>
     </div>
     );
