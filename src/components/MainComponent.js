@@ -7,30 +7,33 @@ import Projects from './ProjectsComponent';
 import Contact from './ContactComponent';
 import "../styles/Main.css";
 
-import {Routes, Route, useLocation} from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
-export default function Main (){
-    const location = useLocation();
-    const [displayLocation, setDisplayLocation] = useState(location);
+// Custom hook to scroll to the top on route change
+const useScrollToTop = () => {
+  const location = useLocation();
 
-    useEffect(() => {
-        // Update displayLocation whenever the location changes
-        setDisplayLocation(location);
-    }, [location]); // Depend on location to trigger the effect
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]); // This effect will run when the location changes
+};
 
-    return (
-        <React.Fragment>
-                <Header/>
-                <div id='page-wrap' className="page-wrap">
-                    <Routes location={displayLocation}>
-                        <Route exact path='/' element={<Home/>} />
-                        <Route path='/about' element={<About/>} />
-                        <Route path='/projects' element={<Projects/>} />
-                        <Route path='/contact' element={<Contact/>} />
-                    </Routes>
-                    <Footer/>
-                </div>
-        </React.Fragment>
-    );
+export default function Main() {
+  useScrollToTop(); // Call the custom hook
+
+  return (
+    <React.Fragment>
+      <Header />
+      <div id='page-wrap' className="page-wrap">
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+    </React.Fragment>
+  );
 }
 
