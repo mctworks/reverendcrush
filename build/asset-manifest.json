@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f836843a.css",
-    "main.js": "/static/js/main.de9f1f1a.js",
+    "main.css": "/static/css/main.29aaed8c.css",
+    "main.js": "/static/js/main.70b53070.js",
     "static/js/453.116e59db.chunk.js": "/static/js/453.116e59db.chunk.js",
     "static/media/rev_crt.png": "/static/media/rev_crt.a5f04db4e7483b5a7677.png",
     "static/media/MuseoModerno-Italic-VariableFont_wght.ttf": "/static/media/MuseoModerno-Italic-VariableFont_wght.00b9aa8db90aa81f130f.ttf",
@@ -20,12 +20,12 @@
     "static/media/MontserratSubrayada-Regular.ttf": "/static/media/MontserratSubrayada-Regular.16f1cba4dfd9be8d6ba1.ttf",
     "static/media/dudeist_yinyang.png": "/static/media/dudeist_yinyang.f370ccd91e7d19228400.png",
     "index.html": "/index.html",
-    "main.f836843a.css.map": "/static/css/main.f836843a.css.map",
-    "main.de9f1f1a.js.map": "/static/js/main.de9f1f1a.js.map",
+    "main.29aaed8c.css.map": "/static/css/main.29aaed8c.css.map",
+    "main.70b53070.js.map": "/static/js/main.70b53070.js.map",
     "453.116e59db.chunk.js.map": "/static/js/453.116e59db.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f836843a.css",
-    "static/js/main.de9f1f1a.js"
+    "static/css/main.29aaed8c.css",
+    "static/js/main.70b53070.js"
   ]
 }
