@@ -179,15 +179,17 @@ const handlePrevious = () => {
                 </p>
               )}
 
-              {/*This will display the first 100 characters of the post linked to the post on Bsky. If the post doesn't actually contain text, like if they just posted an image, it'll provide a short '[THIS POST CONTAINS NO TEXT]' string that will link to the post.*/}
+              {/*This will display the first 120 characters of either the post or the alt text of the first image (if no actual post text is available) linked to the post on Bsky. If the post doesn't actually contain either, e.g. an image without Alt Text, it'll provide a short '[THIS POST CONTAINS NO TEXT]' string that will link to the post.*/}
               {post.post.record.text ? (
               <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
-                {post.post.record.text.slice(0, 100)}
-              </a>) : (
+                {post.post.record.text.slice(0, 120)}
+              </a>) : (post.post.embed?.images[0].alt || post.post.embed?.media?.images[0].alt) ? (
+                <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
+                {'//IMG ALT TEXT: '}{(post.post.embed?.images[0].alt || post.post.embed?.media?.images[0].alt).slice(0, 120)}
+              </a>) :
                 <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
                 {'[THIS POST CONTAINS NO TEXT]'}
               </a>
-              )
               }
               </div>
 
