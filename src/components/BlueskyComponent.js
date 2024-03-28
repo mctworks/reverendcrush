@@ -83,7 +83,7 @@ function getFlavorText(score) {
 
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com'; //Your Bsky handle. If you're using a default, it's something like YOURNAME.bsky.social
-  const APP_PASSWORD = 'sdci-n5fs-ecwg-zmfx'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
+  const APP_PASSWORD = 'y0ur-app#-pass-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
   const SERVICE_URL = 'https://bsky.social';
 
   const [posts, setPosts] = useState([]);
