@@ -23,11 +23,13 @@ const getYouTubeUri = (post) => {
 
 const getPostYoutubeId = (url) => {
   let id = '';
-  if (url.includes('youtube.com')) {
+  if (url.includes('youtube.com/watch')) {
     const urlParams = new URLSearchParams(new URL(url).search);
     id = urlParams.get('v');
   } else if (url.includes('youtu.be')) {
     id = url.split('youtu.be/')[1].split('?')[0];
+  } else if (url.includes('youtube.com/shorts')) {
+    id = url.split('youtube.com/shorts/')[1].split('?')[0];
   }
   return id;
 };
@@ -57,7 +59,7 @@ function getFlavorText(score) {
   if (score === 4200) return "420 x 10 BANGER!";
   if (score > 4200 && score < 6900) return "Now THIS is a hell of a BANGER!";
   if (score === 6900) return "69-hundred BANGER! NICE!";
-  if (score > 6900 && score < 8000) return "Not a SUPER Banger, but almost...";
+  if (score > 6900 && score < 9000) return "Not a SUPER Banger, but almost...";
   if (score > 9000 && score < 20000) return "THIS BANGER IS OVER 9000!!!!!";
   if (score >= 20000 && score < 35000) return "THIS QUALITY SUPER BANGER IS GOING PLACES!!!!";
   if (score >= 35000 && score < 42000) return "IT'S A SUPER BANGER LEVEL 3!!!! ";
@@ -81,7 +83,7 @@ function getFlavorText(score) {
 
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com'; //Your Bsky handle. If you're using a default, it's something like YOURNAME.bsky.social
-  const APP_PASSWORD = 'y0ur-app#-pass-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
+  const APP_PASSWORD = 'sdci-n5fs-ecwg-zmfx'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
   const SERVICE_URL = 'https://bsky.social';
 
   const [posts, setPosts] = useState([]);
@@ -218,7 +220,7 @@ const handlePrevious = () => {
   const youtubeUri = getYouTubeUri(currentPost);
   const isYoutubeUri = youtubeUri !== null && (youtubeUri.includes('youtube.com') || youtubeUri.includes('youtu.be'));
   const youtubeVideoId = isYoutubeUri ? getPostYoutubeId(youtubeUri) : null;
-
+  console.log('currentPost:', currentPost);
   if (!currentPost || !currentPost.post || !currentPost.post.record) {
     console.error("Current post is undefined or missing the record property:", currentPost);
     return <div className='bsky-home skeet-text'>Error loading skeet...</div>;
