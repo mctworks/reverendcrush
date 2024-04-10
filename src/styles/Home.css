@@ -210,13 +210,33 @@ a.skeet-author {
   font-weight: 500;
   line-height: 1rem;
   word-break: break-word;
-  padding: 5px 1rem 15px 1rem;
+  padding: 5px 0.25rem 15px 0.25rem;
   letter-spacing: 0.05rem;
+}
+
+.skeet-text a {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 13px;
+}
+
+.jp-text {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1rem;
+  word-break: break-word;
+  padding: 5px 0.25rem 15px 0.25rem;
+  letter-spacing: 0.05rem;
+}
+
+.jp-text a {
+  font-family: "DotGothic16", sans-serif;
+  font-size: 16px;
 }
 
 .skeet-banger-score, .skeet-banger-score a {
   font-family: "Sixtyfour Evenly", sans-serif;
-  font-size: 13px;
+  font-size: 13px !important;
   color: #ffdcf6;
 }
 
