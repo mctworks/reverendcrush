@@ -46,4 +46,8 @@
   font-family: "Museo Moderno";
   src: url("./MuseoModerno-VariableFont_wght.ttf") format("truetype");
 }
+@font-face {
+  font-family: "DotGothic16";
+  src: url("./DotGothic16-Regular.ttf") format("truetype");
+}
 /*# sourceMappingURL=fonts.css.map */

@@ -81,9 +81,66 @@ function getFlavorText(score) {
   return "Engagement exists? We might have an error."; // Default case
 }
 
+
+
+// Function to render text content with Japanese styling and username links
+const renderTextContent = (textContent) => {
+  // Function to split text into Japanese and non-Japanese segments
+  const splitJapaneseText = (text) => {
+    const regex = /([\u3000-\u30FF\uFF00-\uFFEF\u4E00-\u9FAF\u3400-\u4DBF]+)/;
+    return text.split(regex).filter(Boolean); // Split and remove empty strings
+  };
+
+  return parseText(textContent).flatMap((part, index) => {
+    // Check if the part is a string
+    if (typeof part === 'string') {
+      // Split the string into segments of Japanese and non-Japanese text
+      const segments = splitJapaneseText(part);
+      return segments.map((segment, segmentIndex) => {
+        // Apply 'DotGothic16' font only to Japanese text segments
+        if (/[\u3000-\u30FF\uFF00-\uFFEF\u4E00-\u9FAF\u3400-\u4DBF]+/.test(segment)) {
+          return <span key={`${index}-${segmentIndex}`} style={{ fontFamily: 'DotGothic16', fontSize: '16px', lineHeight: '2rem' }}>{segment}</span>;
+        } else {
+          return segment;
+        }
+      });
+    } else {
+      // Return non-string parts (e.g., JSX elements from parseText) unchanged
+      return <React.Fragment key={index}>{part}</React.Fragment>;
+    }
+  });
+};
+
+const parseText = (text) => {
+  if (!text) return []; // Ensure an empty array is returned if there's no text
+  const usernameRegex = /@(\w+(?:\.\w+)*)(?=[^\w.@]|$)/g;
+  const parts = [];
+  let match;
+  let lastIndex = 0;
+
+  // Find all username matches and push text and links into parts array
+  while ((match = usernameRegex.exec(text)) !== null) {
+    // Push text before username
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    // Push username link
+    const username = match[1];
+    parts.push(<a href={`https://bsky.app/profile/${username}`} target="_blank" rel="noreferrer">@{username}</a>);
+    lastIndex = usernameRegex.lastIndex;
+  }
+
+  // Push remaining text after the last username
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts;
+};
+
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com'; //Your Bsky handle. If you're using a default, it's something like YOURNAME.bsky.social
-  const APP_PASSWORD = 'y0ur-app#-pass-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
+  const APP_PASSWORD = 'y0ur-app#-p4ss-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
   const SERVICE_URL = 'https://bsky.social';
 
   const [posts, setPosts] = useState([]);
@@ -91,6 +148,7 @@ const BlueskySocial = () => {
   const [error, setError] = useState(null);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [leaderboardPosts, setLeaderboardPosts] = useState([]);
+  
 
   useEffect(() => {
     fetchData();
@@ -226,19 +284,6 @@ const handlePrevious = () => {
     return <div className='bsky-home skeet-text'>Error loading skeet...</div>;
   }
 
-  const parseText = (text) => {
-   if (!text) return ''; // Return an empty string if text is undefined
-    const usernameRegex = /@(\w+(?:\.\w+)*)(?=[^\w.@]|$)/g;
-
-    return text.split(usernameRegex).map((part, index) => {
-      if (index % 2 === 0) {
-        return part; // Normal text
-      } else {
-        return <a href={`https://bsky.app/profile/${part}`} target="_blank" rel="noreferrer">@{part}</a>; // Link to user profile
-      }
-    });
-  };
-
   // Check if there are labels at the post level or the record level and if they contain any items
   const hasContentWarning = (currentPost.post?.labels?.length > 0 || currentPost.post?.record?.labels?.length > 0);  
   const quoteHasContentWarning = (currentPost.post?.embed?.record?.labels?.length > 0 || currentPost.post?.embed?.record?.record?.labels?.length > 0);
@@ -263,8 +308,11 @@ const handlePrevious = () => {
         ) : null}
         
         {/*Skeet text*/}
-        <p style={{ whiteSpace: 'pre-line' }}>{parseText(currentPost?.post?.record?.text ?? 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. But no yelling at them either, alright? Be cool, man. Be cool.')}</p>
-        
+        <div style={{ whiteSpace: 'pre-line' }}>
+          {renderTextContent(currentPost.post.record.text).map((element, index) => (
+            <React.Fragment key={index}>{element}</React.Fragment>
+          ))}
+        </div>        
         {/* Displays a content warning if it's flagged for anything, otherwise it displays skeet images images */}
         {hasContentWarning ? (
       <div className='skeet-cw'>
@@ -333,7 +381,9 @@ const handlePrevious = () => {
           </span>
           </div>
           <div className="skeet-text">
-            {parseText(currentPost.post.embed.record.value?.text || currentPost.post.embed.record.record?.value?.text)}
+            {renderTextContent(currentPost.post.embed.record.value?.text || currentPost.post.embed.record.record?.value?.text).map((segment, index) => (
+              <React.Fragment key={index}>{segment}</React.Fragment>
+            ))}
           </div>
 
         {/* Display images from the quoted skeet, provided it passes a Content Warning check */}
