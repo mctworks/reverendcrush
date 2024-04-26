@@ -140,7 +140,7 @@ const parseText = (text) => {
 
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com'; //Your Bsky handle. If you're using a default, it's something like YOURNAME.bsky.social
-  const APP_PASSWORD = 'y0ur-app#-p4ss-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
+  const APP_PASSWORD = 'y0ur-4pp#-p455-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
   const SERVICE_URL = 'https://bsky.social';
 
   const [posts, setPosts] = useState([]);
@@ -413,7 +413,7 @@ const handlePrevious = () => {
       
       {/* Displaying images from quote skeet when the original post also has image(s) */}
       <div className='skeet-image-group'>
-              {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images) && currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images.map((image, index) => (
+              {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images || currentPost.post?.embed?.record?.embeds[0]?.media?.images) && (currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images || currentPost.post?.embed?.record?.embeds[0]?.media?.images).map((image, index) => (
                 <div key={index}>
                     <img key={index} src={image.fullsize} alt={image.alt || 'Alt text not provided'} loading="lazy" className='skeet-img-file' />
                     <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || 'WARNING: (NULL TEXT). No yelling at @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
@@ -466,13 +466,13 @@ const handlePrevious = () => {
     {ratioPenalty && <p className='skeet-metatext'>WARNING: RATIO PENALTY!!</p>}
     <p className='banger-score-text'>{flavorText}</p>
     <div className='flex-center'><button className='bsky-lb-button' onClick={toggleLeaderboard}>VIEW LEADERBOARD</button></div>
-    <p className='banger-score-text'>FOLLOW <a href='https://bsky.app/profile/reverendcrush.com' target="_blank" rel="noreferrer">@REVERENDCRUSH.COM</a> ON BLUESKY SOCIAL, AND BE SURE TO LIKE, COMMENT, AND/OR RESKEET THIS POST TO INCREASE THIS SKEET'S BANGER SCORE, AS WELL AS OTHERS!!</p>
   </div>
       </div>
       <div className="pagination-controls">
       <button className='bsky-pag-button' onClick={handleNext} disabled={currentPostIndex >= posts.length - 1}>← PRV.</button>
         <button className='bsky-pag-button' onClick={handlePrevious} disabled={currentPostIndex === 0}>NXT. →</button>  
       </div>
+      <div><p className='skeet-text'>FOLLOW <a href='https://bsky.app/profile/reverendcrush.com' target="_blank" rel="noreferrer">@REVERENDCRUSH.COM</a> ON BLUESKY SOCIAL!!</p></div>
     </section>
   );
 };
