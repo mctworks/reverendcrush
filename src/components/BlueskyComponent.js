@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BskyAgent } from '@atproto/api';
 import YouTube from 'react-youtube';
+import noMediaImg from "../img/no_media_img.jpg";
 
 const getYouTubeUri = (post) => {
   // Define all possible paths to the uri
@@ -81,8 +82,6 @@ function getFlavorText(score) {
   return "Engagement exists? We might have an error."; // Default case
 }
 
-
-
 // Function to render text content with Japanese styling and username links
 const renderTextContent = (textContent) => {
   // Function to split text into Japanese and non-Japanese segments
@@ -140,7 +139,7 @@ const parseText = (text) => {
 
 const BlueskySocial = () => {
   const HANDLE = 'reverendcrush.com'; //Your Bsky handle. If you're using a default, it's something like YOURNAME.bsky.social
-  const APP_PASSWORD = 'y0ur-4pp#-p455-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
+  const APP_PASSWORD = 'y0ur-4pp#-p4ss-w0rd'; //Your Bsky App Password. BE SURE TO USE AN APP PASSWORD SET UP THROUGH BSKY and not your standard password.
   const SERVICE_URL = 'https://bsky.social';
 
   const [posts, setPosts] = useState([]);
@@ -205,71 +204,71 @@ const handlePrevious = () => {
   if (error) {
     return <div className='bsky-home skeet-text'>BlueSky Error: {error}</div>;
   }
-//LEADERBOARD CODE HERE!!
-  if (showLeaderboard) {
-    return (
-      <div className='bsky-home'>
-        <div className='bsky-latest'><h2>SKEET LEADERBOARD</h2>
-        <p className='bsky-text'>TOP 25 BSKY BANGERS VIA @REVERENDCRUSH.COM</p>
-        <button className='bsky-lb-button' onClick={toggleLeaderboard}>GO BACK</button>
-      </div>
-        <div className='bsky-lb'>
-        <ul className='bsky-lb-list'>
-          {leaderboardPosts.map((post, index) => (
-            <li className={`${index === 0 ? 'first-place-li' : index === 1 || index === 2 ? 'runnerup-li' : index >= 3 && index <= 9 ? 'bottom10-li' :  ''}`} key={index}>
-              {/*Display the user's avatar. If it's a quoted post, both users' avatars appear, but goes by the score of the original post. Classes are added based on position. Also, the date of the post should show up next to the avatar(s)*/}
-              <img src={post.post.author.avatar} alt={`${post.post.author.handle}'s lovely pfp`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' : ''}`} />
-              {post.post.embed?.record && (
-                <img src={post.post.embed.record.author?.avatar || post.post.embed.record.record?.author?.avatar} 
-                     alt={`${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}'s avatar`} 
-                     className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' :  ''}`} />
-              )}<span class='bsky-lb-date'>{new Date(post.post.record.createdAt).toLocaleDateString()}</span>
-              
-              {/*Display the user's handle. If it's a quoted post, both users are show unless it's a self-quote. Score is based on the original post. Classes based on postion are placed.*/}
-              <div className='bsky-lb-entry-wrapper'>
-              <div className='bsky-lb-user-deets'>
-                <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
-                <a href={`https://bsky.app/profile/${post.post.author.handle}`} target="_blank" rel="noreferrer">@{post.post.author.handle}</a>
-              </p>
-              {(post.post.embed?.record && (post.post.embed?.record?.author?.handle || post.post.embed.record.record?.author?.handle) !== post.post?.author?.handle) && (
-                <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
-                  <a href={`https://bsky.app/profile/${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}`} target="_blank" rel="noreferrer">
-                    @{post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}
-                  </a>
-                </p>
-              )}
-
-              {/*This will display the first 120 characters of either the post or the alt text of the first image (if no actual post text is available) linked to the post on Bsky. If the post doesn't actually contain either, e.g. an image without Alt Text, it'll provide a short '[THIS POST CONTAINS NO TEXT]' string that will link to the post.*/}
-              {post.post.record.text ? (
-              <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
-                {post.post.record.text.slice(0, 120)}
-              </a>) : (post.post.embed?.images[0].alt || post.post.embed?.media?.images[0].alt) ? (
-                <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
-                {'//IMG ALT TEXT: '}{(post.post.embed?.images[0].alt || post.post.embed?.media?.images[0].alt).slice(0, 120)}
-              </a>) :
-                <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
-                {'[THIS POST CONTAINS NO TEXT]'}
-              </a>
-              }
-              </div>
-
-              {/*Score is always displayed. There are classes added based on position on the board.*/}
-              <div className='bsky-lb-score-area'>
-              <p className={`bsky-lb-score ${index === 0 ? 'first-score' : index === 1 || index === 2 ? 'runnerup-score' : index >= 3 && index <= 9 ? 'bottom10-score' :  ''}`}>SCORE: {post.scoreDetails.score}</p>
-              </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className='bsky-lb-bottom bsky-text'>
-        <p>Entries for this leaderboard are pulled from the last 100 posts made by @ReverendCrush.com on BlueSky Social, including reskeets and quote reskeets. Banger Scores are calculated based on engagement on Bsky. The more likes, comments, and reskeets a skeet gets, the higher the score!</p><p>Sounds weird? IT IS! Especially considering it's just my posts along with much more popular people than I really care to be! But if for some reason you want engage in this weird experiment, be sure to follow <a href="https://bsky.app/profile/reverendcrush.com" target="_blank" rel="noreferrer">@ReverendCrush.com</a> on Bsky.</p>
-        <div className="flex-center"><button className='bsky-lb-button' onClick={toggleLeaderboard} href="bsky-top"> GO BACK TO SKEETS</button></div>
-      </div>
+//LEADERBOARD JSX HERE!!
+if (showLeaderboard) {
+  return (
+    <div className='bsky-home'>
+      <div className='bsky-latest'><h2>SKEET LEADERBOARD</h2>
+      <p className='bsky-text'>TOP 25 BSKY BANGERS VIA @REVERENDCRUSH.COM</p>
+      <button className='bsky-lb-button' onClick={toggleLeaderboard}>GO BACK</button>
     </div>
-    );
-  }
-//The actually paginated Bsky author post feed code starts here.
+      <div className='bsky-lb'>
+      <ul className='bsky-lb-list'>
+        {leaderboardPosts.map((post, index) => (
+          <li className={`${index === 0 ? 'first-place-li' : index === 1 || index === 2 ? 'runnerup-li' : index >= 3 && index <= 9 ? 'bottom10-li' :  ''}`} key={index}>
+            {/*Display the user's avatar. If it's a quoted post, both users' avatars appear, but goes by the score of the original post. Classes are added based on position. Also, the date of the post should show up next to the avatar(s)*/}
+            <img src={post.post.author.avatar} alt={`${post.post.author.handle}'s lovely pfp`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' : ''}`} />
+            {post.post.embed?.record && (
+              <img src={post.post.embed.record.author?.avatar || post.post.embed.record.record?.author?.avatar} 
+                   alt={`${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}'s avatar`} 
+                   className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' :  ''}`} />
+            )}<span class='bsky-lb-date'>{new Date(post.post.record.createdAt).toLocaleDateString()}</span>
+            
+            {/*Display the user's handle. If it's a quoted post, both users are show unless it's a self-quote. Score is based on the original post. Classes based on postion are placed.*/}
+            <div className='bsky-lb-entry-wrapper'>
+            <div className='bsky-lb-user-deets'>
+              <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
+              <a href={`https://bsky.app/profile/${post.post.author.handle}`} target="_blank" rel="noreferrer">@{post.post.author.handle}</a>
+            </p>
+            {(post.post.embed?.record && (post.post.embed?.record?.author?.handle || post.post.embed.record.record?.author?.handle) !== post.post?.author?.handle) && (
+              <p className={`bsky-lb-handle ${index === 0 ? 'first-handle' : index === 1 || index === 2 ? 'runnerup-handle' : index >= 3 && index <= 9 ? 'bottom10-handle' :  ''}`}>
+                <a href={`https://bsky.app/profile/${post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}`} target="_blank" rel="noreferrer">
+                  @{post.post.embed.record.author?.handle || post.post.embed.record.record?.author?.handle}
+                </a>
+              </p>
+            )}
+
+            {/*This will display the first 120 characters of either the post or the alt text of the first image (if no actual post text is available) linked to the post on Bsky. If the post doesn't actually contain either, e.g. an image without Alt Text, it'll provide a short '[THIS POST CONTAINS NO TEXT]' string that will link to the post.*/}
+            {post.post.record.text ? (
+            <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
+              {post.post.record.text.slice(0, 120)}
+            </a>) : (post.post.embed?.images[0].alt || post.post.embed?.media?.images[0].alt) ? (
+              <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
+              {'//IMG ALT TEXT: '}{(post.post.embed?.images[0].alt || post.post.embed?.media?.images[0].alt).slice(0, 120)}
+            </a>) :
+              <a class="bsky-lb-postsnip" href={`https://bsky.app/profile/${post.post.author.handle}/post/${post.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">
+              {'[THIS POST CONTAINS NO TEXT]'}
+            </a>
+            }
+            </div>
+
+            {/*Score is always displayed. There are classes added based on position on the board.*/}
+            <div className='bsky-lb-score-area'>
+            <p className={`bsky-lb-score ${index === 0 ? 'first-score' : index === 1 || index === 2 ? 'runnerup-score' : index >= 3 && index <= 9 ? 'bottom10-score' :  ''}`}>SCORE: {post.scoreDetails.score}</p>
+            </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className='bsky-lb-bottom bsky-text'>
+      <p>Entries for this leaderboard are pulled from the last 100 posts made by @ReverendCrush.com on BlueSky Social, including reskeets and quote reskeets. Banger Scores are calculated based on engagement on Bsky. The more likes, comments, and reskeets a skeet gets, the higher the score!</p><p>Sounds weird? IT IS! Especially considering it's just my posts along with much more popular people than I really care to be! But if for some reason you want engage in this weird experiment, be sure to follow <a href="https://bsky.app/profile/reverendcrush.com" target="_blank" rel="noreferrer">@ReverendCrush.com</a> on Bsky.</p>
+      <div className="flex-center"><button className='bsky-lb-button' onClick={toggleLeaderboard} href="bsky-top"> GO BACK TO SKEETS</button></div>
+    </div>
+  </div>
+  );
+}
+//END OF LEADERBOARD JSX. The initial paginated Bsky author post feed code starts here.
   if (posts.length === 0) {
     return <div className='bsky-home skeet-text'>Loading skeets...</div>;
   }
@@ -279,6 +278,7 @@ const handlePrevious = () => {
   const isYoutubeUri = youtubeUri !== null && (youtubeUri.includes('youtube.com') || youtubeUri.includes('youtu.be'));
   const youtubeVideoId = isYoutubeUri ? getPostYoutubeId(youtubeUri) : null;
   console.log('currentPost:', currentPost);
+  console.log('Images:', currentPost.post.embed?.media?.images);
   if (!currentPost || !currentPost.post || !currentPost.post.record) {
     console.error("Current post is undefined or missing the record property:", currentPost);
     return <div className='bsky-home skeet-text'>Error loading skeet...</div>;
@@ -323,16 +323,14 @@ const handlePrevious = () => {
         <p>So ReverendCrush.com fans, if you want to see the good stuff, or at the very least think you can handle it, you'll need to visit <a href={`https://bsky.app/profile/${currentPost.post.author.handle}/post/${currentPost.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer">the actual post on Bsky.</a> While you're there, you might as well follow Rev, drop a like and comment, then reskeet whatever deviant imagery it is that we refuse to show you here.
         </p>
       </div>
-) : (
-  <div className='skeet-image-group'>
-    {Array.isArray(currentPost.post.embed?.images || currentPost.post.embed?.media?.images) && (currentPost.post.embed?.images || currentPost.post.embed?.media?.images).map((image, index) => (
-      <div key={index}>
-        <img key={index} src={image.fullsize} alt={image.alt || 'No Alt Text. (@ReverendCrush.com is not to blame}'} loading="lazy" className='skeet-img-file' />
-        <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || 'WARNING: (NULL TEXT). No yelling @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
+  ) : (
+    (currentPost.post.embed?.images || currentPost.post.embed?.media?.images || []).map((image, imgIndex) => (
+      <div key={`post-img-${imgIndex}`}>
+        <img src={image.fullsize} alt={image.alt || "Default ALT text if missing"} loading="lazy" className='skeet-img-file' />
+        <br/><p className='skeet-metatext'>{['//ALT TEXT: ']}{image.alt || "<ALERT: NO ALT TEXT PROVIDED!>"}</p>
       </div>
-    ))}
-  </div>
-)}
+    ))
+  )}
        
         {/* Display YouTube embeds */}
         
@@ -401,25 +399,15 @@ const handlePrevious = () => {
         {(currentPost.post.embed?.record?.embeds || currentPost.post.embed?.record?.record?.embeds)?.map((embed, embedIndex) => {
           if (embed.$type === "app.bsky.embed.images" || embed.$type === "app.bsky.embed.record" || embed.$type === "app.bsky.embed.images#view") {
             return embed.images?.map((image, imgIndex) => (
-              <div key={`embed-${embedIndex}-img-${imgIndex}`}>
-                <img src={image.fullsize} alt={image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."} loading="lazy" className='skeet-img-file' />
-                <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || "ERROR! NULL ALT TEXT! OH NOES WHATEVER WILL WE DOOS!? Look, don't yell at anyone involved just because they forgot some alt text. That includes me, your buddy @ReverendCrush.com. And the person posting this image. But more importantly ME. I don't need it, man."}</p>
+              <div key={`embed-${embedIndex}-img-${imgIndex}`} className='skeet-image-group'>
+                <img src={image.fullsize} alt={image.alt || "No Alt Text Provided from Quote Skeet."} loading="lazy" className='skeet-img-file' />
+                <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || "<ALERT: NO ALT TEXT PROVIDED!>"}</p>
               </div>
             ));
           }
           return null;
         })}
       </div>)}
-      
-      {/* Displaying images from quote skeet when the original post also has image(s) */}
-      <div className='skeet-image-group'>
-              {Array.isArray(currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images || currentPost.post?.embed?.record?.embeds[0]?.media?.images) && (currentPost.post.embed?.record?.record?.embeds?.[0]?.media?.images || currentPost.post?.embed?.record?.embeds[0]?.media?.images).map((image, index) => (
-                <div key={index}>
-                    <img key={index} src={image.fullsize} alt={image.alt || 'Alt text not provided'} loading="lazy" className='skeet-img-file' />
-                    <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || 'WARNING: (NULL TEXT). No yelling at @ReverendCrush, please, this is probably a reskeet. And no yelling at whoever I reskeeted either, alright? Be cool, man. Be cool.'}</p>
-                </div>
-              ))}
-      </div>
 
           {/* Display YouTube video from the quoted post */}
           {
@@ -449,7 +437,7 @@ const handlePrevious = () => {
             currentPost.post?.embed?.record?.record?.embeds[0]?.external?.uri.includes('youtube.com') || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.uri.includes('youtu.be') ) && (
               <div>
                 <div className='skeet-web-media'>
-                  <a href={(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.uri)}><img className='webcard-img' src={(currentPost.embed?.record?.value?.embed?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.thumb || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.thumb || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.thumb)} alt={(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.title) || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.title || 'Title not available. WEIRD...'} /></a>
+                  <a href={(currentPost.embed?.record?.value?.embed?.external?.uri || currentPost.post?.embed?.record?.embeds?.[0]?.external?.uri || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.uri || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.uri)}><img className='webcard-img' src={(currentPost.embed?.record?.value?.embed?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.external?.thumb || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.thumb || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.thumb || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.thumb || {noMediaImg})} alt={(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.title) || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.title || 'Title not available. WEIRD...'} /></a>
                 </div>
                 <div className='web-deets'>
                   <h3>{(currentPost.embed?.record?.value?.embed?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.external?.title || currentPost.post?.embed?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds?.[0]?.media?.external?.title || currentPost.post?.embed?.record?.record?.embeds[0]?.external?.title)}</h3>
