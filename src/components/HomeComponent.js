@@ -6,10 +6,10 @@ import BlueskySocial from './BlueskyComponent';
 function Home(){
 
     return (<React.Fragment>
-        <div>
-        </div>
+        <header>
         <p className="h1-mini">Hey kids! It's</p>
         <h1 className='brand'>ReverendCrush<span className="h1-mini">.com</span>!</h1>
+        </header>
         <div className='home-links'>
         <BlueskySocial/>
         <section className="link-list">
