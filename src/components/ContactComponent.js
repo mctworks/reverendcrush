@@ -30,11 +30,8 @@ function Contact(){
         <a className='sm-link' href='https://www.reddit.com/user/ReverendCrush/'>u/ReverendCrush</a>
         <p>I'm active-ish. You'll probably see me pipe in on r/NES, r/SNES, and r/Retrogaming once in a blue moon. Honestly not a huge redditor.</p>
         <p>Do they still call them "redditors"?</p>
-        <h2>Cohost</h2>
-        <a className='sm-link' href='https://cohost.org/ReverendCrush' target="_blank" rel="noreferrer">ReverendCrush</a>
-        <p>This admittedly hasn't been active hardly since I got it. I haven't felt compelled to do long form work in a very long time. Not even game reviews. But I'm hoping that changes. If I do, I'll update this listing and announce it on the usual channels.</p>
         <h2>Twi<span className='get-bent-elon'>X</span></h2> 
-        <p>It's @ReverendCrush, but no way in the nine hells am I linking to the house Elon destroyed in a massive Special-K fueled bender, even if it is my account. Find me there if Bsky goes down and Mastodon is too much of a headache for you. I'm only there for a few MisterFPGA related accounts, but even then I'm only checking once in a blue moon. I don't see this shithole getting any better, so there's a good chance I might just end up deleting it soon.</p>
+        <p><strike>It's @ReverendCrush</strike> oh, whoopsie-doodle, I deactivated. You might see some stuff from the "Twitter" archives pop up on other social media platforms down the road. Stay tuned...</p>
         <h2>Anything by Meta</h2> 
         <p>Don't bother...</p>
         <h2>Snapchat?</h2>
