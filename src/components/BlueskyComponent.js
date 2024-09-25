@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BskyAgent } from '@atproto/api';
 import YouTube from 'react-youtube';
 import noMediaImg from "../img/no_media_img.jpg";
+import HLSVideoPlayer from './HLSVideoPlayer';
 
 const getYouTubeUri = (post) => {
   // Define all possible paths to the uri
@@ -78,7 +79,7 @@ function getFlavorText(score) {
   if (score >= 500000 && score < 690000) return "A TRIPLE PLATINUM BANGER!!!!??? THESE ARE LIKE THE NUMBERS FROM AN OLD EVERGREEN DRIL TWEET MARINATING IN TWELVE YEARS OF CIRCULATION!!";
   if (score === 690000) return "69 hundred-thousand TRIPLE PLATINUM! NICE! SCREENSHOT THIS AFTER YOU JIZZ!";
   if (score > 690000 && score < 1500000) return "A TRIPLE PLATINUM BANGER!!!!??? THESE ARE LIKE THE NUMBERS FROM AN OLD EVERGREEN DRIL TWEET MARINATING IN TWELVE YEARS OF CIRCULATION!!";
-  if (score >= 1500000) return "EVERYONE MUST BE IN HEAT AND EXPOSING THEIR WET CROTCHES IN THE PRESENCE OF THIS SKEET, BECAUSE THIS IS LIKE A COSMIC LEVEL BANGER!";
+  if (score >= 2500000) return "EVERYONE MUST BE IN HEAT AND EXPOSING THEIR WET CROTCHES IN THE PRESENCE OF THIS SKEET, BECAUSE THIS IS LIKE A COSMIC LEVEL BANGER!";
   return "Engagement exists? We might have an error."; // Default case
 }
 
@@ -98,7 +99,7 @@ const renderTextContent = (textContent) => {
       return segments.map((segment, segmentIndex) => {
         // Apply 'DotGothic16' font only to Japanese text segments
         if (/[\u3000-\u30FF\uFF00-\uFFEF\u4E00-\u9FAF\u3400-\u4DBF]+/.test(segment)) {
-          return <span key={`${index}-${segmentIndex}`} style={{ fontFamily: 'DotGothic16', fontSize: '16px', lineHeight: '2rem' }}>{segment}</span>;
+          return <span lang="ja" key={`${index}-${segmentIndex}`} style={{ fontFamily: 'DotGothic16', fontSize: '16px', lineHeight: '2rem' }}>{segment}</span>;
         } else {
           return segment;
         }
@@ -135,6 +136,20 @@ const parseText = (text) => {
   }
 
   return parts;
+};
+
+const renderVideoEmbed = (embed) => {
+  if (!embed || !embed.$type.startsWith('app.bsky.embed.video')) return null;
+
+  const aspectRatio = embed.aspectRatio || { width: 16, height: 9 };
+
+  return (
+    <HLSVideoPlayer
+      src={embed.playlist}
+      poster={embed.thumbnail}
+      aspectRatio={aspectRatio}
+    />
+  );
 };
 
 const BlueskySocial = () => {
@@ -217,7 +232,7 @@ if (showLeaderboard) {
         {leaderboardPosts.map((post, index) => (
           <li className={`${index === 0 ? 'first-place-li' : index === 1 || index === 2 ? 'runnerup-li' : index >= 3 && index <= 9 ? 'bottom10-li' :  ''}`} key={index}>
             {/* Display the user's avatar. If it's a quoted post, both users' avatars appear, but goes by the score of the original post. Classes are added based on position. Also, the date of the post should show up next to the avatar(s) */}
-            <img src={post.post?.author?.avatar} alt={`${post.post?.author?.handle}'s lovely pfp`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' : ''}`} />
+            <img src={post.post?.author?.avatar} alt={`${post.post?.author?.handle}'s avatar`} className={`author-avatar ${index === 0 ? 'first-author-avatar' : index === 1 || index === 2 ? 'runnerup-author-avatar' : index >= 3 && index <= 9 ? 'bottom10-author-avatar' : ''}`} />
             {post.post?.embed?.record && (
               <img src={post.post?.embed?.record?.author?.avatar || post.post?.embed?.record?.record?.author?.avatar} 
                    alt={`${post.post?.embed?.record?.author?.handle || post.post?.embed?.record?.record?.author?.handle}'s avatar`} 
@@ -279,6 +294,8 @@ const isYoutubeUri = youtubeUri !== null && (youtubeUri.includes('youtube.com') 
 const youtubeVideoId = isYoutubeUri ? getPostYoutubeId(youtubeUri) : null;
 console.log('currentPost:', currentPost);
 console.log('Images:', currentPost.post.embed?.media?.images);
+console.log('Main post embed type:', currentPost.post.embed?.$type);
+
 if (!currentPost || !currentPost.post || !currentPost.post.record) {
   console.error("Current post is undefined or missing the record property:", currentPost);
   return <div className='bsky-home skeet-text'>Error loading skeet...</div>;
@@ -297,7 +314,7 @@ return (
     </div>
     <div className='skeet-header'>
         {/* Display the post's author and timestamp linking to the post on Bsky*/}
-        <img src={currentPost.post.author?.avatar} alt={`HEY, CHECK IT OUT, IT'S ${currentPost.post?.author?.name}'s PFP! WHALES AREN'T REAL!`} className='author-avatar' />
+        <img src={currentPost.post.author?.avatar} alt={`${currentPost.post?.author?.name}'s Bluesky avatar.`} className='author-avatar' />
         <span className='skeet-date'>Via <a className='skeet-author' href={`https://bsky.app/profile/${currentPost.post.author.handle}`} target="_blank" rel="noreferrer">@{currentPost.post.author.handle}</a> 
         <br/>Post: <a className='skeet-author' href={`https://bsky.app/profile/${currentPost.post.author.handle}/post/${currentPost.post.uri.split('/').pop()}`} target="_blank" rel="noreferrer"><u>{new Date(currentPost.post.record.createdAt).toLocaleString()}</u></a></span>
       </div>
@@ -324,65 +341,87 @@ return (
       </p>
     </div>
 ) : (
-  (currentPost.post.embed?.images || currentPost.post.embed?.media?.images || []).map((image, imgIndex) => (
-    <div key={`post-img-${imgIndex}`}>
-      <img src={image.fullsize} alt={image.alt || "Default ALT text if missing"} loading="lazy" className='skeet-img-file' />
-      <br/><p className='skeet-metatext'>{['//ALT TEXT: ']}{image.alt || "<ALERT: NO ALT TEXT PROVIDED!>"}</p>
-    </div>
-  ))
+  <div className='skeet-media-group'>
+  {currentPost.post.embed?.$type === 'app.bsky.embed.images#view' ? (
+    (currentPost.post.embed?.images || []).map((image, imgIndex) => (
+      <div key={`post-img-${imgIndex}`}>
+        <img src={image.fullsize} alt={image.alt || "No ALT Text provided for this image."} loading="lazy" className='skeet-img-file' />
+        <br/><p className='skeet-metatext'>{['//ALT TEXT: ']}{image.alt || "<ALERT: NO ALT TEXT PROVIDED!>"}</p>
+      </div>
+    ))
+  ) : currentPost.post.embed?.$type === 'app.bsky.embed.recordWithMedia#view' ? (
+    <>
+      {currentPost.post.embed.media?.$type === 'app.bsky.embed.images#view' &&
+        (currentPost.post.embed.media?.images || []).map((image, imgIndex) => (
+          <div key={`post-img-${imgIndex}`}>
+            <img src={image.fullsize} alt={image.alt || "Default ALT text is missing"} loading="lazy" className='skeet-img-file' />
+            <br/><p className='skeet-metatext'>{['//ALT TEXT: ']}{image.alt || "<ALERT: NO ALT TEXT PROVIDED!>"}</p>
+          </div>
+        ))
+      }
+      {currentPost.post.embed.media?.$type === 'app.bsky.embed.video#view' &&
+        renderVideoEmbed(currentPost.post.embed.media)
+      }
+      {/* Handle quoted post video */}
+      {currentPost.post.embed.record?.record?.embed?.$type === 'app.bsky.embed.video#view' &&
+        renderVideoEmbed(currentPost.post.embed.record.record.embed)
+      }
+    </>
+  ) : currentPost.post.embed?.$type.startsWith('app.bsky.embed.video') ? (
+    renderVideoEmbed(currentPost.post.embed)
+  ) : null}
+</div>
 )}
      
-      {/* Display YouTube embeds */}
-      
-        
-        {isYoutubeUri && youtubeVideoId && (
-          <div>
-            <div className='skeet-youtube'>
-              <YouTube videoId={youtubeVideoId} />
-            </div>
-            <div className='web-deets'>
-              <h3>{currentPost.post?.embed?.external?.title || currentPost.post?.embed?.media?.external?.title}</h3>
-              <p className='skeet-metatext'>{currentPost.post?.embed?.external?.description || currentPost.post?.embed?.media?.external?.description}</p>
-            </div>
-          </div>
-        )}
-      
-      
-      {/*Display Website/Web Media cards*/}
-      {
-        (currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri) && 
-        !(currentPost.post.embed?.external?.uri.includes('youtube.com') || currentPost.post.embed?.external?.uri.includes('youtu.be') ||
-        currentPost.post.embed?.media?.external?.uri.includes('youtube.com') || currentPost.post.embed?.media?.external?.uri.includes('youtu.be') ) && (
-          <div className='skeet-web-media'>
-            <a href={currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri}><img className='webcard-img' src={currentPost.post?.embed?.external?.thumb || currentPost.post.embed?.media?.external?.thumb} alt={currentPost.post?.embed?.external?.title || currentPost.post.embed?.media?.external?.title || 'Alt Text not available for some reason...'} loading="lazy"></img></a>
-            <div className='web-deets'>
-              <h3>{currentPost.post.embed?.external?.title || currentPost.post.embed?.media?.external?.title}</h3>
-              <p className='skeet-metatext'>{currentPost.post.embed?.external?.description || currentPost.post.embed?.media?.external?.description}</p>
-            </div>
-          </div>
-        )
-      }
-      
-      {/* Display Quote-Reskeets with user avatar and name */}
-      {currentPost.post?.embed?.record && (
-      <div className="quote-reskeet-box">
-      <div className="skeet-header">
-      <img src={currentPost.post.embed.record.author?.avatar || currentPost.post.embed.record.record?.author?.avatar}
-            alt={`HEY LOOK IT'S ${currentPost.post.embed.record.author?.name || currentPost.post.embed.record.record?.author?.name}'s STUPID PFP. MySPACE WAS A PSyOP!` || 'PFP of an nameless author, apparently...'} 
-            className='author-avatar' />
-        <span className='skeet-quote-author'>Now Reskeeting...<br/> 
-        <a href={`https://bsky.app/profile/${currentPost.post.embed.record.author?.handle || currentPost.post.embed.record.record?.author?.handle}`} 
-                        target="_blank" 
-                        rel="noreferrer">
-                        @{currentPost.post.embed.record.author?.handle || currentPost.post.embed.record.record?.author?.handle}
-              </a>
-        </span>
+{/* Display YouTube embeds */} 
+    {isYoutubeUri && youtubeVideoId && (
+      <div>
+        <div className='skeet-youtube'>
+          <YouTube videoId={youtubeVideoId} />
         </div>
-        <div className="skeet-text">
-          {renderTextContent(currentPost.post.embed.record.value?.text || currentPost.post.embed.record.record?.value?.text).map((segment, index) => (
-            <React.Fragment key={index}>{segment}</React.Fragment>
-          ))}
+        <div className='web-deets'>
+          <h3>{currentPost.post?.embed?.external?.title || currentPost.post?.embed?.media?.external?.title}</h3>
+          <p className='skeet-metatext'>{currentPost.post?.embed?.external?.description || currentPost.post?.embed?.media?.external?.description}</p>
         </div>
+      </div>
+    )}
+      
+      
+  {/*Display Website/Web Media cards*/}
+  {
+    (currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri) && 
+    !(currentPost.post.embed?.external?.uri.includes('youtube.com') || currentPost.post.embed?.external?.uri.includes('youtu.be') ||
+    currentPost.post.embed?.media?.external?.uri.includes('youtube.com') || currentPost.post.embed?.media?.external?.uri.includes('youtu.be') ) && (
+      <div className='skeet-web-media'>
+        <a href={currentPost.post.embed?.external?.uri || currentPost.post.embed?.media?.external?.uri}><img className='webcard-img' src={currentPost.post?.embed?.external?.thumb || currentPost.post.embed?.media?.external?.thumb} alt={currentPost.post?.embed?.external?.title || currentPost.post.embed?.media?.external?.title || 'Alt Text not available for some reason...'} loading="lazy"></img></a>
+        <div className='web-deets'>
+          <h3>{currentPost.post.embed?.external?.title || currentPost.post.embed?.media?.external?.title}</h3>
+          <p className='skeet-metatext'>{currentPost.post.embed?.external?.description || currentPost.post.embed?.media?.external?.description}</p>
+        </div>
+      </div>
+    )
+  }
+      
+  {/* Display Quote-Reskeets with user avatar and name */}
+  {currentPost.post?.embed?.record && (
+  <div className="quote-reskeet-box">
+  <div className="skeet-header">
+  <img src={currentPost.post.embed.record.author?.avatar || currentPost.post.embed.record.record?.author?.avatar}
+        alt={`${currentPost.post.embed.record.author?.name || currentPost.post.embed.record.record?.author?.name}'s Bluesky avatar!` || 'PFP of an nameless author, apparently...'} 
+        className='author-avatar' />
+    <span className='skeet-quote-author'>Now Reskeeting...<br/> 
+    <a href={`https://bsky.app/profile/${currentPost.post.embed.record.author?.handle || currentPost.post.embed.record.record?.author?.handle}`} 
+                    target="_blank" 
+                    rel="noreferrer">
+                    @{currentPost.post.embed.record.author?.handle || currentPost.post.embed.record.record?.author?.handle}
+          </a>
+    </span>
+    </div>
+    <div className="skeet-text">
+      {renderTextContent(currentPost.post.embed.record.value?.text || currentPost.post.embed.record.record?.value?.text).map((segment, index) => (
+        <React.Fragment key={index}>{segment}</React.Fragment>
+      ))}
+    </div>
 
       {/* Display images from the quoted skeet, provided it passes a Content Warning check */}
       {quoteHasContentWarning  ? (
@@ -395,18 +434,21 @@ return (
       </p>
     </div>
 ) : (
-      <div className='skeet-image-group'>
-      {(currentPost.post.embed?.record?.embeds || currentPost.post.embed?.record?.record?.embeds)?.map((embed, embedIndex) => {
-        if (embed.$type === "app.bsky.embed.images" || embed.$type === "app.bsky.embed.record" || embed.$type === "app.bsky.embed.images#view") {
-          return embed.images?.map((image, imgIndex) => (
-            <div key={`embed-${embedIndex}-img-${imgIndex}`} className='skeet-image-group'>
-              <img src={image.fullsize} alt={image.alt || "No Alt Text Provided from Quote Skeet."} loading="lazy" className='skeet-img-file' />
-              <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || "<ALERT: NO ALT TEXT PROVIDED!>"}</p>
-            </div>
-          ));
-        }
-        return null;
-      })}
+  <div className='skeet-image-group'>
+    {(currentPost.post.embed?.record?.embeds || currentPost.post.embed?.record?.record?.embeds)?.map((embed, embedIndex) => {
+     if (embed.$type === 'app.bsky.embed.images#view' || embed.$type === 'app.bsky.embed.recordWithMedia#view') {
+      const images = embed.$type === 'app.bsky.embed.images#view' ? embed.images : embed.media?.images;
+      return images?.map((image, imgIndex) => (
+        <div key={`quote-${embedIndex}-img-${imgIndex}`} className='skeet-image-group'>
+          <img src={image.fullsize} alt={image.alt || "No Alt Text Provided from Quote Skeet."} loading="lazy" className='skeet-img-file' />
+          <br/><p className='skeet-metatext'>{['//ALT TEXT:']} {image.alt || "<ALERT: NO ALT TEXT PROVIDED!>"}</p>
+        </div>
+      ));
+    } else if (embed.$type === 'app.bsky.embed.video#view') {
+      return renderVideoEmbed(embed);
+    }
+      return null;
+    })}
     </div>)}
 
         {/* Display YouTube video from the quoted post */}
