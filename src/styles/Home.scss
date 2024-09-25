@@ -81,6 +81,23 @@ h2 {
   animation: shine 2s forwards, flicker 3s infinite;
 }
 
+.home-links a:hover {
+  text-decoration: underline;
+  text-decoration-style: double;
+}
+
+.home-links a {
+  /*background: #06474569;*/
+  font-family: $home-links;
+  font-size: 60px;
+  text-decoration: none;
+  color: $home1;
+  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #65a3ff,
+  -0.2rem 0.1rem 1rem #6589ff, 0.2rem 0.1rem 1rem #659bff,
+  0 -0.5rem 2rem #2483ff, 0 0.5rem 3rem #245eff;
+animation: shine 2s forwards, flicker 3s infinite;
+}
+
 .about_U{
     font-size: 68px;
 }
@@ -439,6 +456,11 @@ li.first-place-li::marker{
   overflow-wrap: anywhere !important;
 }
 
+.skeet-video {
+  width: 100%;
+  height: auto;
+}
+
 .glow {
   text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #65a3ff, -0.2rem 0.1rem 1rem #6589ff, 0.2rem 0.1rem 1rem #659bff, 0 -0.5rem 2rem #2483ff, 0 0.5rem 3rem #245eff;
   animation: shine 2s forwards, flicker 3s infinite;
@@ -530,6 +552,10 @@ li.first-place-li::marker{
   h1.brand {
     padding: 0 5px;
     margin: 10px 0 75px 0px;
+  }
+
+  .skeet-video-container {
+    text-align: center;
   }
 }
 
