@@ -1,65 +1,92 @@
 @font-face {
     font-family: 'Quicksand';
-    src: url("./Quicksand-VariableFont_wght.ttf") format("truetype");
+    src: url("/fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
   }
   
   @font-face {
     font-family: 'Megrim';
-    src: url("./Megrim-Regular.ttf") format("truetype");
+    src: url("/fonts/Megrim-Regular.ttf") format("truetype");
+    font-display: swap;
   }
   
   @font-face {
     font-family: 'Montserrat Subrayada';
-    src: url("./MontserratSubrayada-Regular.ttf") format("truetype");
+    src: url("/fonts/MontserratSubrayada-Regular.ttf") format("truetype");
+    font-display: swap;
   }
   
   @font-face {
     font-family: 'Montserrat Subrayada';
-    src: url("./MontserratSubrayada-Bold.ttf") format("truetype");
+    src: url("/fonts/MontserratSubrayada-Bold.ttf") format("truetype");
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Workbench';
-    src: url("./Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+    src: url("/fonts/Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Sixtyfour';
-    src: url("./Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+    src: url("/fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Pixelify';
-    src: url("./PixelifySans-VariableFont_wght.ttf") format("truetype");
+    src: url("/fonts/PixelifySans-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Righteous';
-    src: url("./Righteous-Regular.ttf") format("truetype");
+    src: url("/fonts/Righteous-Regular.ttf") format("truetype");
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Press Start 2P';
-    src: url("./PressStart2P-Regular.ttf") format("truetype");
+    src: url("/fonts/PressStart2P-Regular.ttf") format("truetype");
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Nosifer';
-    src: url("./Nosifer-Regular.ttf") format("truetype");
+    src: url("/fonts/Nosifer-Regular.ttf") format("truetype");
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Museo Moderno Italic';
-    src: url("./MuseoModerno-Italic-VariableFont_wght.ttf") format("truetype");
+    src: url("/fonts/MuseoModerno-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'Museo Moderno';
-    src: url("./MuseoModerno-VariableFont_wght.ttf") format("truetype");
+    src: url("/fonts/MuseoModerno-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'DotGothic16';
-    src: url("./DotGothic16-Regular.ttf") format("truetype");
+    src: url("/fonts/DotGothic16-Regular.ttf") format("truetype");
+    font-display: swap;
   }
+
+  @font-face {
+    font-family: 'Handjet';
+    src: url("/fonts/Handjet-VariableFont_ELGR,ELSH,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
+  }
+
   /*# sourceMappingURL=fonts.css.map */

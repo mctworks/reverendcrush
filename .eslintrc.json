@@ -1,0 +1,26 @@
+{
+  "extends": ["next", "next/core-web-vitals"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "no-undef": "off",
+    "no-prototype-builtins": "off",
+    "no-empty": "off",
+    "no-cond-assign": "off",
+    "no-useless-escape": "off",
+    "no-fallthrough": "off",
+    "no-func-assign": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "no-case-declarations": "off",
+    "no-control-regex": "off",
+    "no-unsafe-finally": "off",
+    "no-redeclare": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  }
+}

@@ -7,8 +7,10 @@
   background: #5d4165;
 }
 .socials-page a {
-  text-decoration: none;
   color: #63a3fd;
+}
+.socials-page .autotext {
+  color: #cae0ff;
 }
 
 .sm-plus-list {

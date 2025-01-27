@@ -1,6 +1,6 @@
 @import "variables/variables.scss";
 
-//The "Body" of just ContactComponent.js. Here's everything that gets transitioned to a different color scheme on state change.
+//The "Body" of just contact.js. Here's everything that gets transitioned to a different color scheme on state change.
 .socials-page {
     background-color: #27031e;
     color: #d6c7fd;
@@ -11,8 +11,11 @@
     }
     
     a {
-        text-decoration: none;
         color: #63a3fd;
+    }
+
+    .autotext {
+        color: #cae0ff;
     }
 }
 

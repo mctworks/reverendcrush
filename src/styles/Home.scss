@@ -19,7 +19,6 @@ body{
 }
 
 a {
-  text-decoration: none;
   color: #86e581;
 }
 
@@ -28,16 +27,16 @@ a {
 }
 
 .autotext {
-  color: $home1;
+  color: $home_txt;
 }
 
 h1.brand {
-    font-family: $main_header;
+    font-family: 'Sixtyfour', sans-serif;
     color: $home_txt;
     height: 10pt;
     font-size: 6vw;
     padding: 0 5px;
-    font-weight: 100;
+    font-weight: 600;
 }
 
 p.h1-mini {
@@ -117,7 +116,7 @@ animation: shine 2s forwards, flicker 3s infinite;
 }
 
 h3.bsky-home {
-  font-family: 'Sixtyfour Slight', sans-serif;
+  font-family: 'Sixtyfour', sans-serif;
 }
 
 .bsky-text, .bsky-text a{
@@ -176,17 +175,17 @@ ul.latest-skeet {
 }
 
 .skeet-date {
-  font-family: 'Workbench Slight';
+  font-family: 'Workbench';
   font-size: 12px;
 }
 
 .skeet-quote-author {
-  font-family: 'Workbench Close';
+  font-family: 'Workbench';
   font-size: 12px;
 }
 
 .skeet-quote-author a {
-  font-family: 'Workbench Close' !important;
+  font-family: 'Workbench' !important;
   font-size: 12px !important;
 }
 
@@ -195,7 +194,7 @@ ul.latest-skeet {
 }
 
 a.skeet-author {
-  font-family: 'Workbench Slight' !important;
+  font-family: 'Workbench' !important;
   font-size: 12px !important;
 }
 
@@ -221,10 +220,12 @@ a.skeet-author {
 
 .skeet-img-file {
   width: 90%;
+  height: 90%;
 }
 
 .author-avatar {
   width: 2rem;
+  height: 2rem;
   padding-right: 10px;
 }
 
@@ -259,13 +260,13 @@ a.skeet-author {
 }
 
 .skeet-banger-score, .skeet-banger-score a {
-  font-family:'Sixtyfour Evenly', sans-serif;
+  font-family:'Sixtyfour', sans-serif;
   font-size: 13px !important;
   color: #ffdcf6;
 }
 
 .skeet-metatext {
-  font-family: 'Workbench Close';
+  font-family: 'Workbench';
   font-size: 12px;
   white-space: pre-line;
   overflow-wrap: anywhere !important;
@@ -315,7 +316,7 @@ a.skeet-author {
 }
 
 .skeet-cw, .skeet-cw a {
-  font-family: 'Sixtyfour Close', sans-serif;
+  font-family: 'Sixtyfour', sans-serif;
   font-size: 12px;
   color: #fba9c3;
 }
@@ -323,14 +324,14 @@ a.skeet-author {
 .reskeet-user {
   display: grid;
   grid-template-columns: 5rem auto;
-  font-family: 'Workbench Slight';
+  font-family: 'Workbench';
   font-size: 13px;
   line-height: 20px;
 }
 
 a.reskeet-handle {
   font-size: 13px !important;
-  font-family: 'Workbench Slight' !important;
+  font-family: 'Workbench' !important;
 }
 
 img.reskeet-pfp {
@@ -379,7 +380,7 @@ img.reskeet-pfp {
 
 .bsky-lb-date {
   font-size: 12px;
-  font-family: 'Workbench Close', sans-serif;
+  font-family: 'Workbench', sans-serif;
 }
 
 ul.bsky-lb-list {
@@ -416,14 +417,17 @@ li.first-place-li::marker{
 
 .bottom10-author-avatar {
   width: 2.75rem;
+  height: 2.75rem;
 }
 
 .runnerup-author-avatar {
   width: 3.5rem;
+  height: 3.5rem;
 }
 
 .first-author-avatar {
   width: 4.25rem;
+  height: 4.25rem;
 }
 
 .bsky-lb-score{
@@ -450,7 +454,7 @@ li.first-place-li::marker{
 }
 
 .bsky-lb-postsnip {
-  font-family: 'Workbench Close', sans-serif !important;
+  font-family: 'Workbench', sans-serif !important;
   font-size: 12px !important;
   white-space: pre-line;
   overflow-wrap: anywhere !important;
@@ -694,10 +698,12 @@ li.first-place-li::marker{
 
 .flicker {
   animation: shine 2s forwards, blink 3s 2s infinite;
+  color: #e6eaff;
 }
 
 .fast-flicker {
   animation: shine 2s forwards, blink 10s 1s infinite;
+  color: #e6eaff;
 }
 
 @keyframes shine {

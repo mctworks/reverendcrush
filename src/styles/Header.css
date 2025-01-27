@@ -19,7 +19,7 @@
 }
 
 .header_title {
-  font-family: "Workbench Slight", sans-serif;
+  font-family: "Workbench", sans-serif;
   font-weight: 200;
   font-size: 10px;
   margin: 0 2px;
@@ -117,12 +117,19 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
   .nav-logo {
     width: 70%;
+    height: 70%;
   }
 }
 .typed-cursor {
   display: inline !important;
-  font-family: "Workbench Slight", sans-serif;
+  font-family: "Workbench", sans-serif;
   font-weight: 200;
   font-size: 12px;
   color: #8debe3;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+  position: fixed; /* Prevents scrolling by fixing the position */
+  width: 100%; /* Ensures the body doesn't shrink */
 }/*# sourceMappingURL=Header.css.map */

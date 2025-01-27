@@ -1,0 +1,280 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/_app";
+exports.ids = ["pages/_app"];
+exports.modules = {
+
+/***/ "./src/components/FooterComponent.js":
+/*!*******************************************!*\
+  !*** ./src/components/FooterComponent.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Footer)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction Footer() {\n    console.log(\"Footer is rendering\");\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"footer\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n            className: \"dev-credits\",\n            children: [\n                \"Developed in React by \",\n                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"a\", {\n                    href: \"https://mct630.com\",\n                    target: \"_blank\",\n                    rel: \"noreferrer\",\n                    children: \"MCT630.com\"\n                }, void 0, false, {\n                    fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\FooterComponent.js\",\n                    lineNumber: 7,\n                    columnNumber: 64\n                }, this),\n                \". (Rev helped!)\"\n            ]\n        }, void 0, true, {\n            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\FooterComponent.js\",\n            lineNumber: 7,\n            columnNumber: 13\n        }, this)\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\FooterComponent.js\",\n        lineNumber: 6,\n        columnNumber: 9\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9Gb290ZXJDb21wb25lbnQuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQTBCO0FBRVgsU0FBU0M7SUFDcEJDLFFBQVFDLEdBQUcsQ0FBQztJQUNaLHFCQUNJLDhEQUFDQztRQUFJQyxXQUFVO2tCQUNYLDRFQUFDRDtZQUFJQyxXQUFVOztnQkFBYzs4QkFBc0IsOERBQUNDO29CQUFFQyxNQUFLO29CQUFxQkMsUUFBTztvQkFBU0MsS0FBSTs4QkFBYTs7Ozs7O2dCQUFjOzs7Ozs7Ozs7Ozs7QUFHM0kiLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcTWlrZVxccmV2ZXJlbmRjcnVzaFxcc3JjXFxjb21wb25lbnRzXFxGb290ZXJDb21wb25lbnQuanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEZvb3RlcigpIHtcclxuICAgIGNvbnNvbGUubG9nKFwiRm9vdGVyIGlzIHJlbmRlcmluZ1wiKTtcclxuICAgIHJldHVybiAoXHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmb290ZXJcIj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJkZXYtY3JlZGl0c1wiPkRldmVsb3BlZCBpbiBSZWFjdCBieSA8YSBocmVmPSdodHRwczovL21jdDYzMC5jb20nIHRhcmdldD1cIl9ibGFua1wiIHJlbD1cIm5vcmVmZXJyZXJcIj5NQ1Q2MzAuY29tPC9hPi4gKFJldiBoZWxwZWQhKTwvZGl2PlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxufVxyXG4iXSwibmFtZXMiOlsiUmVhY3QiLCJGb290ZXIiLCJjb25zb2xlIiwibG9nIiwiZGl2IiwiY2xhc3NOYW1lIiwiYSIsImhyZWYiLCJ0YXJnZXQiLCJyZWwiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/components/FooterComponent.js\n");
+
+/***/ }),
+
+/***/ "./src/components/HeaderComponent.js":
+/*!*******************************************!*\
+  !*** ./src/components/HeaderComponent.js ***!
+  \*******************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Header)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ \"./node_modules/next/router.js\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ \"./node_modules/next/link.js\");\n/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var typed_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! typed.js */ \"typed.js\");\n/* harmony import */ var react_burger_menu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-burger-menu */ \"react-burger-menu\");\n/* harmony import */ var react_burger_menu__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_burger_menu__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/image */ \"./node_modules/next/image.js\");\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_6__);\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([typed_js__WEBPACK_IMPORTED_MODULE_4__]);\ntyped_js__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\n\n\nfunction Header() {\n    console.log(\"Header is rendering\");\n    const el = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);\n    const typedRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();\n    const [menuOpen, setMenuOpen] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)({\n        \"Header.useEffect\": ()=>{\n            const stringsMap = {\n                \"/about\": \">> REVCRSH_BIO: A little about about me, Dr. Reverend Crush!\",\n                \"/projects\": \">> REVCRSH_FUN: UNDER CONSTRUCTION!\",\n                \"/contact\": \">> REVCRSH_SOC: All of my socials, plus more!\",\n                \"/blog\": \">> REVCRSH_BLG: Welcome to The Dude's Soapbox!\",\n                \"/blog/[id]\": \">> REVCRSH_BLG: Welcome to The Dude's Soapbox!\",\n                \"/\": \">> REVCRSH_HOM: Hey Duders! Enjoy your visit!\"\n            };\n            const defaultString = \">> //ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R ERR0R\";\n            const strings = [\n                stringsMap[router.pathname] || defaultString\n            ];\n            if (typedRef.current) {\n                typedRef.current.destroy(); // Destroy previous instance to avoid conflicts\n            }\n            typedRef.current = new typed_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"](el.current, {\n                strings: strings,\n                typeSpeed: 50,\n                onComplete: {\n                    \"Header.useEffect\": (self)=>{\n                        const cursorElement = document.querySelector('.typed-cursor');\n                        if (cursorElement) {\n                            cursorElement.style.display = 'inline';\n                        }\n                    }\n                }[\"Header.useEffect\"]\n            });\n            return ({\n                \"Header.useEffect\": ()=>{\n                    if (typedRef.current) {\n                        typedRef.current.destroy();\n                    }\n                }\n            })[\"Header.useEffect\"];\n        }\n    }[\"Header.useEffect\"], [\n        router.pathname\n    ]);\n    const handleStateChange = (state)=>{\n        setMenuOpen(state.isOpen);\n        if (state.isOpen) {\n            const scrollY = window.scrollY;\n            document.querySelector('.bm-menu-wrap').style.top = `${scrollY}px`;\n            document.body.classList.add('no-scroll');\n        } else {\n            document.querySelector('.bm-menu-wrap').style.top = \"0px\";\n            document.body.classList.remove('no-scroll');\n        }\n    };\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)({\n        \"Header.useEffect\": ()=>{\n            return ({\n                \"Header.useEffect\": ()=>{\n                    document.body.classList.remove('no-scroll');\n                }\n            })[\"Header.useEffect\"];\n        }\n    }[\"Header.useEffect\"], []);\n    const closeMenu = ()=>{\n        setMenuOpen(false);\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"header\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"autotext header_title\",\n                ref: el\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                lineNumber: 75,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"header_nav\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_burger_menu__WEBPACK_IMPORTED_MODULE_5__.pushRotate, {\n                    right: true,\n                    noOverlay: true,\n                    width: '29.5%',\n                    height: '100%',\n                    isOpen: menuOpen,\n                    onStateChange: handleStateChange,\n                    pageWrapId: \"page-wrap\",\n                    outerContainerId: \"outer-container\",\n                    children: [\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_image__WEBPACK_IMPORTED_MODULE_6___default()), {\n                            className: \"nav-logo\",\n                            src: \"/img/dudeist_yinyang.png\",\n                            alt: \"ReverendCrush.com\",\n                            width: 50,\n                            height: 50\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                            lineNumber: 87,\n                            columnNumber: 21\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_3___default()), {\n                            href: \"/\",\n                            className: \"nav_link\",\n                            onClick: closeMenu,\n                            children: \"Main\"\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                            lineNumber: 94,\n                            columnNumber: 21\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_3___default()), {\n                            href: \"/blog\",\n                            className: \"nav_link\",\n                            onClick: closeMenu,\n                            children: \"Blog\"\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                            lineNumber: 97,\n                            columnNumber: 21\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_3___default()), {\n                            href: \"/contact\",\n                            className: \"nav_link\",\n                            onClick: closeMenu,\n                            children: \"Socials\"\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                            lineNumber: 100,\n                            columnNumber: 21\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_3___default()), {\n                            href: \"/projects\",\n                            className: \"nav_link\",\n                            onClick: closeMenu,\n                            children: \"For Fun\"\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                            lineNumber: 103,\n                            columnNumber: 21\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_3___default()), {\n                            href: \"/about\",\n                            className: \"nav_link\",\n                            onClick: closeMenu,\n                            children: \"Bio\"\n                        }, void 0, false, {\n                            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                            lineNumber: 106,\n                            columnNumber: 21\n                        }, this)\n                    ]\n                }, void 0, true, {\n                    fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                    lineNumber: 77,\n                    columnNumber: 17\n                }, this)\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n                lineNumber: 76,\n                columnNumber: 13\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\HeaderComponent.js\",\n        lineNumber: 74,\n        columnNumber: 9\n    }, this);\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QkFBV1ksU0FBU2Q7c0NBQVc7Ozs7OztzQ0FHNUQsOERBQUNyQyxrREFBSUE7NEJBQUNrRCxNQUFLOzRCQUFXWCxXQUFVOzRCQUFXWSxTQUFTZDtzQ0FBVzs7Ozs7O3NDQUcvRCw4REFBQ3JDLGtEQUFJQTs0QkFBQ2tELE1BQUs7NEJBQVlYLFdBQVU7NEJBQVdZLFNBQVNkO3NDQUFXOzs7Ozs7c0NBR2hFLDhEQUFDckMsa0RBQUlBOzRCQUFDa0QsTUFBSzs0QkFBU1gsV0FBVTs0QkFBV1ksU0FBU2Q7c0NBQVc7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBT2pGIiwic291cmNlcyI6WyJDOlxcVXNlcnNcXE1pa2VcXHJldmVyZW5kY3J1c2hcXHNyY1xcY29tcG9uZW50c1xcSGVhZGVyQ29tcG9uZW50LmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyB1c2VSZWYsIHVzZUVmZmVjdCwgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XHJcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gJ25leHQvcm91dGVyJztcclxuaW1wb3J0IExpbmsgZnJvbSAnbmV4dC9saW5rJztcclxuaW1wb3J0IFR5cGVkIGZyb20gXCJ0eXBlZC5qc1wiO1xyXG5pbXBvcnQgeyBwdXNoUm90YXRlIGFzIE1lbnUgfSBmcm9tICdyZWFjdC1idXJnZXItbWVudSc7XHJcbmltcG9ydCBJbWFnZSBmcm9tICduZXh0L2ltYWdlJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEhlYWRlcigpIHtcclxuICAgIGNvbnNvbGUubG9nKFwiSGVhZGVyIGlzIHJlbmRlcmluZ1wiKTtcclxuXHJcbiAgICBjb25zdCBlbCA9IHVzZVJlZihudWxsKTtcclxuICAgIGNvbnN0IHR5cGVkUmVmID0gdXNlUmVmKG51bGwpO1xyXG4gICAgY29uc3Qgcm91dGVyID0gdXNlUm91dGVyKCk7XHJcbiAgICBjb25zdCBbbWVudU9wZW4sIHNldE1lbnVPcGVuXSA9IHVzZVN0YXRlKGZhbHNlKTtcclxuXHJcbiAgICB1c2VFZmZlY3QoKCkgPT4ge1xyXG4gICAgICAgIGNvbnN0IHN0cmluZ3NNYXAgPSB7XHJcbiAgICAgICAgICAgIFwiL2Fib3V0XCI6IFwiPj4gUkVWQ1JTSF9CSU86IEEgbGl0dGxlIGFib3V0IGFib3V0IG1lLCBEci4gUmV2ZXJlbmQgQ3J1c2ghXCIsXHJcbiAgICAgICAgICAgIFwiL3Byb2plY3RzXCI6IFwiPj4gUkVWQ1JTSF9GVU46IFVOREVSIENPTlNUUlVDVElPTiFcIixcclxuICAgICAgICAgICAgXCIvY29udGFjdFwiOiBcIj4+IFJFVkNSU0hfU09DOiBBbGwgb2YgbXkgc29jaWFscywgcGx1cyBtb3JlIVwiLFxyXG4gICAgICAgICAgICBcIi9ibG9nXCI6IFwiPj4gUkVWQ1JTSF9CTEc6IFdlbGNvbWUgdG8gVGhlIER1ZGUncyBTb2FwYm94IVwiLFxyXG4gICAgICAgICAgICBcIi9ibG9nL1tpZF1cIjogXCI+PiBSRVZDUlNIX0JMRzogV2VsY29tZSB0byBUaGUgRHVkZSdzIFNvYXBib3ghXCIsXHJcbiAgICAgICAgICAgIFwiL1wiOiBcIj4+IFJFVkNSU0hfSE9NOiBIZXkgRHVkZXJzISBFbmpveSB5b3VyIHZpc2l0IVwiLFxyXG4gICAgICAgIH07XHJcbiAgICAgICAgY29uc3QgZGVmYXVsdFN0cmluZyA9IFwiPj4gLy9FUlIwUiBFUlIwUiBFUlIwUiBFUlIwUiBFUlIwUiBFUlIwUiBFUlIwUiBFUlIwUiBFUlIwUlwiO1xyXG4gICAgICAgIGNvbnN0IHN0cmluZ3MgPSBbc3RyaW5nc01hcFtyb3V0ZXIucGF0aG5hbWVdIHx8IGRlZmF1bHRTdHJpbmddO1xyXG5cclxuICAgICAgICBpZiAodHlwZWRSZWYuY3VycmVudCkge1xyXG4gICAgICAgICAgICB0eXBlZFJlZi5jdXJyZW50LmRlc3Ryb3koKTsgLy8gRGVzdHJveSBwcmV2aW91cyBpbnN0YW5jZSB0byBhdm9pZCBjb25mbGljdHNcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIHR5cGVkUmVmLmN1cnJlbnQgPSBuZXcgVHlwZWQoZWwuY3VycmVudCwge1xyXG4gICAgICAgICAgICBzdHJpbmdzOiBzdHJpbmdzLFxyXG4gICAgICAgICAgICB0eXBlU3BlZWQ6IDUwLFxyXG4gICAgICAgICAgICBvbkNvbXBsZXRlOiAoc2VsZikgPT4ge1xyXG4gICAgICAgICAgICAgICAgY29uc3QgY3Vyc29yRWxlbWVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy50eXBlZC1jdXJzb3InKTtcclxuICAgICAgICAgICAgICAgIGlmIChjdXJzb3JFbGVtZW50KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgY3Vyc29yRWxlbWVudC5zdHlsZS5kaXNwbGF5ID0gJ2lubGluZSc7XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgfSk7XHJcblxyXG4gICAgICAgIHJldHVybiAoKSA9PiB7XHJcbiAgICAgICAgICAgIGlmICh0eXBlZFJlZi5jdXJyZW50KSB7XHJcbiAgICAgICAgICAgICAgICB0eXBlZFJlZi5jdXJyZW50LmRlc3Ryb3koKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH07XHJcbiAgICB9LCBbcm91dGVyLnBhdGhuYW1lXSk7XHJcblxyXG4gICAgY29uc3QgaGFuZGxlU3RhdGVDaGFuZ2UgPSAoc3RhdGUpID0+IHtcclxuICAgICAgICBzZXRNZW51T3BlbihzdGF0ZS5pc09wZW4pO1xyXG5cclxuICAgICAgICBpZiAoc3RhdGUuaXNPcGVuKSB7XHJcbiAgICAgICAgICAgIGNvbnN0IHNjcm9sbFkgPSB3aW5kb3cuc2Nyb2xsWTtcclxuICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmJtLW1lbnUtd3JhcCcpLnN0eWxlLnRvcCA9IGAke3Njcm9sbFl9cHhgO1xyXG4gICAgICAgICAgICBkb2N1bWVudC5ib2R5LmNsYXNzTGlzdC5hZGQoJ25vLXNjcm9sbCcpO1xyXG4gICAgICAgIH0gZWxzZSB7XHJcbiAgICAgICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5ibS1tZW51LXdyYXAnKS5zdHlsZS50b3AgPSBcIjBweFwiO1xyXG4gICAgICAgICAgICBkb2N1bWVudC5ib2R5LmNsYXNzTGlzdC5yZW1vdmUoJ25vLXNjcm9sbCcpO1xyXG4gICAgICAgIH1cclxuICAgIH07XHJcblxyXG4gICAgdXNlRWZmZWN0KCgpID0+IHtcclxuICAgICAgICByZXR1cm4gKCkgPT4ge1xyXG4gICAgICAgICAgICBkb2N1bWVudC5ib2R5LmNsYXNzTGlzdC5yZW1vdmUoJ25vLXNjcm9sbCcpO1xyXG4gICAgICAgIH07XHJcbiAgICB9LCBbXSk7XHJcblxyXG4gICAgY29uc3QgY2xvc2VNZW51ID0gKCkgPT4ge1xyXG4gICAgICAgIHNldE1lbnVPcGVuKGZhbHNlKTtcclxuICAgIH07XHJcblxyXG4gICAgcmV0dXJuIChcclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImhlYWRlclwiPlxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImF1dG90ZXh0IGhlYWRlcl90aXRsZVwiIHJlZj17ZWx9PjwvZGl2PlxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImhlYWRlcl9uYXZcIj5cclxuICAgICAgICAgICAgICAgIDxNZW51XHJcbiAgICAgICAgICAgICAgICAgICAgcmlnaHRcclxuICAgICAgICAgICAgICAgICAgICBub092ZXJsYXlcclxuICAgICAgICAgICAgICAgICAgICB3aWR0aD17JzI5LjUlJ31cclxuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9eycxMDAlJ31cclxuICAgICAgICAgICAgICAgICAgICBpc09wZW49e21lbnVPcGVufVxyXG4gICAgICAgICAgICAgICAgICAgIG9uU3RhdGVDaGFuZ2U9e2hhbmRsZVN0YXRlQ2hhbmdlfVxyXG4gICAgICAgICAgICAgICAgICAgIHBhZ2VXcmFwSWQ9e1wicGFnZS13cmFwXCJ9XHJcbiAgICAgICAgICAgICAgICAgICAgb3V0ZXJDb250YWluZXJJZD17XCJvdXRlci1jb250YWluZXJcIn1cclxuICAgICAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgICAgICA8SW1hZ2VcclxuICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwibmF2LWxvZ29cIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzcmM9XCIvaW1nL2R1ZGVpc3RfeWlueWFuZy5wbmdcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBhbHQ9J1JldmVyZW5kQ3J1c2guY29tJ1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17NTB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17NTB9XHJcbiAgICAgICAgICAgICAgICAgICAgLz5cclxuICAgICAgICAgICAgICAgICAgICA8TGluayBocmVmPScvJyBjbGFzc05hbWU9XCJuYXZfbGlua1wiIG9uQ2xpY2s9e2Nsb3NlTWVudX0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIE1haW5cclxuICAgICAgICAgICAgICAgICAgICA8L0xpbms+XHJcbiAgICAgICAgICAgICAgICAgICAgPExpbmsgaHJlZj0nL2Jsb2cnIGNsYXNzTmFtZT1cIm5hdl9saW5rXCIgb25DbGljaz17Y2xvc2VNZW51fT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgQmxvZ1xyXG4gICAgICAgICAgICAgICAgICAgIDwvTGluaz5cclxuICAgICAgICAgICAgICAgICAgICA8TGluayBocmVmPScvY29udGFjdCcgY2xhc3NOYW1lPVwibmF2X2xpbmtcIiBvbkNsaWNrPXtjbG9zZU1lbnV9PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBTb2NpYWxzXHJcbiAgICAgICAgICAgICAgICAgICAgPC9MaW5rPlxyXG4gICAgICAgICAgICAgICAgICAgIDxMaW5rIGhyZWY9Jy9wcm9qZWN0cycgY2xhc3NOYW1lPVwibmF2X2xpbmtcIiBvbkNsaWNrPXtjbG9zZU1lbnV9PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBGb3IgRnVuXHJcbiAgICAgICAgICAgICAgICAgICAgPC9MaW5rPlxyXG4gICAgICAgICAgICAgICAgICAgIDxMaW5rIGhyZWY9Jy9hYm91dCcgY2xhc3NOYW1lPVwibmF2X2xpbmtcIiBvbkNsaWNrPXtjbG9zZU1lbnV9PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICBCaW9cclxuICAgICAgICAgICAgICAgICAgICA8L0xpbms+XHJcbiAgICAgICAgICAgICAgICA8L01lbnU+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxufVxyXG4iXSwibmFtZXMiOlsiUmVhY3QiLCJ1c2VSZWYiLCJ1c2VFZmZlY3QiLCJ1c2VTdGF0ZSIsInVzZVJvdXRlciIsIkxpbmsiLCJUeXBlZCIsInB1c2hSb3RhdGUiLCJNZW51IiwiSW1hZ2UiLCJIZWFkZXIiLCJjb25zb2xlIiwibG9nIiwiZWwiLCJ0eXBlZFJlZiIsInJvdXRlciIsIm1lbnVPcGVuIiwic2V0TWVudU9wZW4iLCJzdHJpbmdzTWFwIiwiZGVmYXVsdFN0cmluZyIsInN0cmluZ3MiLCJwYXRobmFtZSIsImN1cnJlbnQiLCJkZXN0cm95IiwidHlwZVNwZWVkIiwib25Db21wbGV0ZSIsInNlbGYiLCJjdXJzb3JFbGVtZW50IiwiZG9jdW1lbnQiLCJxdWVyeVNlbGVjdG9yIiwic3R5bGUiLCJkaXNwbGF5IiwiaGFuZGxlU3RhdGVDaGFuZ2UiLCJzdGF0ZSIsImlzT3BlbiIsInNjcm9sbFkiLCJ3aW5kb3ciLCJ0b3AiLCJib2R5IiwiY2xhc3NMaXN0IiwiYWRkIiwicmVtb3ZlIiwiY2xvc2VNZW51IiwiZGl2IiwiY2xhc3NOYW1lIiwicmVmIiwicmlnaHQiLCJub092ZXJsYXkiLCJ3aWR0aCIsImhlaWdodCIsIm9uU3RhdGVDaGFuZ2UiLCJwYWdlV3JhcElkIiwib3V0ZXJDb250YWluZXJJZCIsInNyYyIsImFsdCIsImhyZWYiLCJvbkNsaWNrIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/components/HeaderComponent.js\n");
+
+/***/ }),
+
+/***/ "./src/components/MainComponent.js":
+/*!*****************************************!*\
+  !*** ./src/components/MainComponent.js ***!
+  \*****************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Main)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ \"./node_modules/next/router.js\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _HeaderComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HeaderComponent */ \"./src/components/HeaderComponent.js\");\n/* harmony import */ var _FooterComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FooterComponent */ \"./src/components/FooterComponent.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_HeaderComponent__WEBPACK_IMPORTED_MODULE_3__]);\n_HeaderComponent__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\nconst useScrollToTop = ()=>{\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)({\n        \"useScrollToTop.useEffect\": ()=>{\n            const handleRouteChange = {\n                \"useScrollToTop.useEffect.handleRouteChange\": ()=>{\n                    window.scrollTo(0, 0);\n                }\n            }[\"useScrollToTop.useEffect.handleRouteChange\"];\n            router.events.on('routeChangeComplete', handleRouteChange);\n            // Cleanup the event listener on component unmount\n            return ({\n                \"useScrollToTop.useEffect\": ()=>{\n                    router.events.off('routeChangeComplete', handleRouteChange);\n                }\n            })[\"useScrollToTop.useEffect\"];\n        }\n    }[\"useScrollToTop.useEffect\"], [\n        router\n    ]);\n};\nfunction Main({ children }) {\n    console.log(\"MainComponent is rendering\");\n    useScrollToTop(); // Call the custom hook\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        id: \"outer-container\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_HeaderComponent__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {}, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\MainComponent.js\",\n                lineNumber: 29,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"main\", {\n                id: \"page-wrap\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                    id: \"page-wrap\",\n                    className: \"page-wrap\",\n                    children: [\n                        children,\n                        \" \",\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_FooterComponent__WEBPACK_IMPORTED_MODULE_4__[\"default\"], {}, void 0, false, {\n                            fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\MainComponent.js\",\n                            lineNumber: 33,\n                            columnNumber: 11\n                        }, this)\n                    ]\n                }, void 0, true, {\n                    fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\MainComponent.js\",\n                    lineNumber: 31,\n                    columnNumber: 9\n                }, this)\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\MainComponent.js\",\n                lineNumber: 30,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\components\\\\MainComponent.js\",\n        lineNumber: 28,\n        columnNumber: 5\n    }, this);\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9NYWluQ29tcG9uZW50LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBeUM7QUFDRDtBQUNEO0FBQ0E7QUFFdkMsTUFBTUssaUJBQWlCO0lBQ3JCLE1BQU1DLFNBQVNKLHNEQUFTQTtJQUV4QkQsZ0RBQVNBO29DQUFDO1lBQ1IsTUFBTU07OERBQW9CO29CQUN4QkMsT0FBT0MsUUFBUSxDQUFDLEdBQUc7Z0JBQ3JCOztZQUVBSCxPQUFPSSxNQUFNLENBQUNDLEVBQUUsQ0FBQyx1QkFBdUJKO1lBRXhDLGtEQUFrRDtZQUNsRDs0Q0FBTztvQkFDTEQsT0FBT0ksTUFBTSxDQUFDRSxHQUFHLENBQUMsdUJBQXVCTDtnQkFDM0M7O1FBQ0Y7bUNBQUc7UUFBQ0Q7S0FBTztBQUNiO0FBRWUsU0FBU08sS0FBSyxFQUFFQyxRQUFRLEVBQUU7SUFDdkNDLFFBQVFDLEdBQUcsQ0FBQztJQUNaWCxrQkFBa0IsdUJBQXVCO0lBRXpDLHFCQUNFLDhEQUFDWTtRQUFJQyxJQUFHOzswQkFDTiw4REFBQ2Ysd0RBQU1BOzs7OzswQkFDUCw4REFBQ2dCO2dCQUFLRCxJQUFHOzBCQUNQLDRFQUFDRDtvQkFBSUMsSUFBRztvQkFBWUUsV0FBVTs7d0JBQzNCTjt3QkFBUztzQ0FDViw4REFBQ1Ysd0RBQU1BOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBS2pCIiwic291cmNlcyI6WyJDOlxcVXNlcnNcXE1pa2VcXHJldmVyZW5kY3J1c2hcXHNyY1xcY29tcG9uZW50c1xcTWFpbkNvbXBvbmVudC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgdXNlRWZmZWN0IH0gZnJvbSAncmVhY3QnO1xyXG5pbXBvcnQgeyB1c2VSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9IZWFkZXJDb21wb25lbnQnO1xyXG5pbXBvcnQgRm9vdGVyIGZyb20gJy4vRm9vdGVyQ29tcG9uZW50JztcclxuXHJcbmNvbnN0IHVzZVNjcm9sbFRvVG9wID0gKCkgPT4ge1xyXG4gIGNvbnN0IHJvdXRlciA9IHVzZVJvdXRlcigpO1xyXG5cclxuICB1c2VFZmZlY3QoKCkgPT4ge1xyXG4gICAgY29uc3QgaGFuZGxlUm91dGVDaGFuZ2UgPSAoKSA9PiB7XHJcbiAgICAgIHdpbmRvdy5zY3JvbGxUbygwLCAwKTtcclxuICAgIH07XHJcblxyXG4gICAgcm91dGVyLmV2ZW50cy5vbigncm91dGVDaGFuZ2VDb21wbGV0ZScsIGhhbmRsZVJvdXRlQ2hhbmdlKTtcclxuXHJcbiAgICAvLyBDbGVhbnVwIHRoZSBldmVudCBsaXN0ZW5lciBvbiBjb21wb25lbnQgdW5tb3VudFxyXG4gICAgcmV0dXJuICgpID0+IHtcclxuICAgICAgcm91dGVyLmV2ZW50cy5vZmYoJ3JvdXRlQ2hhbmdlQ29tcGxldGUnLCBoYW5kbGVSb3V0ZUNoYW5nZSk7XHJcbiAgICB9O1xyXG4gIH0sIFtyb3V0ZXJdKTtcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE1haW4oeyBjaGlsZHJlbiB9KSB7XHJcbiAgY29uc29sZS5sb2coXCJNYWluQ29tcG9uZW50IGlzIHJlbmRlcmluZ1wiKTtcclxuICB1c2VTY3JvbGxUb1RvcCgpOyAvLyBDYWxsIHRoZSBjdXN0b20gaG9va1xyXG5cclxuICByZXR1cm4gKFxyXG4gICAgPGRpdiBpZD1cIm91dGVyLWNvbnRhaW5lclwiPlxyXG4gICAgICA8SGVhZGVyIC8+XHJcbiAgICAgIDxtYWluIGlkPVwicGFnZS13cmFwXCI+XHJcbiAgICAgICAgPGRpdiBpZD0ncGFnZS13cmFwJyBjbGFzc05hbWU9XCJwYWdlLXdyYXBcIj5cclxuICAgICAgICAgIHtjaGlsZHJlbn0gey8qIFBhZ2UgY29udGVudCByZW5kZXJzIGhlcmUgKi99XHJcbiAgICAgICAgICA8Rm9vdGVyIC8+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgIDwvbWFpbj5cclxuICAgIDwvZGl2PlxyXG4gICk7XHJcbn1cclxuXHJcbiJdLCJuYW1lcyI6WyJSZWFjdCIsInVzZUVmZmVjdCIsInVzZVJvdXRlciIsIkhlYWRlciIsIkZvb3RlciIsInVzZVNjcm9sbFRvVG9wIiwicm91dGVyIiwiaGFuZGxlUm91dGVDaGFuZ2UiLCJ3aW5kb3ciLCJzY3JvbGxUbyIsImV2ZW50cyIsIm9uIiwib2ZmIiwiTWFpbiIsImNoaWxkcmVuIiwiY29uc29sZSIsImxvZyIsImRpdiIsImlkIiwibWFpbiIsImNsYXNzTmFtZSJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/components/MainComponent.js\n");
+
+/***/ }),
+
+/***/ "./src/pages/_app.js":
+/*!***************************!*\
+  !*** ./src/pages/_app.js ***!
+  \***************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ MyApp)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/script */ \"./node_modules/next/script.js\");\n/* harmony import */ var next_script__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_script__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _styles_Bio_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/Bio.css */ \"./src/styles/Bio.css\");\n/* harmony import */ var _styles_Bio_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_Bio_css__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _styles_Home_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/Home.css */ \"./src/styles/Home.css\");\n/* harmony import */ var _styles_Home_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_Home_css__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _styles_Projects_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/Projects.css */ \"./src/styles/Projects.css\");\n/* harmony import */ var _styles_Projects_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_Projects_css__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _styles_Footer_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/Footer.css */ \"./src/styles/Footer.css\");\n/* harmony import */ var _styles_Footer_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_Footer_css__WEBPACK_IMPORTED_MODULE_7__);\n/* harmony import */ var _styles_Header_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/Header.css */ \"./src/styles/Header.css\");\n/* harmony import */ var _styles_Header_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_Header_css__WEBPACK_IMPORTED_MODULE_8__);\n/* harmony import */ var _styles_Main_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/Main.css */ \"./src/styles/Main.css\");\n/* harmony import */ var _styles_Main_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_Main_css__WEBPACK_IMPORTED_MODULE_9__);\n/* harmony import */ var _styles_Socials_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../styles/Socials.css */ \"./src/styles/Socials.css\");\n/* harmony import */ var _styles_Socials_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_styles_Socials_css__WEBPACK_IMPORTED_MODULE_10__);\n/* harmony import */ var _fonts_fonts_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../fonts/fonts.css */ \"./src/fonts/fonts.css\");\n/* harmony import */ var _fonts_fonts_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_fonts_fonts_css__WEBPACK_IMPORTED_MODULE_11__);\n/* harmony import */ var _styles_Blog_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../styles/Blog.scss */ \"./src/styles/Blog.scss\");\n/* harmony import */ var _styles_Blog_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_styles_Blog_scss__WEBPACK_IMPORTED_MODULE_12__);\n/* harmony import */ var bluesky_comments_bluesky_comments_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! bluesky-comments/bluesky-comments.css */ \"./node_modules/bluesky-comments/dist/bluesky-comments.css\");\n/* harmony import */ var bluesky_comments_bluesky_comments_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(bluesky_comments_bluesky_comments_css__WEBPACK_IMPORTED_MODULE_13__);\n/* harmony import */ var _components_MainComponent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/MainComponent */ \"./src/components/MainComponent.js\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_MainComponent__WEBPACK_IMPORTED_MODULE_14__]);\n_components_MainComponent__WEBPACK_IMPORTED_MODULE_14__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction MyApp({ Component, pageProps }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_2___default()), {}, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\pages\\\\_app.js\",\n                lineNumber: 19,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_script__WEBPACK_IMPORTED_MODULE_3___default()), {\n                strategy: \"afterInteractive\",\n                src: \"https://www.googletagmanager.com/gtag/js?id=G-272T5Q0FRB\"\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\pages\\\\_app.js\",\n                lineNumber: 21,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_script__WEBPACK_IMPORTED_MODULE_3___default()), {\n                id: \"google-analytics\",\n                strategy: \"afterInteractive\",\n                dangerouslySetInnerHTML: {\n                    __html: `\n                        window.dataLayer = window.dataLayer || [];\n                        function gtag(){dataLayer.push(arguments);}\n                        gtag('js', new Date());\n                        gtag('config', 'G-272T5Q0FRB');\n                    `\n                }\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\pages\\\\_app.js\",\n                lineNumber: 25,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_MainComponent__WEBPACK_IMPORTED_MODULE_14__[\"default\"], {\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, {\n                    ...pageProps\n                }, void 0, false, {\n                    fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\pages\\\\_app.js\",\n                    lineNumber: 39,\n                    columnNumber: 17\n                }, this)\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\Mike\\\\reverendcrush\\\\src\\\\pages\\\\_app.js\",\n                lineNumber: 38,\n                columnNumber: 13\n            }, this)\n        ]\n    }, void 0, true);\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcGFnZXMvX2FwcC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQTBCO0FBQ0c7QUFDSTtBQUNOO0FBQ0M7QUFDSTtBQUNGO0FBQ0E7QUFDRjtBQUNHO0FBQ0o7QUFDRTtBQUNpQjtBQUNDO0FBRWhDLFNBQVNJLE1BQU0sRUFBRUMsU0FBUyxFQUFFQyxTQUFTLEVBQUU7SUFDbEQscUJBQ0k7OzBCQUNJLDhEQUFDTCxrREFBSUE7Ozs7OzBCQUVMLDhEQUFDQyxvREFBTUE7Z0JBQ0hLLFVBQVM7Z0JBQ1RDLEtBQUk7Ozs7OzswQkFFUiw4REFBQ04sb0RBQU1BO2dCQUNITyxJQUFHO2dCQUNIRixVQUFTO2dCQUNURyx5QkFBeUI7b0JBQ3JCQyxRQUFRLENBQUM7Ozs7O29CQUtULENBQUM7Z0JBQ0w7Ozs7OzswQkFHSiw4REFBQ1Isa0VBQUlBOzBCQUNELDRFQUFDRTtvQkFBVyxHQUFHQyxTQUFTOzs7Ozs7Ozs7Ozs7O0FBSXhDIiwic291cmNlcyI6WyJDOlxcVXNlcnNcXE1pa2VcXHJldmVyZW5kY3J1c2hcXHNyY1xccGFnZXNcXF9hcHAuanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IEhlYWQgZnJvbSAnbmV4dC9oZWFkJztcclxuaW1wb3J0IFNjcmlwdCBmcm9tICduZXh0L3NjcmlwdCc7XHJcbmltcG9ydCAnLi4vc3R5bGVzL0Jpby5jc3MnO1xyXG5pbXBvcnQgJy4uL3N0eWxlcy9Ib21lLmNzcyc7XHJcbmltcG9ydCAnLi4vc3R5bGVzL1Byb2plY3RzLmNzcyc7XHJcbmltcG9ydCAnLi4vc3R5bGVzL0Zvb3Rlci5jc3MnO1xyXG5pbXBvcnQgJy4uL3N0eWxlcy9IZWFkZXIuY3NzJztcclxuaW1wb3J0ICcuLi9zdHlsZXMvTWFpbi5jc3MnO1xyXG5pbXBvcnQgJy4uL3N0eWxlcy9Tb2NpYWxzLmNzcyc7XHJcbmltcG9ydCAnLi4vZm9udHMvZm9udHMuY3NzJ1xyXG5pbXBvcnQgJy4uL3N0eWxlcy9CbG9nLnNjc3MnO1xyXG5pbXBvcnQgJ2JsdWVza3ktY29tbWVudHMvYmx1ZXNreS1jb21tZW50cy5jc3MnXHJcbmltcG9ydCBNYWluIGZyb20gJy4uL2NvbXBvbmVudHMvTWFpbkNvbXBvbmVudCc7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBNeUFwcCh7IENvbXBvbmVudCwgcGFnZVByb3BzIH0pIHtcclxuICAgIHJldHVybiAoXHJcbiAgICAgICAgPD5cclxuICAgICAgICAgICAgPEhlYWQ+XHJcbiAgICAgICAgICAgIDwvSGVhZD5cclxuICAgICAgICAgICAgPFNjcmlwdFxyXG4gICAgICAgICAgICAgICAgc3RyYXRlZ3k9XCJhZnRlckludGVyYWN0aXZlXCJcclxuICAgICAgICAgICAgICAgIHNyYz1cImh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0YWcvanM/aWQ9Ry0yNzJUNVEwRlJCXCJcclxuICAgICAgICAgICAgLz5cclxuICAgICAgICAgICAgPFNjcmlwdFxyXG4gICAgICAgICAgICAgICAgaWQ9XCJnb29nbGUtYW5hbHl0aWNzXCJcclxuICAgICAgICAgICAgICAgIHN0cmF0ZWd5PVwiYWZ0ZXJJbnRlcmFjdGl2ZVwiXHJcbiAgICAgICAgICAgICAgICBkYW5nZXJvdXNseVNldElubmVySFRNTD17e1xyXG4gICAgICAgICAgICAgICAgICAgIF9faHRtbDogYFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB3aW5kb3cuZGF0YUxheWVyID0gd2luZG93LmRhdGFMYXllciB8fCBbXTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZnVuY3Rpb24gZ3RhZygpe2RhdGFMYXllci5wdXNoKGFyZ3VtZW50cyk7fVxyXG4gICAgICAgICAgICAgICAgICAgICAgICBndGFnKCdqcycsIG5ldyBEYXRlKCkpO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBndGFnKCdjb25maWcnLCAnRy0yNzJUNVEwRlJCJyk7XHJcbiAgICAgICAgICAgICAgICAgICAgYCxcclxuICAgICAgICAgICAgICAgIH19XHJcbiAgICAgICAgICAgIC8+XHJcbiAgICAgICAgICAgIFxyXG4gICAgICAgICAgICA8TWFpbj5cclxuICAgICAgICAgICAgICAgIDxDb21wb25lbnQgey4uLnBhZ2VQcm9wc30gLz5cclxuICAgICAgICAgICAgPC9NYWluPlxyXG4gICAgICAgIDwvPlxyXG4gICAgKTtcclxufSAiXSwibmFtZXMiOlsiUmVhY3QiLCJIZWFkIiwiU2NyaXB0IiwiTWFpbiIsIk15QXBwIiwiQ29tcG9uZW50IiwicGFnZVByb3BzIiwic3RyYXRlZ3kiLCJzcmMiLCJpZCIsImRhbmdlcm91c2x5U2V0SW5uZXJIVE1MIiwiX19odG1sIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/pages/_app.js\n");
+
+/***/ }),
+
+/***/ "./src/fonts/fonts.css":
+/*!*****************************!*\
+  !*** ./src/fonts/fonts.css ***!
+  \*****************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Bio.css":
+/*!****************************!*\
+  !*** ./src/styles/Bio.css ***!
+  \****************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Blog.scss":
+/*!******************************!*\
+  !*** ./src/styles/Blog.scss ***!
+  \******************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Footer.css":
+/*!*******************************!*\
+  !*** ./src/styles/Footer.css ***!
+  \*******************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Header.css":
+/*!*******************************!*\
+  !*** ./src/styles/Header.css ***!
+  \*******************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Home.css":
+/*!*****************************!*\
+  !*** ./src/styles/Home.css ***!
+  \*****************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Main.css":
+/*!*****************************!*\
+  !*** ./src/styles/Main.css ***!
+  \*****************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Projects.css":
+/*!*********************************!*\
+  !*** ./src/styles/Projects.css ***!
+  \*********************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./src/styles/Socials.css":
+/*!********************************!*\
+  !*** ./src/styles/Socials.css ***!
+  \********************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "next/dist/compiled/next-server/pages.runtime.dev.js":
+/*!**********************************************************************!*\
+  !*** external "next/dist/compiled/next-server/pages.runtime.dev.js" ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/compiled/next-server/pages.runtime.dev.js");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-burger-menu":
+/*!************************************!*\
+  !*** external "react-burger-menu" ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react-burger-menu");
+
+/***/ }),
+
+/***/ "react-dom":
+/*!****************************!*\
+  !*** external "react-dom" ***!
+  \****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react-dom");
+
+/***/ }),
+
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react/jsx-dev-runtime");
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!************************************!*\
+  !*** external "react/jsx-runtime" ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react/jsx-runtime");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
+
+/***/ }),
+
+/***/ "typed.js":
+/*!***************************!*\
+  !*** external "typed.js" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = import("typed.js");;
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/bluesky-comments"], () => (__webpack_exec__("./src/pages/_app.js")));
+module.exports = __webpack_exports__;
+
+})();

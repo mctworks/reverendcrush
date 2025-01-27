@@ -10,6 +10,12 @@
   text-decoration: none;
   color: #ffb18a;
 }
+.bio-page a:hover {
+  text-decoration: underline;
+}
+.bio-page .autotext {
+  color: #ffb18a;
+}
 
 .bio {
   display: flex;

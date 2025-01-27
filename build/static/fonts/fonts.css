@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("./Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Megrim";
+  src: url("./Megrim-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Subrayada";
+  src: url("./MontserratSubrayada-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Subrayada";
+  src: url("./MontserratSubrayada-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Workbench";
+  src: url("./Workbench-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Sixtyfour";
+  src: url("./Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Pixelify";
+  src: url("./PixelifySans-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Righteous";
+  src: url("./Righteous-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("./PressStart2P-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nosifer";
+  src: url("./Nosifer-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Museo Moderno Italic";
+  src: url("./MuseoModerno-Italic-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Museo Moderno";
+  src: url("./MuseoModerno-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DotGothic16";
+  src: url("./DotGothic16-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Handjet";
+  src: url("./Handjet-VariableFont_ELGR,ELSH,wght.ttf") format("truetype");
+}
+/*# sourceMappingURL=fonts.css.map */
